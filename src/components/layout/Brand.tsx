@@ -4,7 +4,7 @@ import Image from "next/image";
 const Brand = () => {
   return (
     <div className="flex items-center gap-4">
-      <div className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-full border border-[#d4af62]">
+      <div className="flex h-30 w-30 shrink-0 items-center justify-center overflow-hidden rounded-full border border-[#d4af62]">
         <Image
           src="/images/logo/academy-logo.png"
           alt="Academy Logo"
