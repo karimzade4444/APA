@@ -2,7 +2,7 @@ import { Eye, Phone, Search } from "lucide-react";
 
 const TopBar = () => {
   return (
-    <div className="relative z-10 border-b border-white/10 text-sm text-white">
+    <div className="relative z-10 border-b border-[#c9a45c]/40 text-sm text-white">
       <div className="mx-auto flex min-h-9 max-w-7xl items-center justify-between px-6 2xl:max-w-336">
         <p className=" text-xs text-white/60">
           Официальный сайт Академии государственного управления при Президенте
@@ -16,7 +16,9 @@ const TopBar = () => {
           </div>
 
           <div className="flex items-center gap-3">
-            <button className="font-medium text-[#d4af62] cursor-pointer">RU</button>
+            <button className="font-medium text-[#d4af62] cursor-pointer">
+              RU
+            </button>
 
             <span className="text-white/20 cursor-default">|</span>
 
