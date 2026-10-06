@@ -16,11 +16,11 @@ const Brand = () => {
 
       <div>
         <p className="text-sm font-medium uppercase tracking-[0.18em] text-[#d4af62]">
-          Академия
+          АКАДЕМИЯ
         </p>
 
         <h1 className="text-lg font-semibold font-serif leading-tight text-white">
-          Государственного управления
+          ГОСУДАРСТВЕННОГО УПРАВЛЕНИЯ
         </h1>
 
         <p className="text-xs text-white/60">
