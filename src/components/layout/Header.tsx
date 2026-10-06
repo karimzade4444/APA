@@ -1,11 +1,18 @@
-import TopBar from './TopBar'
+import Brand from "./Brand";
+import TopBar from "./TopBar";
 
 const Header = () => {
   return (
-    <div>
+    <header>
       <TopBar />
-    </div>
-  )
-}
 
-export default Header
+      <div className="bg-[#071d35]">
+        <div className="mx-auto flex min-h-28 max-w-7xl items-center px-6">
+          <Brand />
+        </div>
+      </div>
+    </header>
+  );
+};
+
+export default Header;
