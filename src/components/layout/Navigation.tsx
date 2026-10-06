@@ -9,7 +9,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-
+import MegaMenu from "@/components/navigation/MegaMenu";
 import { navigation } from "@/data/navigation";
 
 const Navigation = () => {
@@ -27,31 +27,7 @@ const Navigation = () => {
                     </NavigationMenuTrigger>
 
                     <NavigationMenuContent>
-                      <div className="w-70 border border-[#c9a45c]/30 bg-[#061d35] p-6 rounded">
-                        <div className="mb-5 border-b border-[#c9a45c]/20 pb-4">
-            
-
-                          <h2 className="text-xs uppercase tracking-[0.2em] text-[#d4af62]">
-                            {item.title}
-                          </h2>
-                        </div>
-
-                        <div >
-                          {item.children.map((child) => (
-                            <NavigationMenuLink
-                              key={child.href}
-                              render={<Link href={child.href} />}
-                              className="group block rounded-none px-4 py-3 text-sm text-white/80 transition hover:bg-white/5 hover:text-[#d4af62] duration-300"
-                            >
-                              <span className="mr-2 text-[#c9a45c]/60 group-hover:text-[#d4af62] duration-300">
-                                —
-                              </span>
-
-                              {child.title}
-                            </NavigationMenuLink>
-                          ))}
-                        </div>
-                      </div>
+                      <MegaMenu items={item.children} title={item.title} />
                     </NavigationMenuContent>
                   </>
                 ) : (
