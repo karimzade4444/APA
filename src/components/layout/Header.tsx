@@ -5,7 +5,7 @@ import TopBar from "./TopBar";
 
 const Header = () => {
   return (
-    <header className="relative z-50 overflow-hidden bg-[#061d35]">
+    <header className="relative z-50 bg-[#061d35]">
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 bg-[url('/images/assets/flag.png')] bg-cover  bg-center opacity-100" />
         <div className="absolute inset-0 bg-linear-to-r from-[#061d35] via-[#061d35]/90 to-[#061d35]/60" />
