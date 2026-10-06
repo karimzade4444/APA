@@ -4,7 +4,7 @@ import Image from "next/image";
 const Brand = () => {
   return (
     <div className="flex items-center gap-4">
-      <div className="flex h-30 w-30 shrink-0 items-center justify-center overflow-hidden rounded-full border border-[#d4af62]">
+      <div className="flex h-30 w-30 shrink-0 items-center justify-center overflow-hidden rounded-full border border-[#d4af62] mt-3 mb-3">
         <Image
           src="/images/logo/academy-logo.png"
           alt="Academy Logo"
@@ -15,11 +15,11 @@ const Brand = () => {
       </div>
 
       <div>
-        <p className="text-sm font-medium uppercase tracking-[0.18em] text-[#d4af62]">
+        <p className="text-lg font-medium uppercase tracking-[0.18em] text-[#d4af62]">
           АКАДЕМИЯ
         </p>
 
-        <h1 className="text-lg font-semibold font-serif leading-tight text-white">
+        <h1 className="text-2xl font-semibold font-serif leading-tight text-white">
           ГОСУДАРСТВЕННОГО УПРАВЛЕНИЯ
         </h1>
 
