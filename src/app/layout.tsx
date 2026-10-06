@@ -1,5 +1,17 @@
 
+import { Metadata } from "next/dist/lib/metadata/types/metadata-interface";
 import "./globals.css";
+import Header from "@/components/layout/Header";
+
+
+export const metadata: Metadata = {
+  title: "Академия Государственного управления при Президенте Республики Таджикистан",
+  description: "Официальный сайт Академии Государственного управления при Президенте Республики Таджикистан",
+};
+
+
+
+
 
 export default function RootLayout({
   children,
@@ -8,7 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
