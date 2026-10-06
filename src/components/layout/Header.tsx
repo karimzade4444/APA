@@ -7,7 +7,7 @@ const Header = () => {
       <TopBar />
 
       <div className="bg-[#071d35]">
-        <div className="mx-auto flex min-h-28 max-w-350 items-center px-6">
+        <div className="mx-auto flex min-h-28 max-w-380 items-center px-6">
           <Brand />
         </div>
       </div>
