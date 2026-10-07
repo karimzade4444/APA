@@ -2,6 +2,7 @@ import PresidentCard from "./PresidentCard";
 import RectorCard from "./RectorCard";
 import InfoLinks from "./InfoLinks";
 import GovernmentLinks from "./GovernmentLinks";
+import OfficialResources from "./OfficialResources";
 
 const Sidebar = () => {
   return (
@@ -13,6 +14,7 @@ const Sidebar = () => {
       <InfoLinks />
 
       <GovernmentLinks />
+      <OfficialResources/>
     </aside>
   );
 };
