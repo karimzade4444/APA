@@ -31,6 +31,7 @@ const Header = () => {
         </div>
       </div>
       <Navigation/>
+      <div className="relative z-10 border-b border-[#c9a45c]/40"></div>
     </header>
   );
 };
