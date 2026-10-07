@@ -1,10 +1,29 @@
-import Image from "next/image";
+"use client";
 
+import Image from "next/image";
+import { motion } from "motion/react";
 
 const Brand = () => {
   return (
     <div className="flex items-center gap-4">
-      <div className="flex h-25 w-25 shrink-0 items-center justify-center overflow-hidden rounded-full border border-[#d4af62] mt-3 mb-3">
+      <motion.div
+        initial={{
+          opacity: 0,
+          scale: 0.85,
+          rotate: -3,
+        }}
+        animate={{
+          opacity: 1,
+          scale: 1,
+          rotate: 0,
+        }}
+        transition={{
+          duration: 0.8,
+          delay: 0.15,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        className="mt-3 mb-3 flex h-25 w-25 shrink-0 items-center justify-center overflow-hidden rounded-full border border-[#d4af62]"
+      >
         <Image
           src="/images/logo/academy-logo.png"
           alt="Academy Logo"
@@ -12,20 +31,35 @@ const Brand = () => {
           height={200}
           className="h-full w-full object-contain"
         />
-      </div>
+      </motion.div>
 
       <div>
-        <p className="text-lg font-medium uppercase tracking-[0.18em] text-[#d4af62]">
+        <motion.p
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="text-lg font-medium uppercase tracking-[0.18em] text-[#d4af62]"
+        >
           АКАДЕМИЯ
-        </p>
+        </motion.p>
 
-        <h1 className="text-xl font-semibold font-serif leading-tight text-white">
+        <motion.h1
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+          className="font-serif text-xl font-semibold leading-tight text-white"
+        >
           ГОСУДАРСТВЕННОГО УПРАВЛЕНИЯ
-        </h1>
+        </motion.h1>
 
-        <p className="text-xs text-white/60">
+        <motion.p
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.5, duration: 0.6 }}
+          className="text-xs text-white/60"
+        >
           при Президенте Республики Таджикистан
-        </p>
+        </motion.p>
       </div>
     </div>
   );
