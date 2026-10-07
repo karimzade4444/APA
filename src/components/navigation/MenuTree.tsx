@@ -17,7 +17,7 @@ const MenuTree = ({ items }: MenuTreeProps) => {
           <div key={item.href} className="group relative">
             <Link
               href={item.href}
-              className="flex items-center justify-between rounded-none px-4 py-3 text-sm text-white/80 transition duration-300 hover:bg-white/5 hover:text-[#d4af62]"
+              className="flex items-center justify-between rounded-none px-4 py-3 text-sm text-white/80 transition-[padding,background-color,color] duration-300 hover:bg-white/5 hover:text-[#d4af62] hover:pl-5"
             >
               <span>
                 <span className="mr-2 text-[#c9a45c]/60 transition duration-300 group-hover:text-[#d4af62]">
