@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Phone, Search } from "lucide-react";
+import { Mail, Phone, Search } from "lucide-react";
 
 const TopBar = () => {
   return (
@@ -35,6 +35,7 @@ const TopBar = () => {
             <Phone size={15} />
             <span>+992 (37) 224-17-86</span>
             <span className="text-white/30">|</span>
+            <Mail size={15} />
             <span>info@apa.tj</span>
           </motion.div>
 
