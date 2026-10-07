@@ -35,7 +35,12 @@ const MenuTree = ({ items }: MenuTreeProps) => {
             </Link>
 
             {hasChildren && (
-              <div className="invisible absolute left-full top-0 z-50 min-w-[280px] translate-x-[-5px] border border-[#c9a45c]/30 bg-[#061d35] p-3 opacity-0 shadow-2xl transition-all duration-300 group-hover:visible group-hover:translate-x-0 group-hover:opacity-100">
+              <div className="invisible absolute left-full top-0 z-50 min-w-[280px] translate-x-[-5px] border border-[#c9a45c]/30 bg-[#061d35] p-4 opacity-0 shadow-2xl transition-all duration-300 group-hover:visible group-hover:translate-x-0 group-hover:opacity-100">
+                <div className="mb-3 border-b border-[#d4af62] pb-3">
+                  <p className="text-xs uppercase tracking-[0.2em] text-[#d4af62]">
+                    {item.title}
+                  </p>
+                </div>
                 <MenuTree items={item.children!} />
               </div>
             )}
