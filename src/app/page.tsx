@@ -7,7 +7,7 @@ export default function Home() {
       <Hero />
 
       <Reveal>
-        <div className="flex h-[500px] items-center justify-center bg-[#f7f4ed]">
+        <div className="flex h-125 items-center justify-center bg-[#f7f4ed]">
           <h2 className="text-4xl font-semibold text-[#061d35]">
             Анимация работает
           </h2>

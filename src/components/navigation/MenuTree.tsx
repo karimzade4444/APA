@@ -66,7 +66,7 @@ const MenuTreeItem = ({ item }: MenuTreeItemProps) => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -5 }}
               transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute left-full top-0 z-50 min-w-[280px] border border-[#c9a45c]/30 bg-[#061d35] p-4 shadow-2xl"
+              className="absolute left-full top-0 z-50 min-w-70 border border-[#c9a45c]/30 bg-[#061d35] p-4 shadow-2xl"
             >
               <div className="mb-3 border-b border-[#d4af62] pb-3">
                 <p className="text-xs uppercase tracking-[0.2em] text-[#d4af62]">
