@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <div className="bg-[#f1ece2]">
+      <div className="bg-[#f1ece2] pb-12">
         <div className="mx-auto grid max-w-7xl items-stretch gap-x-8 px-6 lg:grid-cols-[minmax(0,1fr)_332px]">
           <div className="flex min-w-0 flex-col">
             <NewsSection />
