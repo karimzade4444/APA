@@ -1,6 +1,7 @@
 import ArticlesSection from "@/components/home/ArticlesSection";
 import Hero from "@/components/home/Hero";
 import NewsSection from "@/components/home/NewsSection";
+import StatsSection from "@/components/home/StatsSection";
 import Sidebar from "@/components/sidebar/Sidebar";
 
 export default function Home() {
@@ -14,11 +15,12 @@ export default function Home() {
             <ArticlesSection />
           </div>
 
-          <div className="lg:mt-20 lg:border-l lg:border-[#c9a45c]/40 lg:pl-8">
+          <div className="mb-12 lg:mt-20 lg:mb-16 lg:border-l lg:border-[#c9a45c]/40 lg:pl-8">
             <Sidebar />
           </div>
         </div>
       </div>
+      <StatsSection/>
     </main>
   );
 }
