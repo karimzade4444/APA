@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 
-type NewsCardProps = {
+type ArticleCardProps = {
   title: string;
   date: string;
   image: string;
@@ -12,23 +12,23 @@ type NewsCardProps = {
   featured?: boolean;
 };
 
-const NewsCard = ({
+const ArticleCard = ({
   title,
   date,
   image,
   href,
   featured = false,
-}: NewsCardProps) => {
+}: ArticleCardProps) => {
   return (
     <motion.article
       whileHover={{ y: -5 }}
       transition={{ duration: 0.3 }}
-      className="group relative overflow-hidden border border-[#d8d1c5] bg-white shadow-sm"
+      className="group overflow-hidden border border-[#d8d1c5] bg-white"
     >
       <Link href={href} className="block">
         <div
           className={`relative overflow-hidden ${
-            featured ? "aspect-[16/10]" : "aspect-[16/9]"
+            featured ? "aspect-[16/9]" : "aspect-[4/3]"
           }`}
         >
           <Image
@@ -38,21 +38,21 @@ const NewsCard = ({
             className="object-cover transition duration-700 group-hover:scale-105"
           />
 
-          <div className="absolute inset-0 bg-linear-to-t from-[#061d35]/85 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-[#061d35]/80 via-transparent to-transparent" />
 
-          <div className="absolute left-4 top-4 border border-[#d4af62]/60 bg-[#061d35]/90 px-3 py-1.5">
-            <span className="text-[11px] font-medium tracking-wide text-[#d4af62]">
+          {featured && (
+            <span className="absolute left-4 top-4 border border-[#d4af62]/60 bg-[#061d35]/90 px-3 py-1.5 text-[11px] font-medium tracking-wide text-[#d4af62]">
               {date}
             </span>
-          </div>
+          )}
 
           {featured && (
             <div className="absolute bottom-0 left-0 right-0 p-6">
               <span className="text-xs uppercase tracking-[0.2em] text-[#d4af62]">
-                Новости
+                Аналитика
               </span>
 
-              <h3 className="max-w-2xl font-serif text-2xl font-semibold leading-tight text-white md:text-3xl">
+              <h3 className="mt-2 max-w-3xl font-serif text-2xl font-semibold leading-tight text-white md:text-3xl">
                 {title}
               </h3>
 
@@ -63,14 +63,15 @@ const NewsCard = ({
 
         {!featured && (
           <div className="p-5">
-            <h3 className="line-clamp-3 min-h-[4.5rem] font-serif text-lg font-semibold leading-6 text-[#061d35] transition-colors duration-300 group-hover:text-[#b18a3d]">
+            <p className="text-xs text-[#061d35]/45">{date}</p>
+
+            <h3 className="mt-2 line-clamp-3 min-h-[4.5rem] font-serif text-lg font-semibold leading-6 text-[#061d35] transition-colors duration-300 group-hover:text-[#a37b2f]">
               {title}
             </h3>
 
-            <div className="mt-4 flex items-center justify-between">
-              <span className="text-xs text-[#061d35]/50">{date}</span>
-
-              <span className="text-sm text-[#b18a3d] transition-transform duration-300 group-hover:translate-x-1">
+            <div className="mt-4 flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-[#a37b2f]">
+              Читать
+              <span className="transition-transform duration-300 group-hover:translate-x-1">
                 →
               </span>
             </div>
@@ -81,4 +82,4 @@ const NewsCard = ({
   );
 };
 
-export default NewsCard;
+export default ArticleCard;
