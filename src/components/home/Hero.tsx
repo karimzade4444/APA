@@ -1,5 +1,6 @@
 import Link from "next/link";
 import AnimatedText from "@/components/animations/AnimatedText";
+import { GraduationCap, University } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -25,14 +26,15 @@ const Hero = () => {
             <div className="mb-7 flex items-center gap-4">
               <div className="h-px w-16 bg-[#d4af62]" />
 
-              <span className="text-sm font-medium uppercase tracking-[0.25em] text-[#d4af62]">
-                Академия государственного управления
+              <span className="max-w-2xl text-xs font-medium uppercase tracking-[0.25em] text-[#d4af62]">
+                Академия государственного управления при Президенте Республики
+                Таджикистан
               </span>
             </div>
           </AnimatedText>
 
           <AnimatedText delay={0.45} duration={1}>
-            <h2 className="font-serif text-5xl font-semibold leading-[1.1] text-white md:text-6xl lg:text-7xl">
+            <h2 className="font-serif text-5xl font-semibold leading-[1.1] text-white md:text-6xl lg:text-6xl">
               Знания.
               <br />
               Управление.
@@ -42,7 +44,7 @@ const Hero = () => {
           </AnimatedText>
 
           <AnimatedText delay={0.8}>
-            <p className="mt-7 max-w-2xl text-base leading-7 text-white/75 md:text-lg">
+            <p className="mt-7 max-w-2xl text-base leading-7 text-white/75 md:text-md text-justify">
               Подготовка высококвалифицированных специалистов для
               государственной службы и эффективного управления в интересах
               развития Республики Таджикистан.
@@ -53,15 +55,17 @@ const Hero = () => {
             <div className="mt-9 flex flex-wrap items-center gap-4">
               <Link
                 href="/about"
-                className="border border-[#d4af62] bg-[#d4af62] px-7 py-3.5 text-sm font-medium uppercase tracking-wide text-[#061d35] transition duration-300 hover:bg-transparent hover:text-[#d4af62]"
+                className="border border-[#d4af62] bg-[#d4af62] px-7 py-3 text-sm font-medium uppercase tracking-wide text-[#061d35] transition duration-300 hover:bg-transparent hover:text-[#d4af62] flex items-center gap-2"
               >
+                <University className="mb-1" />
                 Об Академии
               </Link>
 
               <Link
                 href="/admission"
-                className="border border-white/40 bg-white/5 px-7 py-3.5 text-sm font-medium uppercase tracking-wide text-white backdrop-blur-sm transition duration-300 hover:border-[#d4af62] hover:text-[#d4af62]"
+                className="border border-white/40 bg-white/5 px-7 py-3 text-sm font-medium uppercase tracking-wide text-white backdrop-blur-sm transition duration-300 hover:border-[#d4af62] hover:text-[#d4af62] flex items-center gap-2"
               >
+                <GraduationCap className="mb-1" />
                 Поступление
               </Link>
             </div>
