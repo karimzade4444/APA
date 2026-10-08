@@ -1,6 +1,7 @@
 import ArticlesSection from "@/components/home/ArticlesSection";
 import Hero from "@/components/home/Hero";
 import NewsSection from "@/components/home/NewsSection";
+import OfficialResourcesSection from "@/components/home/OfficialResourcesSection";
 import QuickLinksSection from "@/components/home/QuickLinksSection";
 import StatsSection from "@/components/home/StatsSection";
 import Sidebar from "@/components/sidebar/Sidebar";
@@ -15,6 +16,7 @@ export default function Home() {
             <NewsSection />
             <ArticlesSection />
             <QuickLinksSection />
+            <OfficialResourcesSection/>
           </div>
 
           <div className="lg:mt-20 lg:border-l lg:border-[#c9a45c]/40 lg:pl-8">
