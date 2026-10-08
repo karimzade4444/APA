@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "motion/react";
 import Reveal from "@/components/animations/Reveal";
+import { presidentSections } from "@/data/presidentSections";
 
 const PresidentCard = () => {
   return (
@@ -39,6 +40,31 @@ const PresidentCard = () => {
           <h3 className="mt-2 font-serif text-lg text-white">Эмомали Рахмон</h3>
 
           <div className="mt-4 h-px w-10 bg-[#d4af62] transition-all duration-500 group-hover:w-full" />
+
+          <ul className="mt-4 space-y-2 border-t border-white/10 pt-4">
+            {presidentSections.map((section, index) => (
+              <li key={section.href}>
+                <Reveal delay={0.15 + index * 0.08} y={12} duration={0.45}>
+                  <motion.a
+                    href={section.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ x: 5 }}
+                    transition={{ duration: 0.2 }}
+                    className="group/link flex items-center gap-2 py-1 text-xs text-white/75 transition-colors hover:text-[#d4af62] focus-visible:text-[#d4af62] focus-visible:outline-none"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="text-[#d4af62] transition-transform group-hover/link:translate-x-1"
+                    >
+                      →
+                    </span>
+                    {section.title}
+                  </motion.a>
+                </Reveal>
+              </li>
+            ))}
+          </ul>
         </div>
       </motion.div>
     </Reveal>

@@ -57,6 +57,18 @@ const ArticlesSection = () => {
           />
         </Reveal>
 
+        <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
+          {articles.slice(0, 3).map((article) => (
+            <ArticleCard
+              key={article.id}
+              title={article.title}
+              date={article.date}
+              image={article.image}
+              href={article.href}
+            />
+          ))}
+        </div>
+
         {/* Mobile button */}
         <div className="mt-8 md:hidden">
           <Link
