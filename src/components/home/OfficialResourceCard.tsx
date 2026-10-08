@@ -16,7 +16,7 @@ const OfficialResourceCard = ({ resource }: OfficialResourceCardProps) => {
       title={resource.name}
       draggable={false}
       onDragStart={(event) => event.preventDefault()}
-      className="group flex h-24 w-[270px] shrink-0 cursor-grab items-center gap-4 border border-[#061d35]/10 bg-white px-5 transition-all duration-300 hover:border-[#d4af62] hover:bg-[#061d35] active:cursor-grabbing"
+      className="group flex h-24 w-[320px] shrink-0 cursor-grab items-center gap-4 border border-[#061d35]/10 bg-white px-5 transition-all duration-300 hover:border-[#d4af62] hover:bg-[#061d35] active:cursor-grabbing"
     >
       {/* Логотип */}
       <div className="flex h-14 w-20 shrink-0 items-center justify-center">
@@ -26,13 +26,13 @@ const OfficialResourceCard = ({ resource }: OfficialResourceCardProps) => {
           width={100}
           height={70}
           draggable={false}
-          className="max-h-20 w-auto max-w-full object-contain transition-all duration-300 group-hover:scale-105"
+          className="max-h-14 w-auto max-w-full object-contain transition-all duration-300 group-hover:scale-105"
         />
       </div>
 
       {/* Название */}
-      <div className="border-l border-[#061d35]/10 pl-4 transition-colors duration-300 group-hover:border-white/20">
-        <p className="text-xs font-medium leading-5 text-[#061d35] transition-colors duration-300 group-hover:text-white">
+      <div className="min-w-0 flex-1 border-l border-[#061d35]/10 pl-4 transition-colors duration-300 group-hover:border-white/20 ">
+        <p className="line-clamp-3 h-[3.75rem] overflow-hidden text-[13px] font-medium leading-5 text-[#061d35] transition-colors duration-300 group-hover:text-white">
           {resource.name}
         </p>
 
