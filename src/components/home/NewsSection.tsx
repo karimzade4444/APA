@@ -38,17 +38,29 @@ const NewsSection = () => {
         <FeaturedCarousel
           label="Последние новости"
           slides={news.slice(0, 3).map((item) => (
-              <NewsCard
-                key={item.id}
-                title={item.title}
-                date={item.date}
-                image={item.image}
-                href={item.href}
-                featured
-              />
+            <NewsCard
+              key={item.id}
+              title={item.title}
+              date={item.date}
+              image={item.image}
+              href={item.href}
+              featured
+            />
           ))}
         />
       </Reveal>
+
+      <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
+        {news.slice(0, 3).map((item) => (
+          <NewsCard
+            key={item.id}
+            title={item.title}
+            date={item.date}
+            image={item.image}
+            href={item.href}
+          />
+        ))}
+      </div>
     </section>
   );
 };

@@ -6,8 +6,8 @@ import { quickLinks } from "@/data/quickLinks";
 
 const QuickLinksSection = () => {
   return (
-    <section className="bg-[#f1ece2] py-16 lg:mt-auto lg:pb-0">
-      <div>
+    <section className="bg-[#f1ece2] py-16">
+      <div className="mx-auto max-w-7xl px-6">
         <Reveal>
           <div className="mb-8 flex items-end justify-between border-b border-[#061d35]/10 pb-5">
             <div>

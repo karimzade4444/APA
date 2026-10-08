@@ -76,7 +76,7 @@ const FeaturedCarousel = ({ label, slides }: FeaturedCarouselProps) => {
       role="region"
       aria-label={label}
       aria-roledescription="carousel"
-      className="mx-auto w-full max-w-3xl"
+      className="mx-auto w-full"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onFocusCapture={() => setIsPaused(true)}

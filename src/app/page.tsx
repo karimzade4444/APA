@@ -15,8 +15,6 @@ export default function Home() {
           <div className="flex min-w-0 flex-col">
             <NewsSection />
             <ArticlesSection />
-            <QuickLinksSection />
-            <OfficialResourcesSection/>
           </div>
 
           <div className="lg:mt-20 lg:border-l lg:border-[#c9a45c]/40 lg:pl-8">
@@ -25,6 +23,8 @@ export default function Home() {
         </div>
       </div>
       <StatsSection />
+      <QuickLinksSection />
+      <OfficialResourcesSection />
     </main>
   );
 }
