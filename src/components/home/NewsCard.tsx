@@ -10,6 +10,7 @@ type NewsCardProps = {
   image: string;
   href: string;
   featured?: boolean;
+  className?: string;
 };
 
 const NewsCard = ({
@@ -18,17 +19,23 @@ const NewsCard = ({
   image,
   href,
   featured = false,
+  className,
 }: NewsCardProps) => {
   return (
     <motion.article
       whileHover={{ y: -5 }}
-      transition={{ duration: 0.3 }}
-      className="group relative overflow-hidden border border-[#d8d1c5] bg-white shadow-sm"
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      className={`group relative overflow-hidden border border-[#d8d1c5] bg-white shadow-sm ${className ?? ""}`}
     >
       <Link href={href} className="block">
         <div
           className={`relative overflow-hidden ${
-            featured ? "aspect-[16/10]" : "aspect-[16/9]"
+            featured
+              ? "aspect-[16/10] min-[1536px]:aspect-[16/8]"
+              : "aspect-[16/9]"
           }`}
         >
           <Image
@@ -47,12 +54,12 @@ const NewsCard = ({
           </div>
 
           {featured && (
-            <div className="absolute bottom-0 left-0 right-0 p-6">
+            <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5">
               <span className="text-xs uppercase tracking-[0.2em] text-[#d4af62]">
                 Новости
               </span>
 
-              <h3 className="max-w-2xl font-serif text-2xl font-semibold leading-tight text-white md:text-3xl">
+              <h3 className="max-w-2xl font-serif text-xl font-semibold leading-tight text-white md:text-2xl">
                 {title}
               </h3>
 

@@ -10,6 +10,7 @@ type ArticleCardProps = {
   image: string;
   href: string;
   featured?: boolean;
+  className?: string;
 };
 
 const ArticleCard = ({
@@ -18,12 +19,16 @@ const ArticleCard = ({
   image,
   href,
   featured = false,
+  className,
 }: ArticleCardProps) => {
   return (
     <motion.article
       whileHover={{ y: -5 }}
-      transition={{ duration: 0.3 }}
-      className="group overflow-hidden border border-[#d8d1c5] bg-white"
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      className={`group overflow-hidden border border-[#d8d1c5] bg-white ${className ?? ""}`}
     >
       <Link href={href} className="block">
         <div
