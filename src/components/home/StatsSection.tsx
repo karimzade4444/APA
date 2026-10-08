@@ -40,6 +40,7 @@ const StatsSection = () => {
         {/* Statistics */}
         <div className="grid gap-12 border-t border-white/10 pt-12 sm:grid-cols-2 lg:grid-cols-4">
           <StatCounter
+            index={1}
             value={4}
             label="Факультета"
             description="Основные образовательные подразделения Академии."
@@ -47,6 +48,7 @@ const StatsSection = () => {
           />
 
           <StatCounter
+            index={2}
             value={16}
             label="Кафедр"
             description="Учебные и научные подразделения Академии."
@@ -54,6 +56,7 @@ const StatsSection = () => {
           />
 
           <StatCounter
+            index={3}
             value={2}
             label="Исследовательских института"
             description="Научно-исследовательская деятельность Академии."
@@ -61,6 +64,7 @@ const StatsSection = () => {
           />
 
           <StatCounter
+            index={4}
             value={1}
             suffix="+"
             label="Институт повышения квалификации"

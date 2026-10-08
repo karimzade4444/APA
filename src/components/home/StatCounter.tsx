@@ -5,6 +5,7 @@ import { motion, useInView } from "motion/react";
 import { useRef } from "react";
 
 type StatCounterProps = {
+  index: number;
   value: number;
   suffix?: string;
   label: string;
@@ -13,6 +14,7 @@ type StatCounterProps = {
 };
 
 const StatCounter = ({
+  index,
   value,
   suffix = "",
   label,
@@ -73,7 +75,7 @@ const StatCounter = ({
         <span className="h-px w-8 bg-[#d4af62] transition-all duration-500 group-hover:w-16" />
 
         <span className="text-xs uppercase tracking-[0.2em] text-white/45">
-          0{Math.round(delay * 10 + 1)}
+          {String(index).padStart(2, "0")}
         </span>
       </div>
 
