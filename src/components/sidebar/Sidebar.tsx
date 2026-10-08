@@ -6,7 +6,7 @@ import OfficialResources from "./OfficialResources";
 
 const Sidebar = () => {
   return (
-    <aside className="space-y-5">
+    <aside className="flex h-full flex-col gap-5">
       <PresidentCard />
 
       <RectorCard />
@@ -14,7 +14,7 @@ const Sidebar = () => {
       <InfoLinks />
 
       <GovernmentLinks />
-      <OfficialResources/>
+      <OfficialResources />
     </aside>
   );
 };

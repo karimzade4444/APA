@@ -9,7 +9,7 @@ import FeaturedCarousel from "./FeaturedCarousel";
 
 const ArticlesSection = () => {
   return (
-    <section className="py-20">
+    <section className="pb-0 pt-20">
         {/* Section heading */}
         <Reveal>
           <div className="mb-12 flex items-end justify-between border-b border-[#061d35]/10 pb-5">
