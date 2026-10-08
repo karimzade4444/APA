@@ -1,7 +1,7 @@
- "use client";
+"use client";
 
 import Link from "next/link";
-import { ArrowUp, Facebook, Instagram, Send } from "lucide-react";
+import { ArrowUp, Camera, Globe, Send } from "lucide-react";
 
 const Footer = () => {
   const navigation = [
@@ -38,8 +38,8 @@ const Footer = () => {
             </Link>
 
             <p className="mt-7 max-w-md text-sm leading-6 text-white/45">
-              Официальный сайт Академии государственного управления
-              при Президенте Республики Таджикистан.
+              Официальный сайт Академии государственного управления при
+              Президенте Республики Таджикистан.
             </p>
 
             <div className="mt-7 flex items-center gap-3">
@@ -50,7 +50,7 @@ const Footer = () => {
                 aria-label="Facebook"
                 className="flex h-10 w-10 items-center justify-center border border-white/10 text-white/50 transition duration-300 hover:border-[#d4af62] hover:text-[#d4af62]"
               >
-                <Facebook size={17} />
+                <Globe size={17} />
               </a>
 
               <a
@@ -60,7 +60,7 @@ const Footer = () => {
                 aria-label="Instagram"
                 className="flex h-10 w-10 items-center justify-center border border-white/10 text-white/50 transition duration-300 hover:border-[#d4af62] hover:text-[#d4af62]"
               >
-                <Instagram size={17} />
+                <Camera size={17} />
               </a>
 
               <a
@@ -110,13 +110,13 @@ const Footer = () => {
                 <br />
                 г. Душанбе, ул. Саид Носир, 33
               </p>
-[08.10.2026 23:14] 𝒦𝒶𝓇𝒾𝓂𝓏𝑜𝒹𝒶: <a
+             
+              <a
                 href="tel:+992372241786"
                 className="block transition-colors hover:text-[#d4af62]"
               >
                 +992 (37) 224-17-86
               </a>
-
               <a
                 href="mailto:info@apa.tj"
                 className="block transition-colors hover:text-[#d4af62]"
@@ -152,7 +152,6 @@ const Footer = () => {
               className="group flex cursor-pointer items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-white/35 transition-colors hover:text-[#d4af62]"
             >
               Наверх
-
               <ArrowUp
                 size={13}
                 className="transition-transform duration-300 group-hover:-translate-y-1"

@@ -1,10 +1,12 @@
 import ArticlesSection from "@/components/home/ArticlesSection";
+import ContactSection from "@/components/home/ContactSection";
 import Hero from "@/components/home/Hero";
 import NewsSection from "@/components/home/NewsSection";
 import OfficialResourcesSection from "@/components/home/OfficialResourcesSection";
 import QuickLinksSection from "@/components/home/QuickLinksSection";
 import StatsSection from "@/components/home/StatsSection";
 import Sidebar from "@/components/sidebar/Sidebar";
+
 
 export default function Home() {
   return (
@@ -25,6 +27,7 @@ export default function Home() {
       <StatsSection />
       <QuickLinksSection />
       <OfficialResourcesSection />
+      <ContactSection />
     </main>
   );
 }

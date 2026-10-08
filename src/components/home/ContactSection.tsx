@@ -69,13 +69,6 @@ const ContactSection = () => {
                       >
                         +992 (37) 224-17-86
                       </a>
-
-                      <a
-                        href="tel:+992372241718"
-                        className="mt-1 block text-xs text-white/45 transition-colors hover:text-[#d4af62]"
-                      >
-                        Телефон доверия: +992 (37) 224-17-18
-                      </a>
                     </div>
                   </div>
                 </div>
@@ -101,7 +94,7 @@ const ContactSection = () => {
                     </div>
                   </div>
                 </div>
-[08.10.2026 23:13] 𝒦𝒶𝓇𝒾𝓂𝓏𝑜𝒹𝒶: {/* Приём */}
+                {/* Приём */}
                 <div>
                   <div className="flex gap-4">
                     <div className="flex h-11 w-11 shrink-0 items-center justify-center border border-[#d4af62]/30 text-[#d4af62]">
@@ -113,9 +106,16 @@ const ContactSection = () => {
                         Приём граждан
                       </p>
 
-                      <p className="mt-2 text-sm leading-6 text-white/70">
+                      <Link
+                        href="/contacts"
+                        className="group mt-2 inline-flex items-center gap-1 text-sm leading-6 text-white/70 transition-colors hover:text-[#d4af62]"
+                      >
                         Согласно установленному графику
-                      </p>
+                        <ArrowUpRight
+                          size={14}
+                          className="shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+                        />
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -125,7 +125,6 @@ const ContactSection = () => {
                   className="group inline-flex items-center gap-3 border-b border-[#d4af62]/50 pb-2 pt-3 text-xs font-medium uppercase tracking-[0.15em] text-[#d4af62]"
                 >
                   Все контакты
-
                   <ArrowUpRight
                     size={14}
                     className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
@@ -135,41 +134,17 @@ const ContactSection = () => {
             </Reveal>
           </div>
 
-          {/* Карта */}
-          <div className="relative min-h-[450px] bg-[#e8e5df]">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center">
-                <MapPin
-                  size={42}
-                  strokeWidth={1}
-                  className="mx-auto text-[#a37b2f]"
-                />
-
-                <p className="mt-4 font-serif text-xl text-[#061d35]">
-                  Академия государственного управления
-                </p>
-
-                <p className="mt-2 text-sm text-[#061d35]/50">
-                  ул. Саид Носир, 33
-                </p>
-
-                <Link
-                  href="/contacts#map"
-                  className="mt-6 inline-flex border border-[#061d35] px-5 py-3 text-xs font-medium uppercase tracking-wide text-[#061d35] transition duration-300 hover:bg-[#061d35] hover:text-white"
-                >
-                  Открыть карту
-                </Link>
-              </div>
-            </div>
-
-            {/* Декоративная сетка */}
-            <div className="pointer-events-none absolute inset-0 opacity-20">
-              <div className="absolute left-1/4 top-0 h-full w-px bg-[#061d35]" />
-              <div className="absolute left-1/2 top-0 h-full w-px bg-[#061d35]" />
-              <div className="absolute left-3/4 top-0 h-full w-px bg-[#061d35]" />
-              <div className="absolute left-0 top-1/3 h-px w-full bg-[#061d35]" />
-              <div className="absolute left-0 top-2/3 h-px w-full bg-[#061d35]" />
-            </div>
+          {/* Настоящая интерактивная карта Google Maps */}
+          <div className="relative min-h-[450px] overflow-hidden bg-[#e8e5df]">
+            <iframe
+              title="Академия государственного управления при Президенте Республики Таджикистан"
+              src="https://yandex.tj/map-widget/v1/?ll=68.784998%2C38.595886&z=17&pt=68.784998%2C38.595886%2Cpm2rdm"
+              width="100%"
+              height="100%"
+              loading="lazy"
+              allowFullScreen
+              className="absolute inset-0 h-full w-full border-0"
+            />
           </div>
         </div>
       </div>
