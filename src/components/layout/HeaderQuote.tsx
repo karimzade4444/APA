@@ -10,7 +10,7 @@ const HeaderQuote = () => {
         text="«Знание — основа развития сильного государства»"
         delay={0.8}
         speed={0.045}
-        className="font-serif text-lg italic leading-6 text-[#d4b477]"
+        className="font-serif text-lg italic leading-5 text-[#d4b477]"
       />
 
       <motion.p

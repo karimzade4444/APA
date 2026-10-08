@@ -22,7 +22,7 @@ const Brand = () => {
           delay: 0.15,
           ease: [0.22, 1, 0.36, 1],
         }}
-        className="mt-3 mb-3 flex h-25 w-25 shrink-0 items-center justify-center overflow-hidden rounded-full border border-[#d4af62]"
+        className="mt-3 mb-3 flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden rounded-full border border-[#d4af62]"
       >
         <Image
           src="/images/logo/academy-logo.png"
@@ -38,7 +38,7 @@ const Brand = () => {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.3, duration: 0.6 }}
-          className="text-lg font-medium uppercase tracking-[0.18em] text-[#d4af62]"
+          className="text-md font-medium uppercase tracking-[0.18em] text-[#d4af62]"
         >
           АКАДЕМИЯ
         </motion.p>
@@ -47,7 +47,7 @@ const Brand = () => {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.4, duration: 0.6 }}
-          className="font-serif text-xl font-semibold leading-tight text-white"
+          className="font-serif text-lg font-semibold leading-tight text-white"
         >
           ГОСУДАРСТВЕННОГО УПРАВЛЕНИЯ
         </motion.h1>
