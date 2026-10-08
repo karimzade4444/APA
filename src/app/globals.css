@@ -139,17 +139,17 @@ body {
     margin-inline: auto;
   }
 
-  @media (min-width: 1536px) {
+  @media (min-width: 1920px) {
     .site-container {
       width: calc(100% - 4rem);
-      max-width: 100rem;
+      max-width: 96rem;
     }
   }
 
-  @media (min-width: 2048px) {
+  @media (min-width: 2560px) {
     .site-container {
       width: calc(100% - 6rem);
-      max-width: 120rem;
+      max-width: 112rem;
     }
   }
 }

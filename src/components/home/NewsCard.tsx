@@ -34,7 +34,7 @@ const NewsCard = ({
         <div
           className={`relative overflow-hidden ${
             featured
-              ? "aspect-[16/10] min-[1536px]:aspect-[16/8]"
+              ? "aspect-[16/10] min-[1920px]:aspect-[16/8]"
               : "aspect-[16/9]"
           }`}
         >

@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 
 const Brand = () => {
   return (
-    <div className="flex items-center gap-4">
+    <div className="flex items-center gap-4 ">
       <motion.div
         initial={{
           opacity: 0,

@@ -16,8 +16,8 @@ const Navigation = () => {
   return (
     <nav className="border-y border-[#c9a45c]/40 bg-[#061d35]">
       <div className="site-container flex items-center">
-        <NavigationMenu>
-          <NavigationMenuList className="gap-0">
+        <NavigationMenu className="w-full max-w-none justify-start">
+          <NavigationMenuList className="justify-between gap-0">
             {navigation.map((item) => (
               <NavigationMenuItem key={item.title}>
                 {item.children ? (

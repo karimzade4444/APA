@@ -50,7 +50,7 @@ const NewsSection = () => {
         />
       </Reveal>
 
-      <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 min-[1536px]:grid-cols-4 min-[1536px]:gap-4">
+      <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 min-[1920px]:grid-cols-4 min-[1920px]:gap-4">
         {news.map((item) => (
           <NewsCard
             key={item.id}

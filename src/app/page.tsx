@@ -13,7 +13,7 @@ export default function Home() {
     <main>
       <Hero />
       <div className="bg-[#f1ece2] pb-12">
-        <div className="site-container grid items-stretch gap-x-8 lg:grid-cols-[minmax(0,1fr)_332px] min-[1536px]:gap-x-10 min-[1536px]:grid-cols-[minmax(0,1fr)_320px] min-[2048px]:gap-x-12 min-[2048px]:grid-cols-[minmax(0,1fr)_400px]">
+        <div className="site-container grid items-stretch gap-x-8 lg:grid-cols-[minmax(0,1fr)_332px] min-[1920px]:gap-x-10 min-[1920px]:grid-cols-[minmax(0,1fr)_320px] min-[2560px]:gap-x-12 min-[2560px]:grid-cols-[minmax(0,1fr)_400px]">
           <div className="flex min-w-0 flex-col">
             <NewsSection />
             <ArticlesSection />
