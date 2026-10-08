@@ -24,7 +24,7 @@ const PresidentCard = () => {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Биография Президента Республики Таджикистан"
-          className="relative block aspect-4/5 overflow-hidden focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-[#d4af62]"
+          className="relative block aspect-4/5 overflow-hidden focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-[#d4af62]"
         >
           <Image
             src="/images/sidebar/president.png"
