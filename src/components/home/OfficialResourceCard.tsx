@@ -14,7 +14,9 @@ const OfficialResourceCard = ({ resource }: OfficialResourceCardProps) => {
       target="_blank"
       rel="noopener noreferrer"
       title={resource.name}
-      className="group flex h-24 w-[270px] shrink-0 items-center gap-4 border border-[#061d35]/10 bg-white px-5 transition-all duration-300 hover:border-[#d4af62] hover:bg-[#061d35]"
+      draggable={false}
+      onDragStart={(event) => event.preventDefault()}
+      className="group flex h-24 w-[270px] shrink-0 cursor-grab items-center gap-4 border border-[#061d35]/10 bg-white px-5 transition-all duration-300 hover:border-[#d4af62] hover:bg-[#061d35] active:cursor-grabbing"
     >
       {/* Логотип */}
       <div className="flex h-14 w-20 shrink-0 items-center justify-center">
@@ -23,6 +25,7 @@ const OfficialResourceCard = ({ resource }: OfficialResourceCardProps) => {
           alt={resource.name}
           width={100}
           height={70}
+          draggable={false}
           className="max-h-20 w-auto max-w-full object-contain transition-all duration-300 group-hover:scale-105"
         />
       </div>
