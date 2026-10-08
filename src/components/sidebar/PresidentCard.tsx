@@ -19,16 +19,22 @@ const PresidentCard = () => {
           </p>
         </div>
 
-        <div className="relative aspect-4/5 overflow-hidden">
+        <a
+          href="https://www.president.tj/president/biography"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Биография Президента Республики Таджикистан"
+          className="relative block aspect-4/5 overflow-hidden focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-[#d4af62]"
+        >
           <Image
             src="/images/sidebar/president.png"
             alt="Президент Республики Таджикистан"
             fill
-            className="object-cover transition duration-700 group-hover:scale-105"
+            className="object-cover transition duration-700 hover:scale-105"
           />
 
-          <div className="absolute inset-0 bg-linear-to-t from-[#061d35] via-transparent to-transparent opacity-70" />
-        </div>
+          <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-[#061d35] via-transparent to-transparent opacity-70" />
+        </a>
 
         <div className="px-5 py-5">
           <p className="text-xs leading-5 text-white/60">
@@ -37,7 +43,16 @@ const PresidentCard = () => {
             Лидер нации
           </p>
 
-          <h3 className="mt-2 font-serif text-lg text-white">Эмомали Рахмон</h3>
+          <h3 className="mt-2">
+            <a
+              href="https://www.president.tj/president/biography"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-serif text-lg text-white transition-colors hover:text-[#d4af62] focus-visible:text-[#d4af62] focus-visible:outline-none"
+            >
+              Эмомали Рахмон
+            </a>
+          </h3>
 
           <div className="mt-4 h-px w-10 bg-[#d4af62] transition-all duration-500 group-hover:w-full" />
 
