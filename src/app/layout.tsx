@@ -3,6 +3,7 @@ import { Poppins, Geist } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import { cn } from "@/lib/utils";
+import Footer from "@/components/layout/Footer";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
@@ -29,6 +30,7 @@ export default function RootLayout({
       <body className={poppins.variable}>
         <Header />
         {children}
+        <Footer/>
       </body>
     </html>
   );
