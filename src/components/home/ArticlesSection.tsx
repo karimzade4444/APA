@@ -57,8 +57,8 @@ const ArticlesSection = () => {
           />
         </Reveal>
 
-        <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
-          {articles.slice(0, 3).map((article) => (
+        <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 min-[1920px]:grid-cols-4 min-[2560px]:grid-cols-5">
+          {articles.map((article) => (
             <ArticleCard
               key={article.id}
               title={article.title}

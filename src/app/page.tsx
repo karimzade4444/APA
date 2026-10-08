@@ -13,13 +13,13 @@ export default function Home() {
     <main>
       <Hero />
       <div className="bg-[#f1ece2] pb-12">
-        <div className="mx-auto grid max-w-7xl items-stretch gap-x-8 px-6 lg:grid-cols-[minmax(0,1fr)_332px]">
+        <div className="site-container grid items-stretch gap-x-8 lg:grid-cols-[minmax(0,1fr)_332px] min-[1920px]:gap-x-12 min-[1920px]:grid-cols-[minmax(0,1fr)_400px] min-[2560px]:gap-x-16 min-[2560px]:grid-cols-[minmax(0,1fr)_480px]">
           <div className="flex min-w-0 flex-col">
             <NewsSection />
             <ArticlesSection />
           </div>
 
-          <div className="lg:mt-20 lg:border-l lg:border-[#c9a45c]/40 lg:pl-8">
+          <div className="lg:mt-20 lg:self-start">
             <Sidebar />
           </div>
         </div>

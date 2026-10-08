@@ -132,6 +132,28 @@ body {
   }
 }
 
+@layer components {
+  .site-container {
+    width: calc(100% - 3rem);
+    max-width: 80rem;
+    margin-inline: auto;
+  }
+
+  @media (min-width: 1920px) {
+    .site-container {
+      width: calc(100% - 6rem);
+      max-width: 100rem;
+    }
+  }
+
+  @media (min-width: 2560px) {
+    .site-container {
+      width: calc(100% - 8rem);
+      max-width: 128rem;
+    }
+  }
+}
+
 @keyframes official-resources-scroll {
   from {
     transform: translateX(0);

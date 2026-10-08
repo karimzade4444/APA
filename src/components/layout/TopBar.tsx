@@ -14,7 +14,7 @@ const TopBar = () => {
       }}
       className="relative z-10 border-b border-[#c9a45c]/40 text-sm text-white"
     >
-      <div className="mx-auto flex min-h-9 max-w-7xl items-center justify-between px-6 2xl:max-w-336">
+      <div className="site-container flex min-h-9 items-center justify-between">
         <motion.p
           initial={{ opacity: 0, x: -15 }}
           animate={{ opacity: 1, x: 0 }}

@@ -15,7 +15,7 @@ import { navigation } from "@/data/navigation";
 const Navigation = () => {
   return (
     <nav className="border-y border-[#c9a45c]/40 bg-[#061d35]">
-      <div className="mx-auto flex max-w-7xl items-center px-6">
+      <div className="site-container flex items-center">
         <NavigationMenu>
           <NavigationMenuList className="gap-0">
             {navigation.map((item) => (

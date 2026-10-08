@@ -5,7 +5,7 @@ import { articles } from "@/data/articles";
 export default function ArticlesPage() {
   return (
     <main className="bg-[#f1ece2] py-16 md:py-24">
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="site-container">
         <div className="mb-12 border-b border-[#061d35]/15 pb-6">
           <p className="mb-3 text-xs font-medium uppercase tracking-[0.25em] text-[#a37b2f]">
             Наука и аналитика

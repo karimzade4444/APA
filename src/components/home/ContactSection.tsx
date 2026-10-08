@@ -8,7 +8,7 @@ import Reveal from "@/components/animations/Reveal";
 const ContactSection = () => {
   return (
     <section className="bg-[#f7f5f1] py-24">
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="site-container">
         <Reveal>
           <div className="mb-12">
             <div className="mb-3 flex items-center gap-3">

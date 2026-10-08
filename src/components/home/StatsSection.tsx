@@ -11,7 +11,7 @@ const StatsSection = () => {
 
       <div className="pointer-events-none absolute bottom-0 left-0 h-96 w-96 rounded-full border border-[#d4af62]/5 -translate-x-1/2 translate-y-1/2" />
 
-      <div className="relative mx-auto max-w-7xl px-6">
+      <div className="site-container relative">
         {/* Heading */}
         <Reveal>
           <div className="mb-16 max-w-2xl">

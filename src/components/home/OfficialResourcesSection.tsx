@@ -95,7 +95,7 @@ const OfficialResourcesSection = () => {
 
   return (
     <section className="overflow-hidden bg-[#f7f5f1] py-16">
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="site-container">
         <Reveal>
           <div className="mb-8 flex items-end justify-between border-b border-[#061d35]/10 pb-5">
             <div>
@@ -160,7 +160,7 @@ const OfficialResourcesSection = () => {
         </div>
       </div>
 
-      <div className="mx-auto mt-6 max-w-7xl px-6">
+      <div className="site-container mt-6">
         <p className="text-center text-[10px] uppercase tracking-[0.2em] text-[#061d35]/30">
           Официальные интернет-ресурсы государственных органов и партнёрских
           организаций

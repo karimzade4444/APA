@@ -17,7 +17,7 @@ const Header = () => {
         </div>
 
         <div className="relative z-10 border-b border-[#c9a45c]/40">
-          <div className="mx-auto flex min-h-20 max-w-7xl items-center justify-between px-6">
+          <div className="site-container flex min-h-20 items-center justify-between">
             <Brand />
 
             <HeaderQuote />

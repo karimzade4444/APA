@@ -20,7 +20,7 @@ const Hero = () => {
 
       <div className="absolute inset-0 bg-linear-to-r from-[#061d35]/95 via-[#061d35]/45 to-[#061d35]/10" />
 
-      <div className="relative z-10 mx-auto flex min-h-140 max-w-7xl items-center px-6">
+      <div className="site-container relative z-10 flex min-h-140 items-center">
         <div className="max-w-3xl">
           <AnimatedText delay={0.2}>
             <div className="mb-7 flex items-center gap-4">
