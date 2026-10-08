@@ -50,14 +50,15 @@ const NewsSection = () => {
         />
       </Reveal>
 
-      <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 min-[1920px]:grid-cols-4 min-[1920px]:gap-4">
-        {news.map((item) => (
+      <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 min-[2560px]:grid-cols-4 min-[2560px]:gap-4">
+        {news.map((item, index) => (
           <NewsCard
             key={item.id}
             title={item.title}
             date={item.date}
             image={item.image}
             href={item.href}
+            className={index === 3 ? "hidden min-[2560px]:block" : undefined}
           />
         ))}
       </div>

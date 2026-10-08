@@ -57,7 +57,7 @@ const ArticlesSection = () => {
           />
         </Reveal>
 
-        <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 min-[1920px]:grid-cols-3 min-[2560px]:grid-cols-4 min-[2560px]:gap-4">
+        <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 min-[2560px]:grid-cols-4 min-[2560px]:gap-4">
           {articles.map((article, index) => (
             <ArticleCard
               key={article.id}
@@ -65,9 +65,7 @@ const ArticlesSection = () => {
               date={article.date}
               image={article.image}
               href={article.href}
-              className={
-                index === 3 ? "min-[1920px]:hidden min-[2560px]:block" : undefined
-              }
+              className={index === 3 ? "hidden min-[2560px]:block" : undefined}
             />
           ))}
         </div>
