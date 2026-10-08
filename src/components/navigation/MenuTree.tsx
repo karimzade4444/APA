@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import { useState } from "react";
-import type { FocusEvent } from "react";
+import type { FocusEvent, MouseEvent } from "react";
 import type { NavigationItem } from "@/types/navigation";
 import StaggerItem from "../animations/StraggerItem";
 import Stagger from "../animations/Stragger";
@@ -19,8 +19,17 @@ type MenuTreeItemProps = {
 const MenuTreeItem = ({ item }: MenuTreeItemProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
+  const [hasOpenedByClick, setHasOpenedByClick] = useState(false);
   const hasChildren = Boolean(item.children?.length);
   const isOpen = isHovered || isFocused;
+
+  const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (!hasChildren || hasOpenedByClick) return;
+
+    event.preventDefault();
+    setHasOpenedByClick(true);
+    setIsFocused(true);
+  };
 
   const handleBlur = (event: FocusEvent<HTMLDivElement>) => {
     if (
@@ -28,6 +37,7 @@ const MenuTreeItem = ({ item }: MenuTreeItemProps) => {
       !event.currentTarget.contains(event.relatedTarget)
     ) {
       setIsFocused(false);
+      setHasOpenedByClick(false);
     }
   };
 
@@ -42,6 +52,8 @@ const MenuTreeItem = ({ item }: MenuTreeItemProps) => {
       >
         <Link
           href={item.href}
+          onClick={handleClick}
+          aria-expanded={hasChildren ? isOpen : undefined}
           className="flex items-center justify-between rounded-none px-4 py-3 text-sm text-white/80 transition-[padding,background-color,color] duration-300 hover:bg-white/5 hover:pl-5 hover:text-[#d4af62]"
         >
           <span>
