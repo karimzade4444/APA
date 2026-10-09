@@ -30,7 +30,7 @@ export type Leader = {
 export const leadership: Leader[] = [
   {
     id: "rector",
-    slug: "safarzoda-davron-jurakhon",
+    slug: "rector",
     name: "Сафарзода Даврон Джурахон",
     position:
       "Ректор Академии государственного управления при Президенте Республики Таджикистан",
@@ -105,12 +105,12 @@ export const leadership: Leader[] = [
   },
 
   {
-    id: "odinazoda",
-    slug: "odinazoda-firdavs-jalil",
+    id: "fvrector",
+    slug: "first-vice-rector",
     name: "Одинзода Фирдавс Джалил",
     position: "Первый проректор, проректор по учебной работе",
-    shortPosition: "Первый проректор",
-    photo: "/images/leadership/odinazoda.jpg",
+    shortPosition: "Первый проректор, Проректор по учебной работе",
+    photo: "/images/leadership/fvrector.jpg",
     phone: "+992 918-80-90-89",
     degree: "Кандидат экономических наук",
     education: [
@@ -197,12 +197,12 @@ export const leadership: Leader[] = [
   },
 
   {
-    id: "karamalishoev",
-    slug: "karamalishoev-karamalisho-nuralishoevich",
+    id: "vice-rector-science",
+    slug: "vice-rector-science",
     name: "Карамали́шоев Карамали́шо Нуралишоевич",
     position: "Проректор по науке и инновациям",
     shortPosition: "Проректор по науке и инновациям",
-    photo: "/images/leadership/karamalishoev.jpg",
+    photo: "/images/leadership/vrscience.jpg",
     phone: "+992 93 832-27-68",
     email: "kkn267701@mail.ru",
     degree: "Кандидат исторических наук",
