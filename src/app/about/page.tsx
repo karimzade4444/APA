@@ -15,6 +15,7 @@ import {
 
 
 import { academyAbout } from "@/data/about";
+import { AboutOrbit, AboutReveal } from "./AboutAnimations";
 import AboutHeroSlider from "./AboutHeroSlider";
 
 function SectionHeading({
@@ -27,7 +28,7 @@ function SectionHeading({
   text?: string;
 }) {
   return (
-    <div className="mb-8 max-w-3xl">
+    <AboutReveal className="mb-8 max-w-3xl">
       <p className="mb-3 text-xs font-semibold uppercase tracking-[0.24em] text-[#a37d37]">
         {eyebrow}
       </p>
@@ -35,19 +36,21 @@ function SectionHeading({
         {title}
       </h2>
       {text && <p className="mt-4 leading-7 text-slate-600">{text}</p>}
-    </div>
+    </AboutReveal>
   );
 }
 
 function InfoCard({ title, text }: { title: string; text: string }) {
   return (
-    <article className="group rounded-xl border border-[#e4dccd] bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-[#c9a45c] hover:shadow-lg">
-      <div className="mb-4 h-1 w-10 rounded-full bg-[#c9a45c] transition-all group-hover:w-16" />
-      <h3 className="text-lg font-semibold leading-snug text-[#09223d]">
-        {title}
-      </h3>
-      <p className="mt-3 text-sm leading-7 text-slate-600">{text}</p>
-    </article>
+    <AboutReveal className="h-full" rotate={1}>
+      <article className="group h-full rounded-xl border border-[#e4dccd] bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-[#c9a45c] hover:shadow-lg">
+        <div className="mb-4 h-1 w-10 rounded-full bg-[#c9a45c] transition-all group-hover:w-16" />
+        <h3 className="text-lg font-semibold leading-snug text-[#09223d]">
+          {title}
+        </h3>
+        <p className="mt-3 text-sm leading-7 text-slate-600">{text}</p>
+      </article>
+    </AboutReveal>
   );
 }
 
@@ -58,27 +61,33 @@ function PhotoGrid({
 }) {
   return (
     <div
-      className={`mb-8 grid gap-4 ${
+      className={`mb-8 grid auto-rows-fr gap-4 ${
         photos.length === 3 ? "sm:grid-cols-3" : "md:grid-cols-2"
       }`}
     >
       {photos.map((photo) => (
-        <figure key={photo.src} className="min-w-0">
-          <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-[#e5dfd3]">
-            <Image
-              src={photo.src}
-              alt={photo.alt}
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover  transition duration-500 hover:scale-105"
-            />
-          </div>
-          {photo.title && (
-            <figcaption className="mt-3 text-sm text-slate-500">
-              {photo.title}
-            </figcaption>
-          )}
-        </figure>
+        <AboutReveal
+          key={photo.src}
+          className="h-full min-w-0"
+          rotate={photo.src.length % 2 === 0 ? 1.5 : -1.5}
+        >
+          <figure className="flex h-full flex-col">
+            <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-[#e5dfd3]">
+              <Image
+                src={photo.src}
+                alt={photo.alt}
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover transition duration-500 hover:scale-105"
+              />
+            </div>
+            {photo.title && (
+              <figcaption className="mt-auto pt-3 text-sm text-slate-500">
+                {photo.title}
+              </figcaption>
+            )}
+          </figure>
+        </AboutReveal>
       ))}
     </div>
   );
@@ -90,6 +99,7 @@ export default function AboutPage() {
       <section className="relative overflow-hidden bg-[#071d34] text-white">
         <div className="pointer-events-none absolute -right-24 -top-32 h-[32rem] w-[32rem] rounded-full border border-[#c9a45c]/20" />
         <div className="pointer-events-none absolute -right-12 -top-20 h-[26rem] w-[26rem] rounded-full border border-[#c9a45c]/20" />
+        <AboutOrbit className="pointer-events-none absolute right-[8%] top-12 h-36 w-36 text-[#c9a45c]/70 md:right-[12%] md:top-16 md:h-48 md:w-48" />
 
         <div className="site-container relative py-12 md:py-16 lg:py-20">
           <div className="mb-8 flex items-center gap-2 text-sm text-white/60">
@@ -101,7 +111,7 @@ export default function AboutPage() {
           </div>
 
           <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
-            <div className="max-w-2xl">
+            <AboutReveal className="max-w-2xl" rotate={-1} y={18}>
               <div className="mb-6 inline-flex items-center gap-3 border-l-2 border-[#c9a45c] pl-4">
                 <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#e5c681]">
                   Официальный портал
@@ -138,9 +148,11 @@ export default function AboutPage() {
                   Образование
                 </a>
               </div>
-            </div>
+            </AboutReveal>
 
-            <AboutHeroSlider />
+            <AboutReveal rotate={1} delay={0.15} y={30}>
+              <AboutHeroSlider />
+            </AboutReveal>
           </div>
         </div>
 
@@ -149,34 +161,44 @@ export default function AboutPage() {
 
       <section className="site-container py-14 md:py-20">
         <div className="grid gap-6 lg:grid-cols-2">
-          <article className="relative overflow-hidden rounded-2xl bg-[#0b2947] p-7 text-white md:p-9">
-            <div className="absolute -right-8 -top-8 opacity-10">
-              <Landmark size={150} strokeWidth={0.8} />
-            </div>
-            <div className="relative">
-              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl border border-[#c9a45c]/50 text-[#e5c681]">
-                <Target size={24} />
+          <AboutReveal className="h-full" rotate={-1}>
+            <article className="relative h-full overflow-hidden rounded-2xl bg-[#0b2947] p-7 text-white md:p-9">
+              <div className="absolute -right-8 -top-8 opacity-10">
+                <Landmark size={150} strokeWidth={0.8} />
               </div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#e5c681]">
-                Наша миссия
-              </p>
-              <p className="mt-4 text-lg leading-8 text-white/90">
-                {academyAbout.mission}
-              </p>
-            </div>
-          </article>
+              <div className="relative">
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl border border-[#c9a45c]/50 text-[#e5c681]">
+                  <Target
+                    className="transition-transform duration-500 hover:rotate-180 motion-reduce:transition-none"
+                    size={24}
+                  />
+                </div>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#e5c681]">
+                  Наша миссия
+                </p>
+                <p className="mt-4 text-lg leading-8 text-white/90">
+                  {academyAbout.mission}
+                </p>
+              </div>
+            </article>
+          </AboutReveal>
 
-          <article className="rounded-2xl border border-[#e3d8c5] bg-white p-7 md:p-9">
-            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-[#f5eddd] text-[#98712e]">
-              <ShieldCheck size={24} />
-            </div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#98712e]">
-              Основная цель
-            </p>
-            <p className="mt-4 text-lg leading-8 text-[#263b50]">
-              {academyAbout.goal}
-            </p>
-          </article>
+          <AboutReveal className="h-full" rotate={1} delay={0.1}>
+            <article className="h-full rounded-2xl border border-[#e3d8c5] bg-white p-7 md:p-9">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-[#f5eddd] text-[#98712e]">
+                <ShieldCheck
+                  className="transition-transform duration-500 hover:rotate-12 motion-reduce:transition-none"
+                  size={24}
+                />
+              </div>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#98712e]">
+                Основная цель
+              </p>
+              <p className="mt-4 text-lg leading-8 text-[#263b50]">
+                {academyAbout.goal}
+              </p>
+            </article>
+          </AboutReveal>
         </div>
       </section>
 
@@ -195,9 +217,12 @@ export default function AboutPage() {
 
           <div className="relative ml-2 border-l border-[#d8c39a] md:ml-4">
             {academyAbout.history.map((item) => (
-              <article
+              <AboutReveal
                 key={`${item.year}-${item.title}`}
                 className="relative pb-9 pl-7 last:pb-0 md:pl-10"
+                delay={0}
+                rotate={-0.5}
+                y={18}
               >
                 <span className="absolute -left-[7px] top-1 h-3.5 w-3.5 rounded-full border-[3px] border-white bg-[#b58a3c] ring-1 ring-[#c9a45c]" />
                 <p className="text-sm font-bold tracking-wider text-[#a37d37]">
@@ -209,7 +234,7 @@ export default function AboutPage() {
                 <p className="mt-3 max-w-4xl leading-7 text-slate-600">
                   {item.text}
                 </p>
-              </article>
+              </AboutReveal>
             ))}
           </div>
         </div>
@@ -222,17 +247,19 @@ export default function AboutPage() {
           text="Работа Академии охватывает подготовку специалистов, развитие научных исследований и совершенствование практики государственного управления."
         />
 
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid auto-rows-fr gap-4 md:grid-cols-2">
           {academyAbout.responsibilities.map((item, index) => (
-            <article
+            <AboutReveal
               key={item}
-              className="flex gap-4 rounded-xl border border-[#e4dccd] bg-white p-5 md:p-6"
+              className="flex h-full gap-4 rounded-xl border border-[#e4dccd] bg-white p-5 md:p-6"
+              delay={Math.min(index * 0.05, 0.25)}
+              rotate={index % 2 === 0 ? -1 : 1}
             >
               <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#f3ead7] text-sm font-bold text-[#98712e]">
                 {String(index + 1).padStart(2, "0")}
               </span>
               <p className="leading-7 text-slate-700">{item}</p>
-            </article>
+            </AboutReveal>
           ))}
         </div>
 
@@ -241,13 +268,17 @@ export default function AboutPage() {
             Основные направления деятельности
           </h3>
           <div className="flex flex-wrap gap-3">
-            {academyAbout.activityAreas.map((item) => (
-              <span
+            {academyAbout.activityAreas.map((item, index) => (
+              <AboutReveal
                 key={item}
-                className="rounded-full border border-[#d9c9a9] bg-white px-4 py-2.5 text-sm text-[#243b51]"
+                delay={Math.min(index * 0.04, 0.2)}
+                rotate={index % 2 === 0 ? 2 : -2}
+                y={12}
               >
-                {item}
-              </span>
+                <span className="inline-block rounded-full border border-[#d9c9a9] bg-white px-4 py-2.5 text-sm text-[#243b51]">
+                  {item}
+                </span>
+              </AboutReveal>
             ))}
           </div>
         </div>
@@ -261,17 +292,19 @@ export default function AboutPage() {
             text="Подразделения обеспечивают образовательную, научную, аналитическую и организационную деятельность учреждения."
           />
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid auto-rows-fr gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {academyAbout.structure.map((item, index) => (
-              <div
+              <AboutReveal
                 key={item}
                 className="flex min-h-24 items-start gap-4 rounded-xl border border-white/80 bg-white/80 p-5"
+                delay={Math.min(index * 0.04, 0.24)}
+                rotate={index % 2 === 0 ? -1 : 1}
               >
                 <span className="mt-0.5 text-lg font-semibold text-[#b18a43]">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <p className="font-medium leading-6 text-[#19334b]">{item}</p>
-              </div>
+              </AboutReveal>
             ))}
           </div>
         </div>
@@ -289,7 +322,7 @@ export default function AboutPage() {
 
         <PhotoGrid photos={academyAbout.studentPhotos} />
 
-        <div className="grid gap-5 md:grid-cols-2">
+        <div className="grid auto-rows-fr gap-5 md:grid-cols-2">
           {academyAbout.faculties.map((faculty) => (
             <InfoCard
               key={faculty.title}
@@ -308,77 +341,87 @@ export default function AboutPage() {
             text="Академия сочетает высшее профессиональное образование с дополнительной подготовкой и развитием компетенций государственных служащих."
           />
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="grid auto-rows-fr gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {academyAbout.education.formats.map((format, index) => (
-              <article
+              <AboutReveal
                 key={format}
-                className="rounded-xl border border-[#e4dccd] p-5"
+                className="h-full"
+                rotate={index % 2 === 0 ? -1 : 1}
               >
-                <GraduationCap className="mb-5 text-[#ad843c]" size={27} />
-                <p className="font-semibold leading-6 text-[#09223d]">
-                  {format}
-                </p>
-                <p className="mt-3 text-xs tracking-widest text-slate-400">
-                  НАПРАВЛЕНИЕ {String(index + 1).padStart(2, "0")}
-                </p>
-              </article>
+                <article className="flex h-full flex-col rounded-xl border border-[#e4dccd] p-5">
+                  <GraduationCap
+                    className="mb-5 text-[#ad843c] transition-transform duration-500 hover:rotate-12 motion-reduce:transition-none"
+                    size={27}
+                  />
+                  <p className="font-semibold leading-6 text-[#09223d]">
+                    {format}
+                  </p>
+                  <p className="mt-auto whitespace-nowrap pt-3 text-xs tracking-widest text-slate-400">
+                    НАПРАВЛЕНИЕ {String(index + 1).padStart(2, "0")}
+                  </p>
+                </article>
+              </AboutReveal>
             ))}
           </div>
 
-          <div className="mt-8 rounded-2xl bg-[#09223d] p-7 text-white md:p-9">
-            <div className="flex items-start gap-4">
-              <BookOpen className="mt-1 shrink-0 text-[#e5c681]" size={28} />
-              <div>
-                <h3 className="text-xl font-semibold">
-                  Подготовка в магистратуре
-                </h3>
-                <p className="mt-4 leading-7 text-white/75">
-                  {academyAbout.education.mastersHistory}
-                </p>
-                <h4 className="mt-7 font-semibold text-[#e5c681]">
-                  Направления магистратуры
-                </h4>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {academyAbout.education.mastersSpecialties.map((item) => (
-                    <span
-                      key={item}
-                      className="rounded-full border border-white/20 px-3 py-2 text-sm text-white/85"
-                    >
-                      {item}
-                    </span>
-                  ))}
+          <AboutReveal className="mt-8" rotate={-0.5}>
+            <div className="rounded-2xl bg-[#09223d] p-7 text-white md:p-9">
+              <div className="flex items-start gap-4">
+                <BookOpen className="mt-1 shrink-0 text-[#e5c681]" size={28} />
+                <div>
+                  <h3 className="text-xl font-semibold">
+                    Подготовка в магистратуре
+                  </h3>
+                  <p className="mt-4 leading-7 text-white/75">
+                    {academyAbout.education.mastersHistory}
+                  </p>
+                  <h4 className="mt-7 font-semibold text-[#e5c681]">
+                    Направления магистратуры
+                  </h4>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {academyAbout.education.mastersSpecialties.map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-white/20 px-3 py-2 text-sm text-white/85"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </AboutReveal>
 
-          <div className="mt-8 rounded-2xl border border-[#e4dccd] bg-[#faf8f3] p-7 md:p-9">
-            <div className="flex items-start gap-4">
-              <Microscope className="mt-1 shrink-0 text-[#a37d37]" size={28} />
-              <div>
-                <h3 className="text-xl font-semibold text-[#09223d]">
-                  Научные специальности PhD
-                </h3>
-                <p className="mt-3 leading-7 text-slate-600">
-                  Направления научной подготовки, перечисленные в материалах
-                  Академии.
-                </p>
-                <ol className="mt-5 grid gap-3 sm:grid-cols-2">
-                  {academyAbout.education.phdSpecialties.map((item, index) => (
-                    <li
-                      key={item}
-                      className="flex gap-3 text-sm leading-6 text-slate-700"
-                    >
-                      <span className="font-semibold text-[#a37d37]">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-                      {item}
-                    </li>
-                  ))}
-                </ol>
+          <AboutReveal className="mt-8" rotate={0.5} delay={0.1}>
+            <div className="rounded-2xl border border-[#e4dccd] bg-[#faf8f3] p-7 md:p-9">
+              <div className="flex items-start gap-4">
+                <Microscope className="mt-1 shrink-0 text-[#a37d37]" size={28} />
+                <div>
+                  <h3 className="text-xl font-semibold text-[#09223d]">
+                    Научные специальности PhD
+                  </h3>
+                  <p className="mt-3 leading-7 text-slate-600">
+                    Направления научной подготовки, перечисленные в материалах
+                    Академии.
+                  </p>
+                  <ol className="mt-5 grid gap-3 sm:grid-cols-2">
+                    {academyAbout.education.phdSpecialties.map((item, index) => (
+                      <li
+                        key={item}
+                        className="flex gap-3 text-sm leading-6 text-slate-700"
+                      >
+                        <span className="font-semibold text-[#a37d37]">
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
+                        {item}
+                      </li>
+                    ))}
+                  </ol>
+                </div>
               </div>
             </div>
-          </div>
+          </AboutReveal>
         </div>
       </section>
 
@@ -391,7 +434,7 @@ export default function AboutPage() {
 
         <PhotoGrid photos={academyAbout.conferencePhotos} />
 
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid auto-rows-fr gap-5 md:grid-cols-2 xl:grid-cols-3">
           {academyAbout.research.projects.map((project) => (
             <InfoCard
               key={project.title}
@@ -401,23 +444,28 @@ export default function AboutPage() {
           ))}
         </div>
 
-        <div className="mt-9 rounded-xl border border-[#e4dccd] bg-white p-6 md:p-8">
-          <h3 className="flex items-center gap-3 text-lg font-semibold text-[#09223d]">
-            <LibraryBig className="text-[#a37d37]" size={23} />
-            Научно-методическая деятельность
-          </h3>
-          <ul className="mt-5 grid gap-3 md:grid-cols-2">
-            {academyAbout.research.activities.map((item) => (
-              <li
-                key={item}
-                className="flex items-start gap-3 text-sm leading-6 text-slate-600"
-              >
-                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#c9a45c]" />
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
+        <AboutReveal className="mt-9" rotate={-0.5}>
+          <div className="rounded-xl border border-[#e4dccd] bg-white p-6 md:p-8">
+            <h3 className="flex items-center gap-3 text-lg font-semibold text-[#09223d]">
+              <LibraryBig className="text-[#a37d37]" size={23} />
+              Научно-методическая деятельность
+            </h3>
+            <ul className="mt-5 grid gap-3 md:grid-cols-2">
+              {academyAbout.research.activities.map((item, index) => (
+                <li key={item}>
+                  <AboutReveal
+                    delay={Math.min(index * 0.04, 0.2)}
+                    rotate={index % 2 === 0 ? -0.5 : 0.5}
+                    className="flex items-start gap-3 text-sm leading-6 text-slate-600"
+                  >
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#c9a45c]" />
+                    {item}
+                  </AboutReveal>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </AboutReveal>
       </section>
 
       <section className="bg-[#eae3d6] py-14 md:py-20">
@@ -445,15 +493,17 @@ export default function AboutPage() {
           title="Международное сотрудничество"
           text="Сотрудничество с зарубежными образовательными, научными и государственными учреждениями способствует обмену опытом."
         />
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {academyAbout.internationalPartners.map((partner) => (
-            <div
+        <div className="grid auto-rows-fr gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {academyAbout.internationalPartners.map((partner, index) => (
+            <AboutReveal
               key={partner}
               className="flex items-start gap-3 rounded-lg border border-[#e4dccd] bg-white p-4"
+              delay={Math.min(index * 0.04, 0.2)}
+              rotate={partner.length % 2 === 0 ? -1 : 1}
             >
               <Globe2 className="mt-0.5 shrink-0 text-[#a37d37]" size={20} />
               <p className="text-sm leading-6 text-slate-700">{partner}</p>
-            </div>
+            </AboutReveal>
           ))}
         </div>
       </section>
@@ -468,11 +518,13 @@ export default function AboutPage() {
 
           <PhotoGrid photos={academyAbout.infrastructurePhotos} />
 
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid auto-rows-fr gap-5 md:grid-cols-2 lg:grid-cols-3">
             {academyAbout.infrastructure.map((item, index) => (
-              <article
+              <AboutReveal
                 key={item.title}
-                className="rounded-xl border border-[#e4dccd] p-6"
+                className="h-full rounded-xl border border-[#e4dccd] p-6"
+                delay={Math.min(index * 0.05, 0.25)}
+                rotate={index % 2 === 0 ? -1 : 1}
               >
                 {index === 0 ? (
                   <LibraryBig className="mb-5 text-[#a37d37]" size={28} />
@@ -487,18 +539,23 @@ export default function AboutPage() {
                 <p className="mt-3 text-sm leading-7 text-slate-600">
                   {item.text}
                 </p>
-              </article>
+              </AboutReveal>
             ))}
           </div>
 
           <div className="mt-10 rounded-2xl bg-[#09223d] p-7 text-white md:p-9">
             <h3 className="text-xl font-semibold">Приоритеты развития</h3>
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {academyAbout.priorities.map((priority) => (
-                <div key={priority} className="flex gap-3">
+              {academyAbout.priorities.map((priority, index) => (
+                <AboutReveal
+                  key={priority}
+                  className="flex gap-3"
+                  delay={Math.min(index * 0.04, 0.2)}
+                  rotate={index % 2 === 0 ? -0.5 : 0.5}
+                >
                   <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#d8b56b]" />
                   <p className="text-sm leading-6 text-white/80">{priority}</p>
-                </div>
+                </AboutReveal>
               ))}
             </div>
           </div>
@@ -512,38 +569,38 @@ export default function AboutPage() {
           text="Руководители, перечисленные в исторических материалах."
         />
 
-        <div className="overflow-hidden rounded-xl border border-[#e4dccd] bg-white">
-          <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-4 bg-[#09223d] px-5 py-4 text-xs font-semibold uppercase tracking-wider text-white md:px-7">
-            <span>Фамилия и имя</span>
-            <span>Период</span>
-          </div>
-          {academyAbout.formerRectors.map((rector, index) => (
-            <div
-              key={`${rector.name}-${rector.years}`}
-              className={`grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-4 md:px-7 ${
-                index % 2 === 0 ? "bg-white" : "bg-[#faf8f3]"
-              }`}
-            >
-              <div>
-                <p className="font-medium text-[#18334d]">{rector.name}</p>
-                {rector.note && (
-                  <p className="mt-1 text-xs text-slate-500">{rector.note}</p>
-                )}
-              </div>
-              <span className="text-right text-sm text-slate-600">
-                {rector.years}
-              </span>
+        <AboutReveal rotate={-0.5}>
+          <div className="overflow-hidden rounded-xl border border-[#e4dccd] bg-white">
+            <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-4 bg-[#09223d] px-5 py-4 text-xs font-semibold uppercase tracking-wider text-white md:px-7">
+              <span>Фамилия и имя</span>
+              <span>Период</span>
             </div>
-          ))}
-        </div>
+            {academyAbout.formerRectors.map((rector, index) => (
+              <div
+                key={`${rector.name}-${rector.years}`}
+                className={`grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-4 md:px-7 ${
+                  index % 2 === 0 ? "bg-white" : "bg-[#faf8f3]"
+                }`}
+              >
+                <div>
+                  <p className="font-medium text-[#18334d]">{rector.name}</p>
+                  {rector.note && (
+                    <p className="mt-1 text-xs text-slate-500">{rector.note}</p>
+                  )}
+                </div>
+                <span className="text-right text-sm text-slate-600">
+                  {rector.years}
+                </span>
+              </div>
+            ))}
+          </div>
+        </AboutReveal>
       </section>
 
       <section className="bg-[#071d34] py-12 text-white md:py-16">
         <div className="site-container flex flex-col justify-between gap-7 md:flex-row md:items-center">
-          <div className="max-w-2xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#e5c681]">
-              Академия государственного управления
-            </p>
+          <AboutReveal className="max-w-2xl" rotate={-0.5}>
+            
             <h2 className="mt-3 text-2xl font-semibold md:text-3xl">
               Образование. Наука. Государственное управление.
             </h2>
@@ -551,14 +608,16 @@ export default function AboutPage() {
               Узнайте больше о новостях, образовательных программах и
               деятельности Академии.
             </p>
-          </div>
-          <Link
-            href="/"
-            className="inline-flex shrink-0 items-center justify-center gap-3 rounded-md border border-[#c9a45c] px-6 py-3 text-sm font-semibold text-[#f0d89f] transition hover:bg-[#c9a45c] hover:text-[#071d34]"
-          >
-            На главную
-            <ArrowRight size={17} />
-          </Link>
+          </AboutReveal>
+          <AboutReveal rotate={1} delay={0.15}>
+            <Link
+              href="/"
+              className="group inline-flex shrink-0 items-center justify-center gap-3 rounded-md border border-[#c9a45c] px-6 py-3 text-sm font-semibold text-[#f0d89f] transition hover:bg-[#c9a45c] hover:text-[#071d34]"
+            >
+              На главную
+              <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1 group-hover:rotate-45 motion-reduce:transition-none" size={17} />
+            </Link>
+          </AboutReveal>
         </div>
       </section>
     </main>
