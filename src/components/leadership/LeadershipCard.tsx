@@ -78,7 +78,11 @@ export function LeadershipCard({
           </h3>
 
           {(leader.degree || leader.academicTitle) && (
-            <p className="mt-3 text-xs leading-5 text-[#061d35]/60">
+            <p
+              className={`mt-3 text-xs leading-5 ${
+                dark ? "text-white/70" : "text-[#061d35]/60"
+              }`}
+            >
               {[leader.degree, leader.academicTitle]
                 .filter(Boolean)
                 .join(" · ")}
@@ -89,11 +93,17 @@ export function LeadershipCard({
             {leader.phone && (
               <a
                 href={`tel:${leader.phone.replace(/[^\d+]/g, "")}`}
-                className="relative z-20 flex items-start gap-3 text-xs leading-5 text-[#061d35]/65 transition-colors hover:text-[#9b7939]"
+                className={`relative z-20 flex items-start gap-3 text-xs leading-5 transition-colors ${
+                  dark
+                    ? "text-white/80 hover:text-[#d4af62]"
+                    : "text-[#061d35]/65 hover:text-[#9b7939]"
+                }`}
               >
                 <Phone
                   size={15}
-                  className="mt-0.5 shrink-0 text-[#b18b43]"
+                  className={`mt-0.5 shrink-0 ${
+                    dark ? "text-[#d4af62]" : "text-[#b18b43]"
+                  }`}
                 />
                 <span className="break-all">{leader.phone}</span>
               </a>
@@ -102,11 +112,17 @@ export function LeadershipCard({
             {leader.email && (
               <a
                 href={`mailto:${leader.email}`}
-                className="relative z-20 flex items-start gap-3 text-xs leading-5 text-[#061d35]/65 transition-colors hover:text-[#9b7939]"
+                className={`relative z-20 flex items-start gap-3 text-xs leading-5 transition-colors ${
+                  dark
+                    ? "text-white/80 hover:text-[#d4af62]"
+                    : "text-[#061d35]/65 hover:text-[#9b7939]"
+                }`}
               >
                 <Mail
                   size={15}
-                  className="mt-0.5 shrink-0 text-[#b18b43]"
+                  className={`mt-0.5 shrink-0 ${
+                    dark ? "text-[#d4af62]" : "text-[#b18b43]"
+                  }`}
                 />
                 <span className="break-all">{leader.email}</span>
               </a>

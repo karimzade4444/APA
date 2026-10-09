@@ -36,6 +36,8 @@ export const leadership: Leader[] = [
       "Ректор Академии государственного управления при Президенте Республики Таджикистан",
     shortPosition: "Ректор Академии",
     photo: "/images/leadership/rector.jpg",
+    phone: "+992 (37) 224 17 86",
+    email: "rector@apa.tj",
     degree: "Кандидат педагогических наук",
     academicTitle: "Доцент",
     education: [
