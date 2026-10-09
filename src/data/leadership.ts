@@ -362,12 +362,12 @@ export const leadership: Leader[] = [
   },
 
   {
-    id: "abdualimzoda",
-    slug: "abdualimzoda-ismoil-ibrohim",
+    id: "vice-rector-economy",
+    slug: "vice-rector-economy",
     name: "Абдуалимзода Исмоил Иброхим",
     position: "Проректор по экономике и хозяйственной деятельности",
     shortPosition: "Проректор по экономике и хозяйству",
-    photo: "/images/leadership/abdualimzoda.jpg",
+    photo: "/images/leadership/vreconomy.jpg",
     phone: "+992 987 38 0000",
     email: "Ismoil.Karimov83@inbox.ru",
     education: [
