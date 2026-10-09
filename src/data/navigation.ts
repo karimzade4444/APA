@@ -23,7 +23,7 @@ export const navigation: NavigationItem[] = [
 
       {
         title: "Руководство",
-        href: "/about/leadership",
+        href: "/leadership",
 
         children: [
           {

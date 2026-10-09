@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from "next/image";
@@ -11,123 +12,85 @@ type LeadershipCardProps = {
   index?: number;
 };
 
-export default function LeadershipCard({
+export function LeadershipCard({
   leader,
   index = 0,
 }: LeadershipCardProps) {
-  const shouldReduceMotion = useReducedMotion();
-
-  const transition = shouldReduceMotion
-    ? { duration: 0 }
-    : {
-        duration: 0.5,
-        delay: Math.min(index * 0.08, 0.4),
-        ease: [0.22, 1, 0.36, 1] as const,
-      };
+  const reduceMotion = useReducedMotion();
 
   return (
     <motion.article
-      initial={shouldReduceMotion ? false : { opacity: 0, y: 28, scale: 0.97 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, amount: 0.15 }}
-      transition={transition}
-      whileHover={
-        shouldReduceMotion
-          ? undefined
-          : { y: -6, transition: { duration: 0.25 } }
+      initial={
+        reduceMotion
+          ? false
+          : { opacity: 0, y: 22 }
       }
-      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-[#c9a45c]/25 bg-white shadow-[0_8px_30px_rgba(6,29,53,0.06)] transition-colors duration-300 hover:border-[#c9a45c]/70 hover:shadow-[0_20px_55px_rgba(6,29,53,0.13)]"
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.12 }}
+      transition={{
+        duration: 0.55,
+        delay: reduceMotion ? 0 : Math.min(index * 0.06, 0.3),
+        ease: "easeOut",
+      }}
+      whileHover={reduceMotion ? undefined : { y: -5 }}
+      className="group h-full"
     >
-      {/* Верхняя декоративная линия */}
-      <div className="relative h-1 w-full overflow-hidden bg-[#061d35]">
-        <motion.div
-          className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-[#b38b3e] via-[#f0d69a] to-[#c9a45c]"
-          initial={false}
-          whileHover={shouldReduceMotion ? undefined : { x: "100%" }}
-          transition={{ duration: 0.7, ease: "easeInOut" }}
-        />
-      </div>
+      <div className="relative flex h-full flex-col">
+        {/* Фото */}
+        <Link
+          href={`/leadership/${leader.slug}`}
+          aria-label={`Подробнее о руководителе: ${leader.name}`}
+          className="relative block overflow-hidden border border-[#c9a45c]/35 bg-[#e9e5dc]"
+        >
+          <div className="relative aspect-[4/4.7] overflow-hidden">
+            <Image
+              src={leader.photo}
+              alt={leader.name}
+              fill
+              sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw"
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+            />
 
-      {/* Фотография */}
-      <Link
-        href={`/leadership/${leader.slug}`}
-        aria-label={`Подробнее о руководителе: ${leader.name}`}
-        className="relative block overflow-hidden bg-[#061d35] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#c9a45c]"
-      >
-        <div className="relative aspect-[4/4.2] w-full overflow-hidden">
-          <Image
-            src={leader.photo}
-            alt={leader.name}
-            fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.045]"
-          />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#061d35]/45 via-transparent to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-100" />
 
-          {/* Затемнение в нижней части фото */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#061d35]/75 via-transparent to-[#061d35]/5" />
+            <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+              <span className="h-px flex-1 bg-[#d4af62]/80" />
 
-          {/* Декоративное вращающееся кольцо */}
-          <motion.div
-            aria-hidden="true"
-            className="absolute right-4 top-4 flex size-11 items-center justify-center rounded-full border border-[#e0c47e]/70 bg-[#061d35]/35 text-[#f0d69a] backdrop-blur-sm"
-            animate={shouldReduceMotion ? undefined : { rotate: 360 }}
-            transition={
-              shouldReduceMotion
-                ? undefined
-                : {
-                    duration: 24,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }
-            }
-          >
-            <span className="block size-3 rounded-full border border-current" />
-          </motion.div>
+              <span className="ml-3 flex h-9 w-9 items-center justify-center rounded-full border border-white/50 bg-[#061d35]/80 text-white transition-all duration-300 group-hover:rotate-45 group-hover:border-[#d4af62] group-hover:text-[#d4af62]">
+                <ArrowUpRight size={17} />
+              </span>
+            </div>
+          </div>
+        </Link>
 
-          {/* Имя на фотографии при наведении */}
-          <div className="absolute inset-x-0 bottom-0 p-5">
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#f0d69a]">
-              Руководство Академии
+        {/* Информация */}
+        <div className="flex flex-1 flex-col border-b border-[#c9a45c]/40 bg-transparent pb-5 pt-5">
+          <p className="mb-3 min-h-[34px] text-[10px] font-semibold uppercase leading-5 tracking-[0.15em] text-[#9b7939] sm:text-[11px]">
+            {leader.shortPosition}
+          </p>
+
+          <h3 className="text-lg font-semibold leading-snug text-[#061d35] transition-colors duration-300 group-hover:text-[#9b7939] sm:text-xl">
+            {leader.name}
+          </h3>
+
+          {(leader.degree || leader.academicTitle) && (
+            <p className="mt-3 text-xs leading-5 text-[#061d35]/60">
+              {[leader.degree, leader.academicTitle]
+                .filter(Boolean)
+                .join(" · ")}
             </p>
-          </div>
-        </div>
-      </Link>
+          )}
 
-      {/* Информация */}
-      <div className="flex flex-1 flex-col p-5 sm:p-6">
-        <h3 className="text-lg font-semibold leading-snug text-[#061d35] transition-colors duration-300 group-hover:text-[#9b762e] sm:text-xl">
-          {leader.name}
-        </h3>
-
-        <p className="mt-2 text-sm leading-6 text-slate-600">
-          {leader.position}
-        </p>
-
-        {(leader.degree || leader.academicTitle) && (
-          <div className="mt-4 flex flex-wrap gap-2">
-            {leader.degree && (
-              <span className="rounded-md border border-[#c9a45c]/30 bg-[#c9a45c]/10 px-2.5 py-1 text-xs font-medium text-[#74571e]">
-                {leader.degree}
-              </span>
-            )}
-
-            {leader.academicTitle && (
-              <span className="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600">
-                {leader.academicTitle}
-              </span>
-            )}
-          </div>
-        )}
-
-        {/* Контакты */}
-        {(leader.phone || leader.email) && (
-          <div className="mt-5 space-y-2 border-t border-slate-100 pt-4">
+          <div className="mt-auto space-y-3 pt-5">
             {leader.phone && (
               <a
                 href={`tel:${leader.phone.replace(/[^\d+]/g, "")}`}
-                className="flex items-center gap-2 text-sm text-slate-600 transition-colors hover:text-[#9b762e]"
+                className="flex items-start gap-3 text-xs leading-5 text-[#061d35]/65 transition-colors hover:text-[#9b7939]"
               >
-                <Phone className="size-4 shrink-0 text-[#b38b3e]" />
+                <Phone
+                  size={15}
+                  className="mt-0.5 shrink-0 text-[#b18b43]"
+                />
                 <span className="break-all">{leader.phone}</span>
               </a>
             )}
@@ -135,29 +98,23 @@ export default function LeadershipCard({
             {leader.email && (
               <a
                 href={`mailto:${leader.email}`}
-                className="flex items-center gap-2 text-sm text-slate-600 transition-colors hover:text-[#9b762e]"
+                className="flex items-start gap-3 text-xs leading-5 text-[#061d35]/65 transition-colors hover:text-[#9b7939]"
               >
-                <Mail className="size-4 shrink-0 text-[#b38b3e]" />
+                <Mail
+                  size={15}
+                  className="mt-0.5 shrink-0 text-[#b18b43]"
+                />
                 <span className="break-all">{leader.email}</span>
               </a>
             )}
           </div>
-        )}
 
-        {/* Переход к полной биографии */}
-        <div className="mt-auto pt-6">
           <Link
             href={`/leadership/${leader.slug}`}
-            className="inline-flex min-h-11 w-full items-center justify-between gap-3 rounded-lg border border-[#c9a45c]/45 px-4 py-3 text-sm font-medium text-[#061d35] transition-all duration-300 hover:border-[#061d35] hover:bg-[#061d35] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c9a45c] focus-visible:ring-offset-2"
+            className="mt-6 inline-flex w-fit items-center gap-2 border-b border-[#c9a45c]/70 pb-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#061d35] transition-all duration-300 hover:gap-3 hover:border-[#061d35]"
           >
-            <span>Полная биография</span>
-            <motion.span
-              className="flex"
-              whileHover={shouldReduceMotion ? undefined : { x: 3, y: -3 }}
-              transition={{ duration: 0.2 }}
-            >
-              <ArrowUpRight className="size-4" />
-            </motion.span>
+            Биография
+            <ArrowUpRight size={14} />
           </Link>
         </div>
       </div>

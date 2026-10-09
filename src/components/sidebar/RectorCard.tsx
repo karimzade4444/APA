@@ -38,7 +38,7 @@ const RectorCard = () => {
           </h3>
 
           <Link
-            href="/about/leadership/rector"
+            href="/leadership"
             className="mt-4 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-[#8e6b2c] transition-all duration-300 hover:gap-3"
           >
             Подробнее
