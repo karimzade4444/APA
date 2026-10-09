@@ -18,11 +18,11 @@ export default function LeadershipPage() {
     <main className="min-h-screen bg-[#f5f1e9]">
       {/* Верхний декоративный блок */}
       <section className="relative isolate overflow-hidden bg-[#061d35]">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute -right-24 -top-32 h-96 w-96 rounded-full border border-[#c9a45c]/20" />
-          <div className="absolute -right-12 -top-20 h-72 w-72 rounded-full border border-[#c9a45c]/20" />
-          <div className="absolute -bottom-40 left-1/3 h-80 w-80 rounded-full border border-white/[0.06]" />
+        <div className="pointer-events-none absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-r from-[#061d35] via-[#061d35]/95 to-[#102d49]/80" />
+          <div className="absolute -right-24 -top-32 h-[32rem] w-[32rem] rounded-full border border-[#c9a45c]/20" />
+          <div className="absolute -right-12 -top-20 h-[26rem] w-[26rem] rounded-full border border-[#c9a45c]/20" />
+          <div className="absolute -bottom-40 left-1/3 h-80 w-80 rounded-full border border-white/[0.06]" />
         </div>
         <div
           aria-hidden="true"
@@ -30,7 +30,7 @@ export default function LeadershipPage() {
         />
         <LeadershipOrbit className="pointer-events-none absolute right-[8%] top-12 z-0 h-36 w-36 text-[#c9a45c]/70 sm:right-[12%] sm:top-16 sm:h-48 sm:w-48" />
 
-        <div className="site-container relative py-12 md:py-16 lg:py-20">
+        <div className="site-container relative z-10 py-12 md:py-16 lg:py-20">
           {/* Навигационная цепочка */}
           <LeadershipHeroReveal>
             <nav
