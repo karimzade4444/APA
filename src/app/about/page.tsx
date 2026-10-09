@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -11,9 +12,10 @@ import {
   ShieldCheck,
   Target,
 } from "lucide-react";
-import { academyAbout } from "@/data/about";
 
-const gold = "#c9a45c";
+
+import { academyAbout } from "@/data/about";
+import AboutHeroSlider from "./AboutHeroSlider";
 
 function SectionHeading({
   eyebrow,
@@ -49,17 +51,47 @@ function InfoCard({ title, text }: { title: string; text: string }) {
   );
 }
 
+function PhotoGrid({
+  photos,
+}: {
+  photos: { src: string; alt: string; title?: string }[];
+}) {
+  return (
+    <div
+      className={`mb-8 grid gap-4 ${
+        photos.length === 3 ? "sm:grid-cols-3" : "md:grid-cols-2"
+      }`}
+    >
+      {photos.map((photo) => (
+        <figure key={photo.src} className="min-w-0">
+          <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-[#e5dfd3]">
+            <Image
+              src={photo.src}
+              alt={photo.alt}
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover  transition duration-500 hover:scale-105"
+            />
+          </div>
+          {photo.title && (
+            <figcaption className="mt-3 text-sm text-slate-500">
+              {photo.title}
+            </figcaption>
+          )}
+        </figure>
+      ))}
+    </div>
+  );
+}
+
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-[#f5f1e9]">
       <section className="relative overflow-hidden bg-[#071d34] text-white">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute -right-24 -top-36 h-[28rem] w-[28rem] rounded-full border border-[#c9a45c]" />
-          <div className="absolute -right-12 -top-24 h-[24rem] w-[24rem] rounded-full border border-[#c9a45c]" />
-          <div className="absolute -bottom-48 left-[38%] h-[32rem] w-[32rem] rounded-full border border-white/20" />
-        </div>
+        <div className="pointer-events-none absolute -right-24 -top-32 h-[32rem] w-[32rem] rounded-full border border-[#c9a45c]/20" />
+        <div className="pointer-events-none absolute -right-12 -top-20 h-[26rem] w-[26rem] rounded-full border border-[#c9a45c]/20" />
 
-        <div className="site-container relative py-16 md:py-24">
+        <div className="site-container relative py-12 md:py-16 lg:py-20">
           <div className="mb-8 flex items-center gap-2 text-sm text-white/60">
             <Link href="/" className="transition hover:text-[#e5c681]">
               Главная
@@ -68,28 +100,47 @@ export default function AboutPage() {
             <span className="text-[#e5c681]">Об Академии</span>
           </div>
 
-          <div className="max-w-4xl">
-            <div className="mb-5 inline-flex items-center gap-3 border-l-2 border-[#c9a45c] pl-4">
-              <span className="text-xs font-semibold uppercase tracking-[0.24em] text-[#e5c681]">
-                Официальный портал
-              </span>
+          <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
+            <div className="max-w-2xl">
+              <div className="mb-6 inline-flex items-center gap-3 border-l-2 border-[#c9a45c] pl-4">
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#e5c681]">
+                  Официальный портал
+                </span>
+              </div>
+
+              <h1 className="text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl xl:text-6xl">
+                Об Академии
+              </h1>
+
+              <p className="mt-6 text-lg leading-8 text-white/80 md:text-xl">
+                Академия государственного управления при Президенте Республики
+                Таджикистан
+              </p>
+
+              <div className="my-7 h-px w-20 bg-[#c9a45c]" />
+
+              <p className="leading-8 text-white/70">
+                Образование, наука и подготовка профессиональных кадров для
+                государственного управления и государственной службы.
+              </p>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a
+                  href="#history"
+                  className="inline-flex items-center justify-center rounded-md bg-[#c9a45c] px-5 py-3 text-sm font-semibold text-[#071d34] transition hover:bg-[#e1c37f]"
+                >
+                  История Академии
+                </a>
+                <a
+                  href="#education"
+                  className="inline-flex items-center justify-center rounded-md border border-white/25 px-5 py-3 text-sm font-semibold text-white transition hover:border-[#c9a45c] hover:text-[#e5c681]"
+                >
+                  Образование
+                </a>
+              </div>
             </div>
 
-            <h1 className="text-3xl font-semibold leading-tight md:text-5xl lg:text-6xl">
-              {academyAbout.title}
-            </h1>
-
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-white/75 md:text-xl">
-              {academyAbout.subtitle}
-            </p>
-
-            <div className="mt-9 h-px w-32 bg-[#c9a45c]" />
-
-            <p className="mt-7 max-w-3xl text-base leading-8 text-white/80">
-              Академия — образовательный и научный центр, ориентированный на
-              подготовку профессиональных кадров для государственного управления
-              и государственной службы.
-            </p>
+            <AboutHeroSlider />
           </div>
         </div>
 
@@ -129,13 +180,18 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="border-y border-[#e4dccd] bg-white py-14 md:py-20">
+      <section
+        id="history"
+        className="scroll-mt-24 border-y border-[#e4dccd] bg-white py-14 md:py-20"
+      >
         <div className="site-container">
           <SectionHeading
             eyebrow="Путь развития"
             title="История Академии"
             text="Основные этапы становления и развития системы подготовки кадров государственного управления."
           />
+
+          <PhotoGrid photos={academyAbout.historyPhotos} />
 
           <div className="relative ml-2 border-l border-[#d8c39a] md:ml-4">
             {academyAbout.history.map((item) => (
@@ -221,12 +277,17 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="site-container py-14 md:py-20">
+      <section
+        id="education"
+        className="scroll-mt-24 site-container py-14 md:py-20"
+      >
         <SectionHeading
           eyebrow="Факультеты"
           title="Образовательная среда"
           text="Факультеты объединяют образовательные направления и создают условия для профессиональной подготовки специалистов."
         />
+
+        <PhotoGrid photos={academyAbout.studentPhotos} />
 
         <div className="grid gap-5 md:grid-cols-2">
           {academyAbout.faculties.map((faculty) => (
@@ -244,7 +305,7 @@ export default function AboutPage() {
           <SectionHeading
             eyebrow="Образование"
             title="Программы подготовки"
-            text="Академия сочетает получение высшего профессионального образования с дополнительной подготовкой и развитием компетенций государственных служащих."
+            text="Академия сочетает высшее профессиональное образование с дополнительной подготовкой и развитием компетенций государственных служащих."
           />
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
@@ -299,8 +360,8 @@ export default function AboutPage() {
                   Научные специальности PhD
                 </h3>
                 <p className="mt-3 leading-7 text-slate-600">
-                  Направления научной подготовки, перечисленные в
-                  предоставленных материалах:
+                  Направления научной подготовки, перечисленные в материалах
+                  Академии.
                 </p>
                 <ol className="mt-5 grid gap-3 sm:grid-cols-2">
                   {academyAbout.education.phdSpecialties.map((item, index) => (
@@ -327,6 +388,8 @@ export default function AboutPage() {
           title="Исследования и научные проекты"
           text="Исследовательская работа посвящена актуальным вопросам развития государства, государственной службы и управленческой практики."
         />
+
+        <PhotoGrid photos={academyAbout.conferencePhotos} />
 
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {academyAbout.research.projects.map((project) => (
@@ -362,9 +425,8 @@ export default function AboutPage() {
           <SectionHeading
             eyebrow="Издательская деятельность"
             title="Научные журналы"
-            text="Публикации и периодические издания способствуют распространению научных результатов и обсуждению вопросов государственного управления."
+            text="Публикации и периодические издания способствуют распространению научных результатов."
           />
-
           <div className="grid gap-5 md:grid-cols-2">
             {academyAbout.publications.map((publication) => (
               <InfoCard
@@ -381,9 +443,8 @@ export default function AboutPage() {
         <SectionHeading
           eyebrow="Международные связи"
           title="Международное сотрудничество"
-          text="Сотрудничество с зарубежными образовательными, научными и государственными учреждениями способствует обмену опытом и развитию профессиональных компетенций."
+          text="Сотрудничество с зарубежными образовательными, научными и государственными учреждениями способствует обмену опытом."
         />
-
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {academyAbout.internationalPartners.map((partner) => (
             <div
@@ -402,8 +463,10 @@ export default function AboutPage() {
           <SectionHeading
             eyebrow="Материальная база"
             title="Инфраструктура и ресурсы"
-            text="Учебная и научная инфраструктура обеспечивает условия для образовательного процесса, исследовательской работы и использования цифровых технологий."
+            text="Учебная и научная инфраструктура обеспечивает условия для образовательного процесса и исследовательской работы."
           />
+
+          <PhotoGrid photos={academyAbout.infrastructurePhotos} />
 
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {academyAbout.infrastructure.map((item, index) => (
@@ -446,7 +509,7 @@ export default function AboutPage() {
         <SectionHeading
           eyebrow="Преемственность руководства"
           title="Руководители Академии"
-          text="Руководители, перечисленные в предоставленных исторических материалах."
+          text="Руководители, перечисленные в исторических материалах."
         />
 
         <div className="overflow-hidden rounded-xl border border-[#e4dccd] bg-white">
