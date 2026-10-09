@@ -15,6 +15,7 @@ import {
 
 
 import { academyAbout } from "@/data/about";
+import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 import { AboutOrbit, AboutReveal } from "./AboutAnimations";
 import AboutHeroSlider from "./AboutHeroSlider";
 
@@ -102,13 +103,12 @@ export default function AboutPage() {
         <AboutOrbit className="pointer-events-none absolute right-[8%] top-12 h-36 w-36 text-[#c9a45c]/70 md:right-[12%] md:top-16 md:h-48 md:w-48" />
 
         <div className="site-container relative py-12 md:py-16 lg:py-20">
-          <div className="mb-8 flex items-center gap-2 text-sm text-white/60">
-            <Link href="/" className="transition hover:text-[#e5c681]">
-              Главная
-            </Link>
-            <span>/</span>
-            <span className="text-[#e5c681]">Об Академии</span>
-          </div>
+          <Breadcrumbs
+            items={[
+              { label: "Главная", href: "/" },
+              { label: "Об Академии" },
+            ]}
+          />
 
           <div className="mx-auto grid max-w-6xl items-center gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1fr)] lg:gap-10">
             <AboutReveal className="max-w-xl" rotate={-1} y={18}>

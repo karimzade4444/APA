@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Landmark } from "lucide-react";
+import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 import { LeadershipGrid } from "@/components/leadership/LeadershipGrid";
 import {
   LeadershipHeroReveal,
@@ -33,21 +33,12 @@ export default function LeadershipPage() {
         <div className="site-container relative z-10 py-12 md:py-16 lg:py-20">
           {/* Навигационная цепочка */}
           <LeadershipHeroReveal>
-            <nav
-              aria-label="Навигационная цепочка"
-              className="mb-8 flex items-center gap-2 text-sm text-white/60"
-            >
-              <Link
-                href="/"
-                className="transition hover:text-[#e5c681]"
-              >
-                Главная
-              </Link>
-
-              <span>/</span>
-
-              <span className="text-[#e5c681]">Руководство Академии</span>
-            </nav>
+            <Breadcrumbs
+              items={[
+                { label: "Главная", href: "/" },
+                { label: "Руководство Академии" },
+              ]}
+            />
           </LeadershipHeroReveal>
 
           <div className="max-w-4xl">

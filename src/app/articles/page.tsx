@@ -1,11 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
+import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 import { articles } from "@/data/articles";
 
 export default function ArticlesPage() {
   return (
-    <main className="bg-[#f1ece2] py-16 md:py-24">
+    <main className="bg-[#f1ece2] py-12 md:py-16 lg:py-20">
       <div className="site-container">
+        <Breadcrumbs
+          variant="light"
+          items={[
+            { label: "Главная", href: "/" },
+            { label: "Публикации" },
+          ]}
+        />
         <div className="mb-12 border-b border-[#061d35]/15 pb-6">
           <p className="mb-3 text-xs font-medium uppercase tracking-[0.25em] text-[#a37b2f]">
             Наука и аналитика

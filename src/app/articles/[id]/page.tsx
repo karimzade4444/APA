@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
+import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 import { articles } from "@/data/articles";
 
 export function generateStaticParams() {
@@ -18,16 +18,18 @@ export default async function ArticlePage({
   }
 
   return (
-    <main className="bg-[#f1ece2] py-16 md:py-24">
+    <main className="bg-[#f1ece2] py-12 md:py-16 lg:py-20">
       <article className="mx-auto max-w-4xl px-6">
-        <Link
-          href="/articles"
-          className="inline-flex items-center gap-2 text-sm font-medium text-[#8e6b2c] transition-colors hover:text-[#061d35]"
-        >
-          <span aria-hidden="true">←</span> Все публикации
-        </Link>
+        <Breadcrumbs
+          variant="light"
+          items={[
+            { label: "Главная", href: "/" },
+            { label: "Публикации", href: "/articles" },
+            { label: article.title },
+          ]}
+        />
 
-        <header className="mt-8 border-b border-[#061d35]/15 pb-8">
+        <header className="border-b border-[#061d35]/15 pb-8">
           <p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-[#a37b2f]">
             Наука и аналитика
           </p>

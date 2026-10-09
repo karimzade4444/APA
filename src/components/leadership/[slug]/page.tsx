@@ -8,12 +8,12 @@ import {
   ArrowUpRight,
   Award,
   BriefcaseBusiness,
-  ChevronRight,
   GraduationCap,
   Mail,
   Phone,
 } from "lucide-react";
 import { leadership } from "@/data/leadership";
+import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 import {
   LeadershipHeroMotion,
   LeadershipSectionReveal,
@@ -67,28 +67,14 @@ export default async function LeaderPage({ params }: PageProps) {
         <div className="pointer-events-none absolute -right-20 -top-24 -z-10 h-80 w-80 rounded-full border border-[#c9a45c]/20 sm:h-[500px] sm:w-[500px]" />
         <div className="pointer-events-none absolute -right-10 -top-14 -z-10 h-64 w-64 rounded-full border border-[#c9a45c]/15 sm:h-[400px] sm:w-[400px]" />
 
-        <div className="site-container py-8 sm:py-12">
-          <nav
-            aria-label="Навигационная цепочка"
-            className="mb-10 flex flex-wrap items-center gap-2 text-sm text-white/55"
-          >
-            <Link href="/" className="transition-colors hover:text-[#d4af62]">
-              Главная
-            </Link>
-
-            <ChevronRight size={15} />
-
-            <Link
-              href="/leadership"
-              className="transition-colors hover:text-[#d4af62]"
-            >
-              Руководство
-            </Link>
-
-            <ChevronRight size={15} />
-
-            <span className="text-[#d4af62]">{leader.name}</span>
-          </nav>
+        <div className="site-container py-12 md:py-16 lg:py-20">
+          <Breadcrumbs
+            items={[
+              { label: "Главная", href: "/" },
+              { label: "Руководство", href: "/leadership" },
+              { label: leader.shortPosition },
+            ]}
+          />
 
           <LeadershipHeroMotion className="grid items-center gap-10 lg:grid-cols-[340px_1fr] lg:gap-16">
             {/* Фотография */}
