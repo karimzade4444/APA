@@ -54,7 +54,7 @@ const MenuTreeItem = ({ item }: MenuTreeItemProps) => {
           href={item.href}
           onClick={handleClick}
           aria-expanded={hasChildren ? isOpen : undefined}
-          className="flex items-center justify-between rounded-none px-4 py-3 text-sm text-white/80 transition-[padding,background-color,color] duration-300 hover:bg-white/5 hover:pl-5 hover:text-[#d4af62]"
+          className="flex items-center justify-between rounded-none px-4 py-2 text-sm text-white/80 transition-[padding,background-color,color] duration-300 hover:bg-white/5 hover:pl-5 hover:text-[#d4af62]"
         >
           <span>
             <span className="mr-2 text-[#c9a45c]/60 transition duration-300 group-hover:text-[#d4af62]">
@@ -78,7 +78,7 @@ const MenuTreeItem = ({ item }: MenuTreeItemProps) => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -5 }}
               transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute left-full top-0 z-50 min-w-70 border border-[#c9a45c]/30 bg-[#061d35] p-4 shadow-2xl"
+              className="absolute left-full top-0 z-50 min-w-70 border border-[#c9a45c]/30 bg-[#061d35] p-3 shadow-2xl"
             >
               <div className="mb-3 border-b border-[#d4af62] pb-3">
                 <p className="text-xs uppercase tracking-[0.2em] text-[#d4af62]">
