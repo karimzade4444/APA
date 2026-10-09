@@ -114,6 +114,7 @@ export const leadership: Leader[] = [
     shortPosition: "Первый проректор, Проректор по учебной работе",
     photo: "/images/leadership/fvrector.jpg",
     phone: "+992 918-80-90-89",
+    email: "f.odinazoda@apa.tj",
     degree: "Кандидат экономических наук",
     education: [
       {
