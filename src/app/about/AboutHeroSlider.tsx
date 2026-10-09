@@ -28,7 +28,7 @@ export default function AboutHeroSlider() {
 
   return (
     <div className="group min-w-0">
-      <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[#c9a45c]/40 bg-[#102b45] shadow-2xl md:aspect-[5/4]">
+      <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-[#c9a45c]/40 bg-[#102b45] shadow-2xl">
         {slides.map((slide, index) => (
           <div
             key={slide.src}

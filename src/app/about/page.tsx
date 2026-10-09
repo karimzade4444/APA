@@ -110,26 +110,26 @@ export default function AboutPage() {
             <span className="text-[#e5c681]">Об Академии</span>
           </div>
 
-          <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
-            <AboutReveal className="max-w-2xl" rotate={-1} y={18}>
+          <div className="mx-auto grid max-w-6xl items-center gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1fr)] lg:gap-10">
+            <AboutReveal className="max-w-xl" rotate={-1} y={18}>
               <div className="mb-6 inline-flex items-center gap-3 border-l-2 border-[#c9a45c] pl-4">
                 <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#e5c681]">
                   Официальный портал
                 </span>
               </div>
 
-              <h1 className="text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl xl:text-6xl">
+              <h1 className="text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl">
                 Об Академии
               </h1>
 
-              <p className="mt-6 text-lg leading-8 text-white/80 md:text-xl">
+              <p className="mt-5 text-base leading-7 text-white/80 sm:text-lg sm:leading-8">
                 Академия государственного управления при Президенте Республики
                 Таджикистан
               </p>
 
-              <div className="my-7 h-px w-20 bg-[#c9a45c]" />
+              <div className="my-6 h-px w-20 bg-[#c9a45c]" />
 
-              <p className="leading-8 text-white/70">
+              <p className="text-sm leading-7 text-white/70 sm:text-base">
                 Образование, наука и подготовка профессиональных кадров для
                 государственного управления и государственной службы.
               </p>
@@ -150,7 +150,12 @@ export default function AboutPage() {
               </div>
             </AboutReveal>
 
-            <AboutReveal rotate={1} delay={0.15} y={30}>
+            <AboutReveal
+              className="w-full max-w-[600px] justify-self-end"
+              rotate={1}
+              delay={0.15}
+              y={30}
+            >
               <AboutHeroSlider />
             </AboutReveal>
           </div>
