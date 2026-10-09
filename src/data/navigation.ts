@@ -28,15 +28,27 @@ export const navigation: NavigationItem[] = [
         children: [
           {
             title: "Ректор",
-            href: "/about/leadership/rector",
+            href: "/leadership/rector",
           },
           {
             title: "Первый проректор",
-            href: "/about/leadership/first-prorector",
+            href: "/leadership/first-vice-rector",
           },
           {
-            title: "Проректоры",
-            href: "/about/leadership/prorectors",
+            title: "Проректор по науке и инновациям",
+            href: "/leadership/vice-rector-science",
+          },
+          {
+            title: "Проректор по идеологии и воспитанию",
+            href: "/leadership/vice-rector-ideology",
+          },
+          {
+            title: "Проректор по международным связям",
+            href: "/leadership/vice-rector-international",
+          },
+          {
+            title: "Проректор по экономике и хозяйству",
+            href: "/leadership/vice-rector-economy",
           },
         ],
       },
