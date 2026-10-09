@@ -13,8 +13,11 @@ import {
   Mail,
   Phone,
 } from "lucide-react";
-import { motion } from "motion/react";
 import { leadership } from "@/data/leadership";
+import {
+  LeadershipHeroMotion,
+  LeadershipSectionReveal,
+} from "@/components/leadership/LeadershipBiographyMotion";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -87,12 +90,7 @@ export default async function LeaderPage({ params }: PageProps) {
             <span className="text-[#d4af62]">{leader.name}</span>
           </nav>
 
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, ease: "easeOut" }}
-            className="grid items-center gap-10 lg:grid-cols-[340px_1fr] lg:gap-16"
-          >
+          <LeadershipHeroMotion className="grid items-center gap-10 lg:grid-cols-[340px_1fr] lg:gap-16">
             {/* Фотография */}
             <div className="mx-auto w-full max-w-[340px]">
               <div className="relative border border-[#c9a45c]/50 p-2">
@@ -152,7 +150,7 @@ export default async function LeaderPage({ params }: PageProps) {
                 Все руководители
               </Link>
             </div>
-          </motion.div>
+          </LeadershipHeroMotion>
         </div>
 
         <div className="h-px bg-gradient-to-r from-transparent via-[#c9a45c]/60 to-transparent" />
@@ -163,12 +161,7 @@ export default async function LeaderPage({ params }: PageProps) {
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-16">
           <div className="space-y-14">
             {/* Образование */}
-            <motion.section
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: 0.55 }}
-            >
+            <LeadershipSectionReveal>
               <div className="mb-8 flex items-center gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center border border-[#c9a45c]/40 text-[#9b7939]">
                   <GraduationCap size={23} />
@@ -213,15 +206,10 @@ export default async function LeaderPage({ params }: PageProps) {
                   Информация об образовании уточняется.
                 </p>
               )}
-            </motion.section>
+            </LeadershipSectionReveal>
 
             {/* Трудовая деятельность */}
-            <motion.section
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: 0.55 }}
-            >
+            <LeadershipSectionReveal>
               <div className="mb-8 flex items-center gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center border border-[#c9a45c]/40 text-[#9b7939]">
                   <BriefcaseBusiness size={22} />
@@ -258,16 +246,11 @@ export default async function LeaderPage({ params }: PageProps) {
                   Информация о трудовой деятельности уточняется.
                 </p>
               )}
-            </motion.section>
+            </LeadershipSectionReveal>
 
             {/* Награды */}
             {leader.awards && leader.awards.length > 0 && (
-              <motion.section
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.1 }}
-                transition={{ duration: 0.55 }}
-              >
+              <LeadershipSectionReveal>
                 <div className="mb-8 flex items-center gap-4">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center border border-[#c9a45c]/40 text-[#9b7939]">
                     <Award size={22} />
@@ -297,7 +280,7 @@ export default async function LeaderPage({ params }: PageProps) {
                     </div>
                   ))}
                 </div>
-              </motion.section>
+              </LeadershipSectionReveal>
             )}
           </div>
 
