@@ -10,13 +10,15 @@ import Stagger from "../animations/Stragger";
 
 type MenuTreeProps = {
   items: NavigationItem[];
+  onNavigate: () => void;
 };
 
 type MenuTreeItemProps = {
   item: NavigationItem;
+  onNavigate: () => void;
 };
 
-const MenuTreeItem = ({ item }: MenuTreeItemProps) => {
+const MenuTreeItem = ({ item, onNavigate }: MenuTreeItemProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
   const [hasOpenedByClick, setHasOpenedByClick] = useState(false);
@@ -29,6 +31,7 @@ const MenuTreeItem = ({ item }: MenuTreeItemProps) => {
     event.preventDefault();
     setHasOpenedByClick(true);
     setIsFocused(true);
+    return;
   };
 
   const handleBlur = (event: FocusEvent<HTMLDivElement>) => {
@@ -52,7 +55,12 @@ const MenuTreeItem = ({ item }: MenuTreeItemProps) => {
       >
         <Link
           href={item.href}
-          onClick={handleClick}
+          onClick={(event) => {
+            handleClick(event);
+            if (!event.defaultPrevented) {
+              onNavigate();
+            }
+          }}
           aria-expanded={hasChildren ? isOpen : undefined}
           className="flex items-center justify-between rounded-none px-4 py-2 text-sm text-white/80 transition-[padding,background-color,color] duration-300 hover:bg-white/5 hover:pl-5 hover:text-[#d4af62]"
         >
@@ -86,7 +94,7 @@ const MenuTreeItem = ({ item }: MenuTreeItemProps) => {
                 </p>
               </div>
 
-              <MenuTree items={item.children!} />
+              <MenuTree items={item.children!} onNavigate={onNavigate} />
             </motion.div>
           )}
         </AnimatePresence>
@@ -95,12 +103,16 @@ const MenuTreeItem = ({ item }: MenuTreeItemProps) => {
   );
 };
 
-const MenuTree = ({ items }: MenuTreeProps) => {
+const MenuTree = ({ items, onNavigate }: MenuTreeProps) => {
   return (
     <Stagger stagger={0.06}>
       <div className="space-y-1">
         {items.map((item) => (
-          <MenuTreeItem key={item.href} item={item} />
+          <MenuTreeItem
+            key={item.href}
+            item={item}
+            onNavigate={onNavigate}
+          />
         ))}
       </div>
     </Stagger>

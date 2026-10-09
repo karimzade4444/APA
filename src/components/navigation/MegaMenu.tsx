@@ -7,9 +7,10 @@ import Stagger from "../animations/Stragger";
 type MegaMenuProps = {
   items: NavigationItem[];
   title: string;
+  onNavigate: () => void;
 };
 
-const MegaMenu = ({ items, title }: MegaMenuProps) => {
+const MegaMenu = ({ items, title, onNavigate }: MegaMenuProps) => {
   return (
     <div className="w-70 rounded border-2 border-[#c9a45c]/50 bg-[#061d35] p-4 shadow-2xl">
       <Stagger stagger={0.08}>
@@ -22,7 +23,7 @@ const MegaMenu = ({ items, title }: MegaMenuProps) => {
         </StaggerItem>
 
         <StaggerItem>
-          <MenuTree items={items} />
+          <MenuTree items={items} onNavigate={onNavigate} />
         </StaggerItem>
       </Stagger>
     </div>

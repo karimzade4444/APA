@@ -9,17 +9,24 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import { useState } from "react";
 import MegaMenu from "@/components/navigation/MegaMenu";
 import { navigation } from "@/data/navigation";
 
 const Navigation = () => {
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
+
   return (
     <nav className="border-y border-[#c9a45c]/40 bg-[#061d35]">
       <div className="site-container flex items-center">
-        <NavigationMenu className="w-full max-w-none justify-start">
+        <NavigationMenu
+          value={openMenu}
+          onValueChange={setOpenMenu}
+          className="w-full max-w-none justify-start"
+        >
           <NavigationMenuList className="justify-between gap-0">
             {navigation.map((item) => (
-              <NavigationMenuItem key={item.title}>
+              <NavigationMenuItem key={item.title} value={item.href}>
                 {item.children ? (
                   <>
                     <NavigationMenuTrigger className="h-12 cursor-pointer rounded-none bg-transparent px-5 text-sm font-light uppercase tracking-wide text-white hover:bg-white/5 hover:text-[#d4af62] focus:bg-white/5 focus:text-[#d4af62] data-popup-open:bg-white/5 data-popup-open:hover:bg-white/5 data-open:bg-white/5 data-open:hover:bg-white/5 data-[state=open]:bg-white/5 data-[state=open]:text-[#d4af62] duration-300">
@@ -27,7 +34,11 @@ const Navigation = () => {
                     </NavigationMenuTrigger>
 
                     <NavigationMenuContent>
-                      <MegaMenu items={item.children} title={item.title} />
+                      <MegaMenu
+                        items={item.children}
+                        title={item.title}
+                        onNavigate={() => setOpenMenu(null)}
+                      />
                     </NavigationMenuContent>
                   </>
                 ) : (
