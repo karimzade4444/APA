@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ChevronRight, Landmark } from "lucide-react";
 import { LeadershipGrid } from "@/components/leadership/LeadershipGrid";
+import {
+  LeadershipHeroReveal,
+  LeadershipOrbit,
+} from "@/components/leadership/LeadershipHeroEffects";
 
 export const metadata: Metadata = {
   title: "Руководство Академии | Академия государственного управления",
@@ -20,50 +24,59 @@ export default function LeadershipPage() {
           <div className="absolute -bottom-40 left-1/3 h-80 w-80 rounded-full border border-white/[0.06]" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#061d35] via-[#061d35]/95 to-[#102d49]/80" />
         </div>
+        <LeadershipOrbit className="pointer-events-none absolute right-[8%] top-12 z-0 h-36 w-36 text-[#c9a45c]/70 sm:right-[12%] sm:top-16 sm:h-48 sm:w-48" />
 
         <div className="site-container relative py-14 sm:py-20 lg:py-24">
           {/* Навигационная цепочка */}
-          <nav
-            aria-label="Навигационная цепочка"
-            className="mb-8 flex flex-wrap items-center gap-2 text-sm text-white/60"
-          >
-            <Link
-              href="/"
-              className="transition-colors hover:text-[#d4af62]"
+          <LeadershipHeroReveal>
+            <nav
+              aria-label="Навигационная цепочка"
+              className="mb-8 flex flex-wrap items-center gap-2 text-sm text-white/60"
             >
-              Главная
-            </Link>
+              <Link
+                href="/"
+                className="transition-colors hover:text-[#d4af62]"
+              >
+                Главная
+              </Link>
 
-            <ChevronRight size={15} />
+              <ChevronRight size={15} />
 
-            <span className="text-[#d4af62]">Руководство Академии</span>
-          </nav>
+              <span className="text-[#d4af62]">Руководство Академии</span>
+            </nav>
+          </LeadershipHeroReveal>
 
           <div className="max-w-4xl">
-            <div className="mb-6 flex items-center gap-3">
-              <span className="h-px w-12 bg-[#c9a45c]" />
-              <span className="text-xs font-semibold uppercase tracking-[0.24em] text-[#d4af62] sm:text-sm">
-                Академия государственного управления
-              </span>
-            </div>
+            <LeadershipHeroReveal delay={0.1}>
+              <div className="mb-6 flex items-center gap-3">
+                <span className="h-px w-12 bg-[#c9a45c]" />
+                <span className="text-xs font-semibold uppercase tracking-[0.24em] text-[#d4af62] sm:text-sm">
+                  Академия государственного управления
+                </span>
+              </div>
+            </LeadershipHeroReveal>
 
-            <h1 className="text-3xl font-semibold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Руководство{" "}
-              <span className="text-[#d4af62]">Академии</span>
-            </h1>
+            <LeadershipHeroReveal delay={0.2}>
+              <h1 className="text-3xl font-semibold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+                Руководство{" "}
+                <span className="text-[#d4af62]">Академии</span>
+              </h1>
+            </LeadershipHeroReveal>
 
-            <p className="mt-6 max-w-2xl text-base leading-7 text-white/70 sm:text-lg sm:leading-8">
-              Руководство Академии обеспечивает организацию образовательной,
-              научной и административной деятельности, направленной на
-              подготовку квалифицированных кадров для государственной службы.
-            </p>
+            <LeadershipHeroReveal delay={0.3}>
+              <p className="mt-6 max-w-2xl text-base leading-7 text-white/70 sm:text-lg sm:leading-8">
+                Руководство Академии обеспечивает организацию образовательной,
+                научной и административной деятельности, направленной на
+                подготовку квалифицированных кадров для государственной службы.
+              </p>
+            </LeadershipHeroReveal>
 
-            <div className="mt-8 flex items-center gap-3 text-sm text-white/60">
-              <Landmark size={19} className="text-[#d4af62]" />
-              <span>
-                При Президенте Республики Таджикистан
-              </span>
-            </div>
+            <LeadershipHeroReveal delay={0.4}>
+              <div className="mt-8 flex items-center gap-3 text-sm text-white/60">
+                <Landmark size={19} className="text-[#d4af62]" />
+                <span>При Президенте Республики Таджикистан</span>
+              </div>
+            </LeadershipHeroReveal>
           </div>
 
           {/* Золотая линия */}
@@ -99,4 +112,3 @@ export default function LeadershipPage() {
     </main>
   );
 }
-
