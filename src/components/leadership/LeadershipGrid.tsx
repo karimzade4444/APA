@@ -44,6 +44,7 @@ export function LeadershipGrid() {
                 <LeadershipCard
                   leader={rector}
                   index={0}
+                  dark
                 />
               </div>
 
@@ -184,4 +185,3 @@ export function LeadershipGrid() {
     </div>
   );
 }
-

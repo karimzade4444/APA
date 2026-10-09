@@ -10,11 +10,13 @@ import type { Leader } from "@/data/leadership";
 type LeadershipCardProps = {
   leader: Leader;
   index?: number;
+  dark?: boolean;
 };
 
 export function LeadershipCard({
   leader,
   index = 0,
+  dark = false,
 }: LeadershipCardProps) {
   const reduceMotion = useReducedMotion();
 
@@ -33,15 +35,11 @@ export function LeadershipCard({
         ease: "easeOut",
       }}
       whileHover={reduceMotion ? undefined : { y: -5 }}
-      className="group h-full"
+      className="group relative h-full"
     >
       <div className="relative flex h-full flex-col">
         {/* Фото */}
-        <Link
-          href={`/leadership/${leader.slug}`}
-          aria-label={`Подробнее о руководителе: ${leader.name}`}
-          className="relative block overflow-hidden border border-[#c9a45c]/35 bg-[#e9e5dc]"
-        >
+        <div className="relative block overflow-hidden border border-[#c9a45c]/35 bg-[#e9e5dc]">
           <div className="relative aspect-[4/4.7] overflow-hidden">
             <Image
               src={leader.photo}
@@ -61,7 +59,7 @@ export function LeadershipCard({
               </span>
             </div>
           </div>
-        </Link>
+        </div>
 
         {/* Информация */}
         <div className="flex flex-1 flex-col border-b border-[#c9a45c]/40 bg-transparent pb-5 pt-5">
@@ -69,7 +67,13 @@ export function LeadershipCard({
             {leader.shortPosition}
           </p>
 
-          <h3 className="text-lg font-semibold leading-snug text-[#061d35] transition-colors duration-300 group-hover:text-[#9b7939] sm:text-xl">
+          <h3
+            className={`text-lg font-semibold leading-snug transition-colors duration-300 sm:text-xl ${
+              dark
+                ? "text-white group-hover:text-[#d4af62]"
+                : "text-[#061d35] group-hover:text-[#9b7939]"
+            }`}
+          >
             {leader.name}
           </h3>
 
@@ -85,7 +89,7 @@ export function LeadershipCard({
             {leader.phone && (
               <a
                 href={`tel:${leader.phone.replace(/[^\d+]/g, "")}`}
-                className="flex items-start gap-3 text-xs leading-5 text-[#061d35]/65 transition-colors hover:text-[#9b7939]"
+                className="relative z-20 flex items-start gap-3 text-xs leading-5 text-[#061d35]/65 transition-colors hover:text-[#9b7939]"
               >
                 <Phone
                   size={15}
@@ -98,7 +102,7 @@ export function LeadershipCard({
             {leader.email && (
               <a
                 href={`mailto:${leader.email}`}
-                className="flex items-start gap-3 text-xs leading-5 text-[#061d35]/65 transition-colors hover:text-[#9b7939]"
+                className="relative z-20 flex items-start gap-3 text-xs leading-5 text-[#061d35]/65 transition-colors hover:text-[#9b7939]"
               >
                 <Mail
                   size={15}
@@ -109,15 +113,23 @@ export function LeadershipCard({
             )}
           </div>
 
-          <Link
-            href={`/leadership/${leader.slug}`}
-            className="mt-6 inline-flex w-fit items-center gap-2 border-b border-[#c9a45c]/70 pb-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#061d35] transition-all duration-300 hover:gap-3 hover:border-[#061d35]"
+          <span
+            className={`mt-6 inline-flex w-fit items-center gap-2 border-b pb-1 text-xs font-semibold uppercase tracking-[0.12em] transition-all duration-300 group-hover:gap-3 ${
+              dark
+                ? "border-[#c9a45c]/70 text-white group-hover:border-[#d4af62] group-hover:text-[#d4af62]"
+                : "border-[#c9a45c]/70 text-[#061d35] group-hover:border-[#061d35]"
+            }`}
           >
             Биография
             <ArrowUpRight size={14} />
-          </Link>
+          </span>
         </div>
       </div>
+      <Link
+        href={`/leadership/${leader.slug}`}
+        aria-label={`Открыть биографию: ${leader.name}`}
+        className="absolute inset-0 z-10 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#c9a45c]"
+      />
     </motion.article>
   );
 }
