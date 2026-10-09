@@ -259,12 +259,12 @@ export const leadership: Leader[] = [
   },
 
   {
-    id: "ahmadzoda",
-    slug: "ahmadzoda-zulfiya-kabir",
+    id: "vice-rector-ideology",
+    slug: "vice-rector-ideology",
     name: "Ахмадзода Зулфия Кабир",
     position: "Проректор по идеологии, воспитанию и связям с общественностью",
     shortPosition: "Проректор по идеологии и воспитанию",
-    photo: "/images/leadership/ahmadzoda.jpg",
+    photo: "/images/leadership/vrideology.jpg",
     phone: "+992 985-45-99-80",
     email: "zulfiya.did@mail.ru",
     degree: "Кандидат педагогических наук",
@@ -308,12 +308,12 @@ export const leadership: Leader[] = [
   },
 
   {
-    id: "ismatzoda",
-    slug: "ismatzoda-somon-sulaymon",
+    id: "vice-rector-international",
+    slug: "vice-rector-international",
     name: "Исматзода Сомон Сулаймон",
     position: "Проректор по международным связям",
     shortPosition: "Проректор по международным связям",
-    photo: "/images/leadership/ismatzoda.jpg",
+    photo: "/images/leadership/vrinternational.jpg",
     phone: "+992 37 224-83-93",
     email: "somon.ismatovs@gmail.com",
     education: [
