@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ChevronRight, Landmark } from "lucide-react";
+import { Landmark } from "lucide-react";
 import { LeadershipGrid } from "@/components/leadership/LeadershipGrid";
 import {
   LeadershipHeroReveal,
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function LeadershipPage() {
   return (
-    <main className="min-h-screen bg-[#f8f7f3]">
+    <main className="min-h-screen bg-[#f5f1e9]">
       {/* Верхний декоративный блок */}
       <section className="relative isolate overflow-hidden bg-[#061d35]">
         <div className="absolute inset-0 -z-10">
@@ -24,25 +24,29 @@ export default function LeadershipPage() {
           <div className="absolute -bottom-40 left-1/3 h-80 w-80 rounded-full border border-white/[0.06]" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#061d35] via-[#061d35]/95 to-[#102d49]/80" />
         </div>
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute right-[4%] top-0 size-72 rounded-full bg-[radial-gradient(circle,rgba(201,164,92,0.16)_0%,rgba(201,164,92,0.06)_42%,transparent_72%)] sm:right-[8%] sm:top-4 sm:size-96"
+        />
         <LeadershipOrbit className="pointer-events-none absolute right-[8%] top-12 z-0 h-36 w-36 text-[#c9a45c]/70 sm:right-[12%] sm:top-16 sm:h-48 sm:w-48" />
 
-        <div className="site-container relative py-14 sm:py-20 lg:py-24">
+        <div className="site-container relative py-12 md:py-16 lg:py-20">
           {/* Навигационная цепочка */}
           <LeadershipHeroReveal>
             <nav
               aria-label="Навигационная цепочка"
-              className="mb-8 flex flex-wrap items-center gap-2 text-sm text-white/60"
+              className="mb-8 flex items-center gap-2 text-sm text-white/60"
             >
               <Link
                 href="/"
-                className="transition-colors hover:text-[#d4af62]"
+                className="transition hover:text-[#e5c681]"
               >
                 Главная
               </Link>
 
-              <ChevronRight size={15} />
+              <span>/</span>
 
-              <span className="text-[#d4af62]">Руководство Академии</span>
+              <span className="text-[#e5c681]">Руководство Академии</span>
             </nav>
           </LeadershipHeroReveal>
 
