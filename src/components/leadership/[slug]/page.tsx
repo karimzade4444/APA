@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { leadership } from "@/data/leadership";
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
+import { LeadershipOrbit } from "@/components/leadership/LeadershipHeroEffects";
 import {
   LeadershipHeroMotion,
   LeadershipSectionReveal,
@@ -66,8 +67,13 @@ export default async function LeaderPage({ params }: PageProps) {
       <section className="relative isolate overflow-hidden bg-[#061d35]">
         <div className="pointer-events-none absolute -right-20 -top-24 -z-10 h-80 w-80 rounded-full border border-[#c9a45c]/20 sm:h-125 sm:w-125" />
         <div className="pointer-events-none absolute -right-10 -top-14 -z-10 h-64 w-64 rounded-full border border-[#c9a45c]/15 sm:h-100 sm:w-100" />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute right-[4%] top-8 size-64 rounded-full bg-[radial-gradient(circle,rgba(201,164,92,0.12)_0%,rgba(201,164,92,0.04)_45%,transparent_72%)] sm:right-[8%] sm:top-4 sm:size-96"
+        />
+        <LeadershipOrbit className="pointer-events-none absolute right-[8%] top-12 z-0 h-36 w-36 text-[#c9a45c]/70 sm:right-[12%] sm:top-16 sm:h-48 sm:w-48" />
 
-        <div className="site-container py-12 md:py-16 lg:py-20">
+        <div className="site-container relative z-10 py-12 md:py-16 lg:py-20">
           <Breadcrumbs
             items={[
               { label: "Главная", href: "/" },
