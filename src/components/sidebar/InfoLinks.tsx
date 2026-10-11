@@ -11,7 +11,7 @@ const links = [
   },
   {
     title: "Руководство Академии",
-    href: "/leadership",
+    href: "/about/leadership",
   },
   {
     title: "Обращение к ректору",

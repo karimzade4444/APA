@@ -142,7 +142,7 @@ export function LeadershipCard({
         </div>
       </div>
       <Link
-        href={`/leadership/${leader.slug}`}
+        href={`/about/leadership/${leader.slug}`}
         aria-label={`Открыть биографию: ${leader.name}`}
         className="absolute inset-0 z-10 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#c9a45c]"
       />

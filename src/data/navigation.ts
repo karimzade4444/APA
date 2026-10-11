@@ -10,80 +10,81 @@ export const navigation: NavigationItem[] = [
     title: "Об Академии",
     href: "/about",
 
-    // children: [
-    //   {
-    //     title: "Об Академии",
-    //     href: "/about",
-    //   },
-    //   // {
-    //   //   title: "Руководство",
-    //   //   href: "/leadership",
+    children: [
+      {
+        title: "Об Академии",
+        href: "/about",
+      },
+      {
+        title: "Руководство",
+        href: "/about/leadership",
 
-    //   //   children: [
-    //   //     {
-    //   //       title: "Ректор",
-    //   //       href: "/leadership/rector",
-    //   //     },
-    //   //     {
-    //   //       title: "Первый проректор",
-    //   //       href: "/leadership/first-vice-rector",
-    //   //     },
-    //   //     {
-    //   //       title: "Проректор по науке и инновациям",
-    //   //       href: "/leadership/vice-rector-science",
-    //   //     },
-    //   //     {
-    //   //       title: "Проректор по идеологии и воспитанию",
-    //   //       href: "/leadership/vice-rector-ideology",
-    //   //     },
-    //   //     {
-    //   //       title: "Проректор по международным связям",
-    //   //       href: "/leadership/vice-rector-international",
-    //   //     },
-    //   //     {
-    //   //       title: "Проректор по экономике и хозяйству",
-    //   //       href: "/leadership/vice-rector-economy",
-    //   //     },
-    //   //   ],
-    //   // },
+        children: [
+          {
+            title: "Ректор",
+            href: "/about/leadership/rector",
+          },
+          {
+            title: "Первый проректор",
+            href: "/about/leadership/first-vice-rector",
+          },
+          {
+            title: "Проректор по науке и инновациям",
+            href: "/about/leadership/vice-rector-science",
+          },
+          {
+            title: "Проректор по идеологии и воспитанию",
+            href: "/about/leadership/vice-rector-ideology",
+          },
+          {
+            title: "Проректор по международным связям",
+            href: "/about/leadership/vice-rector-international",
+          },
+          {
+            title: "Проректор по экономике и хозяйству",
+            href: "/about/leadership/vice-rector-economy",
+          },
+        ],
+      },
 
-    //   {
-    //     title: "Факультеты",
-    //     href: "/about/faculties",
+      {
+        title: "Структура",
+        href: "/about/structure",
+      },
 
-    //     children: [
-    //       {
-    //         title: "Факультет государственного управления",
-    //         href: "/about/faculties/public-administration",
-    //       },
-    //       {
-    //         title: "Факультет экономики",
-    //         href: "/about/faculties/economics",
-    //       },
-    //     ],
-    //   },
+      {
+        title: "Факультеты",
+        href: "/about/faculties",
 
-    //   {
-    //     title: "Кафедры",
-    //     href: "/about/departments",
+        children: [
+          {
+            title: "Факультет государственного управления",
+            href: "/about/faculties/public-administration",
+          },
+          {
+            title: "Факультет экономики",
+            href: "/about/faculties/economics",
+          },
+        ],
+      },
 
-    //     children: [
-    //       {
-    //         title: "Кафедра государственного управления",
-    //         href: "/about/departments/public-administration",
-    //       },
-    //       {
-    //         title: "Кафедра права",
-    //         href: "/about/departments/law",
-    //       },
-    //     ],
-    //   },
-    // ],
+      {
+        title: "Кафедры",
+        href: "/about/departments",
+
+        children: [
+          {
+            title: "Кафедра государственного управления",
+            href: "/about/departments/public-administration",
+          },
+          {
+            title: "Кафедра права",
+            href: "/about/departments/law",
+          },
+        ],
+      },
+    ],
   },
-    {
-      title: "Структура",
-      href: "/structure",
-    },
 
   {
     title: "Поступление",

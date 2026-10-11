@@ -71,7 +71,7 @@ export default async function LeaderPage({ params }: PageProps) {
           <Breadcrumbs
             items={[
               { label: "Главная", href: "/" },
-              { label: "Руководство", href: "/leadership" },
+              { label: "Руководство", href: "/about/leadership" },
               { label: leader.shortPosition },
             ]}
           />
@@ -129,7 +129,7 @@ export default async function LeaderPage({ params }: PageProps) {
               )}
 
               <Link
-                href="/leadership"
+                href="/about/leadership"
                 className="mt-9 inline-flex items-center gap-3 text-sm text-white/65 transition-colors hover:text-[#d4af62]"
               >
                 <ArrowLeft size={17} />
@@ -331,7 +331,7 @@ export default async function LeaderPage({ params }: PageProps) {
 
               <div className="mt-6 border-t border-[#c9a45c]/25 pt-5">
                 <Link
-                  href="/leadership"
+                  href="/about/leadership"
                   className="group inline-flex items-center gap-2 text-sm font-semibold text-[#061d35] transition-colors hover:text-[#9b7939]"
                 >
                   Все руководители
