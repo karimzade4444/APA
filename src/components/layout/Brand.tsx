@@ -1,11 +1,16 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "motion/react";
 
 const Brand = () => {
   return (
-    <div className="flex items-center gap-4 ">
+    <Link
+      href="/"
+      aria-label="Академия государственного управления — главная страница"
+      className="flex items-center gap-4 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af62] focus-visible:ring-offset-4 focus-visible:ring-offset-[#061d35]"
+    >
       <motion.div
         initial={{
           opacity: 0,
@@ -61,7 +66,7 @@ const Brand = () => {
           при Президенте Республики Таджикистан
         </motion.p>
       </div>
-    </div>
+    </Link>
   );
 };
 
