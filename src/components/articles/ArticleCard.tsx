@@ -33,7 +33,7 @@ const ArticleCard = ({
       <Link href={href} className="block">
         <div
           className={`relative overflow-hidden ${
-            featured ? "aspect-[16/9]" : "aspect-[4/3]"
+            featured ? "aspect-video" : "aspect-4/3"
           }`}
         >
           <Image
@@ -70,7 +70,7 @@ const ArticleCard = ({
           <div className="p-5">
             <p className="text-xs text-[#061d35]/45">{date}</p>
 
-            <h3 className="mt-2 line-clamp-3 min-h-[4.5rem] font-serif text-lg font-semibold leading-6 text-[#061d35] transition-colors duration-300 group-hover:text-[#a37b2f]">
+            <h3 className="mt-2 line-clamp-3 min-h-18 font-serif text-lg font-semibold leading-6 text-[#061d35] transition-colors duration-300 group-hover:text-[#a37b2f]">
               {title}
             </h3>
 

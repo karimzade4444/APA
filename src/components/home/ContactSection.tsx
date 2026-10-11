@@ -134,8 +134,8 @@ const ContactSection = () => {
             </Reveal>
           </div>
 
-          {/* Настоящая интерактивная карта Google Maps */}
-          <div className="relative min-h-[450px] overflow-hidden bg-[#e8e5df]">
+          {/* Карта */}
+          <div className="relative min-h-112.5 overflow-hidden bg-[#e8e5df]">
             <iframe
               title="Академия государственного управления при Президенте Республики Таджикистан"
               src="https://yandex.tj/map-widget/v1/?ll=68.784998%2C38.595886&z=17&pt=68.784998%2C38.595886%2Cpm2rdm"

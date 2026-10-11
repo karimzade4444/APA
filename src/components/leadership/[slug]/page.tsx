@@ -64,8 +64,8 @@ export default async function LeaderPage({ params }: PageProps) {
     <main className="min-h-screen bg-[#f8f7f3]">
       {/* Верхний блок */}
       <section className="relative isolate overflow-hidden bg-[#061d35]">
-        <div className="pointer-events-none absolute -right-20 -top-24 -z-10 h-80 w-80 rounded-full border border-[#c9a45c]/20 sm:h-[500px] sm:w-[500px]" />
-        <div className="pointer-events-none absolute -right-10 -top-14 -z-10 h-64 w-64 rounded-full border border-[#c9a45c]/15 sm:h-[400px] sm:w-[400px]" />
+        <div className="pointer-events-none absolute -right-20 -top-24 -z-10 h-80 w-80 rounded-full border border-[#c9a45c]/20 sm:h-125 sm:w-125" />
+        <div className="pointer-events-none absolute -right-10 -top-14 -z-10 h-64 w-64 rounded-full border border-[#c9a45c]/15 sm:h-100 sm:w-100" />
 
         <div className="site-container py-12 md:py-16 lg:py-20">
           <Breadcrumbs
@@ -78,9 +78,9 @@ export default async function LeaderPage({ params }: PageProps) {
 
           <LeadershipHeroMotion className="grid items-center gap-10 lg:grid-cols-[340px_1fr] lg:gap-16">
             {/* Фотография */}
-            <div className="mx-auto w-full max-w-[340px]">
+            <div className="mx-auto w-full max-w-85">
               <div className="relative border border-[#c9a45c]/50 p-2">
-                <div className="relative aspect-[4/5] overflow-hidden bg-white/5">
+                <div className="relative aspect-4/5 overflow-hidden bg-white/5">
                   <Image
                     src={leader.photo}
                     alt={leader.name}
@@ -139,7 +139,7 @@ export default async function LeaderPage({ params }: PageProps) {
           </LeadershipHeroMotion>
         </div>
 
-        <div className="h-px bg-gradient-to-r from-transparent via-[#c9a45c]/60 to-transparent" />
+        <div className="h-px bg-linear-to-r from-transparent via-[#c9a45c]/60 to-transparent" />
       </section>
 
       {/* Основная информация */}
@@ -167,7 +167,7 @@ export default async function LeaderPage({ params }: PageProps) {
                 <div className="ml-2 space-y-0 border-l border-[#c9a45c]/50">
                   {leader.education.map((item, index) => (
                     <div key={`${item.institution}-${index}`} className="relative pb-8 pl-7 last:pb-0">
-                      <span className="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full border-2 border-[#c9a45c] bg-[#f8f7f3]" />
+                      <span className="absolute -left-1.25 top-1.5 h-2.5 w-2.5 rounded-full border-2 border-[#c9a45c] bg-[#f8f7f3]" />
 
                       {item.period && (
                         <p className="mb-2 text-sm font-semibold tracking-wide text-[#9b7939]">
@@ -215,7 +215,7 @@ export default async function LeaderPage({ params }: PageProps) {
                 <div className="ml-2 space-y-0 border-l border-[#c9a45c]/50">
                   {leader.career.map((item, index) => (
                     <div key={`${item.period}-${index}`} className="relative pb-8 pl-7 last:pb-0">
-                      <span className="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full border-2 border-[#c9a45c] bg-[#f8f7f3]" />
+                      <span className="absolute -left-1.25 top-1.5 h-2.5 w-2.5 rounded-full border-2 border-[#c9a45c] bg-[#f8f7f3]" />
 
                       <p className="mb-2 text-sm font-semibold tracking-wide text-[#9b7939]">
                         {item.period}
