@@ -50,38 +50,29 @@ export const navigation: NavigationItem[] = [
       {
         title: "Структура",
         href: "/about/structure",
-      },
-
-      {
-        title: "Факультеты",
-        href: "/about/faculties",
-
         children: [
           {
-            title: "Факультет государственного управления",
-            href: "/about/faculties/public-administration",
-          },
-          {
-            title: "Факультет экономики",
-            href: "/about/faculties/economics",
+            title: "Структура Академии",
+            href: "/about/structure",
           },
         ],
       },
 
-      {
-        title: "Кафедры",
-        href: "/about/departments",
+     
+    ],
+  },
+  {
+    title: "Факультеты",
+    href: "/about/faculties",
 
-        children: [
-          {
-            title: "Кафедра государственного управления",
-            href: "/about/departments/public-administration",
-          },
-          {
-            title: "Кафедра права",
-            href: "/about/departments/law",
-          },
-        ],
+    children: [
+      {
+        title: "Факультет государственного управления",
+        href: "/about/faculties/public-administration",
+      },
+      {
+        title: "Факультет экономики",
+        href: "/about/faculties/economics",
       },
     ],
   },
