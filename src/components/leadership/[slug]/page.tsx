@@ -71,7 +71,11 @@ export default async function LeaderPage({ params }: PageProps) {
           <Breadcrumbs
             items={[
               { label: "Главная", href: "/" },
-              { label: "Руководство", href: "/about/leadership" },
+              { label: "Об Академии", href: "/about" },
+              {
+                label: "Руководство Академии",
+                href: "/about/leadership",
+              },
               { label: leader.shortPosition },
             ]}
           />
