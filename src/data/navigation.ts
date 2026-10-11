@@ -57,8 +57,18 @@ export const navigation: NavigationItem[] = [
           },
         ],
       },
-
-     
+      {
+        title: "Новости",
+        href: "/news",
+      },
+      {
+        title: "Объявления",
+        href: "/announcements",
+      },
+      {
+        title: "Публикации и статьи",
+        href: "/publications",
+      },
     ],
   },
   {
@@ -95,11 +105,6 @@ export const navigation: NavigationItem[] = [
   {
     title: "Студентам",
     href: "/students",
-  },
-
-  {
-    title: "Новости",
-    href: "/news",
   },
 
   {
