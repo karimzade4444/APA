@@ -1,7 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowUp, Mail, MapPin, Phone } from "lucide-react";
+import {
+  ArrowUp,
+  ChartNoAxesColumnIncreasing,
+  Globe2,
+  Mail,
+  MapPin,
+  Phone,
+  UsersRound,
+} from "lucide-react";
 import Reveal from "@/components/animations/Reveal";
 
 const Footer = () => {
@@ -155,13 +163,50 @@ const Footer = () => {
 
         {/* Нижняя часть */}
         <Reveal delay={0.12}>
-          <div className="flex flex-col gap-4 py-6 md:flex-row md:items-center md:justify-between">
-            <p className="text-[11px] text-white/25">
-              © {new Date().getFullYear()} Академия государственного управления
-              при Президенте Республики Таджикистан
+          <div className="grid gap-5 py-6 text-center xl:grid-cols-[1fr_auto_1fr] xl:items-center xl:text-left">
+            <p className="text-[11px] text-white/45">
+              © {new Date().getFullYear()} Академия государственного управления.
+              Все права защищены.
             </p>
 
-            <div className="flex items-center gap-6">
+            <div
+              aria-label="Статистика сайта. Данные пока не подключены."
+              className="mx-auto flex flex-wrap items-center justify-center gap-x-4 gap-y-2 border border-[#d4af62]/20 bg-[#0a2948] px-4 py-3 text-[11px] leading-none text-white/55 sm:gap-x-5 sm:px-5"
+            >
+              <span className="flex items-center font-medium uppercase tracking-[0.16em] text-[#d4af62]">
+                Статистика:
+              </span>
+              <span aria-hidden="true" className="h-4 w-px shrink-0 bg-[#d4af62]/25" />
+              <span className="inline-flex items-center gap-2 whitespace-nowrap leading-none">
+                <ChartNoAxesColumnIncreasing
+                  aria-hidden="true"
+                  size={15}
+                  className="relative -top-px block shrink-0 animate-pulse text-[#d4af62]"
+                />
+                <span className="font-medium text-white/85">—</span>
+                <span className="leading-none">Просмотры</span>
+              </span>
+              <span className="inline-flex items-center gap-2 whitespace-nowrap leading-none">
+                <Globe2
+                  aria-hidden="true"
+                  size={15}
+                  className="relative -top-px block shrink-0 animate-pulse text-[#d4af62]"
+                />
+                <span className="font-medium text-white/85">—</span>
+                <span className="leading-none">Сегодня</span>
+              </span>
+              <span className="inline-flex items-center gap-2 whitespace-nowrap leading-none">
+                <UsersRound
+                  aria-hidden="true"
+                  size={15}
+                  className="relative -top-px block shrink-0 animate-pulse text-[#d4af62]"
+                />
+                <span className="font-medium text-white/85">—</span>
+                <span className="leading-none">Сейчас</span>
+              </span>
+            </div>
+
+            <div className="flex items-center justify-center gap-6 xl:justify-self-end">
               <Link
                 href="/privacy"
                 className="text-[11px] text-white/25 transition-colors hover:text-white/60"
