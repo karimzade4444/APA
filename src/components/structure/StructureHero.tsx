@@ -29,6 +29,13 @@ export function StructureHero() {
             Главная
           </Link>
           <ChevronRight size={15} />
+          <Link
+            href="/about"
+            className="transition-colors hover:text-[#d4af62]"
+          >
+            Об Академии
+          </Link>
+          <ChevronRight size={15} />
           <span className="text-[#d4af62]">Структура Академии</span>
         </motion.nav>
 
@@ -66,4 +73,3 @@ export function StructureHero() {
     </section>
   );
 }
-

@@ -50,7 +50,7 @@ export const structureItems: StructureItem[] = [
     title: "Ректор и проректоры",
     description: "Руководство и координация деятельности Академии.",
     category: "leadership",
-    href: "/leadership",
+    href: "/about/leadership",
   },
   {
     id: "research-institutes",
@@ -162,4 +162,3 @@ export const structureCategories = [
   { id: "administration", label: "Управления" },
   { id: "infrastructure", label: "Инфраструктура" },
 ] as const;
-
