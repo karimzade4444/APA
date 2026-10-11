@@ -60,14 +60,52 @@ export const navigation: NavigationItem[] = [
       {
         title: "Новости",
         href: "/news",
+        children: [
+          {
+            title: "Новости",
+            href: "/news",
+          },
+          {
+            title: "Объявления",
+            href: "/announcements",
+          },
+          {
+            title: "Публикации и статьи",
+            href: "/publications",
+          },
+        ],
       },
       {
-        title: "Объявления",
-        href: "/announcements",
+        title: "Управление кадров, делопроизводства и специальных работ",
+        href: "/hr-department",
+        children: [
+          {
+            title: "Общий отдел",
+            href: "/hr-department/general",
+          },
+          {
+            title: "Второй отдел",
+            href: "/hr-department/second",
+          },
+          {
+            title: "Сектор архива",
+            href: "/hr-department/archive",
+          },
+        ],
+      },
+
+      {
+        title: "Секретариат и помощник ректора",
+        href: "/vacancies",
       },
       {
-        title: "Публикации и статьи",
-        href: "/publications",
+        title: "Совет ученых",
+        href: "/council-of-scientists",
+      },
+
+      {
+        title: "Юридический отдел",
+        href: "/legal-department",
       },
     ],
   },
