@@ -4,10 +4,12 @@ import { ArrowLeft, BellRing, Newspaper } from "lucide-react";
 import Reveal from "@/components/animations/Reveal";
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 import PhotoGallery from "@/components/articles/PhotoGallery";
-import { news } from "@/data/news";
+import { publications } from "@/data/news";
 
 export function generateStaticParams() {
-  return news.map((item) => ({ id: String(item.id) }));
+  return publications
+    .filter((item) => item.category !== "article")
+    .map((item) => ({ id: String(item.id) }));
 }
 
 export default async function NewsArticlePage({
@@ -16,7 +18,10 @@ export default async function NewsArticlePage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const item = news.find((entry) => entry.id === Number(id));
+  const item = publications.find(
+    (entry) =>
+      entry.category !== "article" && entry.id === Number(id),
+  );
 
   if (!item) {
     notFound();
@@ -24,7 +29,9 @@ export default async function NewsArticlePage({
 
   const isAnnouncement = item.category === "announcement";
   const sectionLabel = isAnnouncement ? "Объявления" : "Новости";
-  const sectionHref = isAnnouncement ? "/announcements" : "/news";
+  const sectionHref = isAnnouncement
+    ? "/publications#announcements"
+    : "/publications#news";
   const CategoryIcon = isAnnouncement ? BellRing : Newspaper;
 
   return (

@@ -4,10 +4,12 @@ import Link from "next/link";
 
 import ArticleCard from "@/components/articles/ArticleCard";
 import Reveal from "@/components/animations/Reveal";
-import { articles } from "@/data/news";
+import { publications } from "@/data/news";
 import FeaturedCarousel from "./FeaturedCarousel";
 
 const ArticlesSection = () => {
+  const articles = publications.filter((item) => item.category === "article");
+
   return (
     <section className="pb-0 pt-20">
         {/* Section heading */}
@@ -51,7 +53,7 @@ const ArticlesSection = () => {
                 date={article.date}
                 image={article.images[0]}
                 href={article.href}
-                category={article.category}
+                category={article.topic}
                 featured
               />
             ))}
@@ -66,7 +68,7 @@ const ArticlesSection = () => {
               date={article.date}
               image={article.images[0]}
               href={article.href}
-              category={article.category}
+              category={article.topic}
               delay={index * 0.08}
               className={index === 3 ? "hidden min-[2560px]:block" : undefined}
             />

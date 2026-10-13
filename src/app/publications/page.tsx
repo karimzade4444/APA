@@ -9,13 +9,13 @@ import ArticleCard from "@/components/articles/ArticleCard";
 import NewsCard from "@/components/home/NewsCard";
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 import Reveal from "@/components/animations/Reveal";
-import {
-  announcements,
-  articles,
-  news as allNews,
-} from "@/data/news";
+import { publications } from "@/data/news";
 
-const news = allNews.filter((item) => item.category === "news");
+const news = publications.filter((item) => item.category === "news");
+const announcements = publications.filter(
+  (item) => item.category === "announcement",
+);
+const articles = publications.filter((item) => item.category === "article");
 const categories = [
   { id: "news", label: "Новости", icon: Newspaper },
   { id: "announcements", label: "Объявления", icon: BellRing },
@@ -170,7 +170,7 @@ export default function PublicationsPage() {
                   date={article.date}
                   image={article.images[0]}
                   href={article.href}
-                  category={article.category}
+                  category={article.topic}
                   delay={index * 0.08}
                 />
               ))}

@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import Reveal from "@/components/animations/Reveal";
-import { news } from "@/data/news";
+import { publications } from "@/data/news";
 import NewsCard from "./NewsCard";
 import FeaturedCarousel from "./FeaturedCarousel";
 
 const NewsSection = () => {
-  const latestNews = news.filter((item) => item.category === "news");
+  const latestNews = publications.filter((item) => item.category === "news");
 
   return (
     <section className="py-20">

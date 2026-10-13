@@ -2,17 +2,21 @@ import { notFound } from "next/navigation";
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 import Reveal from "@/components/animations/Reveal";
 import PhotoGallery from "@/components/articles/PhotoGallery";
-import { articles } from "@/data/news";
+import { publications } from "@/data/news";
 
 export function generateStaticParams() {
-  return articles.map((article) => ({ id: String(article.id) }));
+  return publications
+    .filter((item) => item.category === "article")
+    .map((article) => ({ id: String(article.id) }));
 }
 
 export default async function ArticlePage({
   params,
 }: PageProps<"/articles/[id]">) {
   const { id } = await params;
-  const article = articles.find((item) => item.id === Number(id));
+  const article = publications.find(
+    (item) => item.category === "article" && item.id === Number(id),
+  );
 
   if (!article) {
     notFound();
@@ -33,7 +37,7 @@ export default async function ArticlePage({
         <Reveal>
           <header className="border-b border-[#061d35]/15 pb-8">
             <p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-[#a37b2f]">
-              {article.category}
+              {article.topic}
             </p>
             <h1 className="font-serif text-3xl font-semibold leading-tight text-[#061d35] md:text-5xl">
               {article.title}
