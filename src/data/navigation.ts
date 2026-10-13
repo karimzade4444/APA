@@ -58,7 +58,24 @@ export const navigation: NavigationItem[] = [
           {
             title: "Управление учебного процесса",
             href: "/structure/management/educational-process",
-            
+            children: [
+              {
+                title: "Отдел регистрации",
+                href: "/structure/management/educational-process/registration",
+              },
+              {
+                title: "Отдел качества образования и мониторинга",
+                href: "/structure/management/educational-process/education-quality",
+              },
+              {
+                title: "Отдел автоматизации обучения и тестирования",
+                href: "/structure/management/educational-process/education-automation",
+              },
+              {
+                title: "Отдел практики",
+                href: "/structure/management/educational-process/practice",
+              },
+            ],
           },
           {
             title: "Управление науки и инноваций",
