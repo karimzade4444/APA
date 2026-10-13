@@ -222,7 +222,7 @@ export function StructureChart() {
                   type="button"
                   aria-expanded={isOpen}
                   onClick={() => toggleBranch(branch.id)}
-                  className="min-h-[254px] w-full p-5 text-left sm:p-6"
+                  className="min-h-63.5 w-full p-5 text-left sm:p-6"
                 >
                   <div className="flex items-start justify-between gap-3">
                     <span className="text-xs font-semibold tabular-nums tracking-widest text-[#b88d3c]">

@@ -195,7 +195,7 @@ const MenuTreeItem = ({ item, onNavigate }: MenuTreeItemProps) => {
                   maxHeight: "calc(100dvh - 24px)",
                   visibility: flyoutPosition ? "visible" : "hidden",
                 }}
-                className="z-[100] w-[22rem] max-w-[calc(100vw-1.5rem)] overflow-y-auto overscroll-contain border border-[#c9a45c]/30 bg-[#061d35] p-3 shadow-2xl"
+                className="z-100 w-88 max-w-[calc(100vw-1.5rem)] overflow-y-auto overscroll-contain border border-[#c9a45c]/30 bg-[#061d35] p-3 shadow-2xl"
               >
                 <div className="mb-3 border-b border-[#d4af62] pb-3">
                   <p className="text-xs uppercase tracking-[0.2em] text-[#d4af62]">

@@ -166,7 +166,7 @@ export default function AboutPage() {
             </AboutReveal>
 
             <AboutReveal
-              className="w-full max-w-[600px] justify-self-end"
+              className="w-full max-w-150 justify-self-end"
               rotate={1}
               delay={0.15}
               y={30}
@@ -176,7 +176,7 @@ export default function AboutPage() {
           </div>
         </div>
 
-        <div className="h-1 bg-gradient-to-r from-transparent via-[#c9a45c] to-transparent" />
+        <div className="h-1 bg-linear-to-r from-transparent via-[#c9a45c] to-transparent" />
       </section>
 
       <section className="site-container py-14 md:py-20">
@@ -244,7 +244,7 @@ export default function AboutPage() {
                 rotate={-0.5}
                 y={18}
               >
-                <span className="absolute -left-[7px] top-1 h-3.5 w-3.5 rounded-full border-[3px] border-white bg-[#b58a3c] ring-1 ring-[#c9a45c]" />
+                <span className="absolute -left-1.75 top-1 h-3.5 w-3.5 rounded-full border-[3px] border-white bg-[#b58a3c] ring-1 ring-[#c9a45c]" />
                 <p className="text-sm font-bold tracking-wider text-[#a37d37]">
                   {item.year}
                 </p>

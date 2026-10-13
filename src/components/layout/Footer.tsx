@@ -59,7 +59,7 @@ const Footer = () => {
                 aria-label="Facebook"
                 className="flex h-10 w-10 items-center justify-center border border-white/10 text-white/50 transition duration-300 hover:border-[#d4af62] hover:text-[#d4af62]"
               >
-                <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" className="h-[17px] w-[17px]">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" className="h-4.25 w-4.25">
                   <path d="M13.4 21v-8.2h2.8l.4-3.2h-3.2v-2c0-.9.3-1.5 1.6-1.5h1.7V3.2c-.3 0-1.3-.2-2.5-.2-2.5 0-4.2 1.5-4.2 4.3v2.3H7.2v3.2H10V21h3.4Z" />
                 </svg>
               </a>
@@ -71,7 +71,7 @@ const Footer = () => {
                 aria-label="Instagram"
                 className="flex h-10 w-10 items-center justify-center border border-white/10 text-white/50 transition duration-300 hover:border-[#d4af62] hover:text-[#d4af62]"
               >
-                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-[17px] w-[17px]">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-4.25 w-4.25">
                   <rect x="3" y="3" width="18" height="18" rx="5" />
                   <circle cx="12" cy="12" r="4" />
                   <circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none" />
@@ -97,7 +97,7 @@ const Footer = () => {
                 aria-label="YouTube"
                 className="flex h-10 w-10 items-center justify-center border border-white/10 text-white/50 transition duration-300 hover:border-[#d4af62] hover:text-[#d4af62]"
               >
-                <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" className="h-[17px] w-[17px]">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" className="h-4.25 w-4.25">
                   <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z" />
                 </svg>
               </a>

@@ -13,9 +13,9 @@ export function StructureHero() {
   return (
     <section className="relative isolate overflow-hidden bg-[#061d35]">
       <div className="pointer-events-none absolute inset-0 z-0">
-        <div className="absolute -right-24 -top-32 h-[32rem] w-[32rem] rounded-full border border-[#c9a45c]/20" />
-        <div className="absolute -right-12 -top-20 h-[26rem] w-[26rem] rounded-full border border-[#c9a45c]/20" />
-        <div className="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-[#c9a45c]/60 to-transparent" />
+        <div className="absolute -right-24 -top-32 h-128 w-lg rounded-full border border-[#c9a45c]/20" />
+        <div className="absolute -right-12 -top-20 h-104 w-104 rounded-full border border-[#c9a45c]/20" />
+        <div className="absolute bottom-0 left-0 h-px w-full bg-linear-to-r from-transparent via-[#c9a45c]/60 to-transparent" />
       </div>
 
       <div

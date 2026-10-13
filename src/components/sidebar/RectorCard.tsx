@@ -19,7 +19,7 @@ const RectorCard = () => {
           </p>
         </div>
 
-        <div className="relative aspect-[4/5] overflow-hidden bg-[#e8e5df]">
+        <div className="relative aspect-4/5 overflow-hidden bg-[#e8e5df]">
           <Image
             src="/images/sidebar/rector.jpg"
             alt="Ректор Академии"

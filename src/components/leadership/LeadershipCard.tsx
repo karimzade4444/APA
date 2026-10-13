@@ -49,7 +49,7 @@ export function LeadershipCard({
               className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
             />
 
-            <div className="absolute inset-0 bg-gradient-to-t from-[#061d35]/45 via-transparent to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-100" />
+            <div className="absolute inset-0 bg-linear-to-t from-[#061d35]/45 via-transparent to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-100" />
 
             <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
               <span className="h-px flex-1 bg-[#d4af62]/80" />
@@ -63,7 +63,7 @@ export function LeadershipCard({
 
         {/* Информация */}
         <div className="flex flex-1 flex-col border-b border-[#c9a45c]/40 bg-transparent pb-5 pt-5">
-          <p className="mb-3 min-h-[34px] text-[10px] font-semibold uppercase leading-5 tracking-[0.15em] text-[#9b7939] sm:text-[11px]">
+          <p className="mb-3 min-h-8.5 text-[10px] font-semibold uppercase leading-5 tracking-[0.15em] text-[#9b7939] sm:text-[11px]">
             {leader.shortPosition}
           </p>
 
