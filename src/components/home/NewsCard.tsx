@@ -25,18 +25,18 @@ const NewsCard = ({
 
   return (
     <motion.article
-      whileHover={shouldReduceMotion ? undefined : { y: -5 }}
+      whileHover={shouldReduceMotion ? undefined : { y: -3 }}
       initial={
         shouldReduceMotion
           ? false
           : featured
-            ? { opacity: 0, scale: 0.96 }
-            : { opacity: 0, y: 24 }
+            ? { opacity: 0 }
+            : { opacity: 0, y: 12 }
       }
-      whileInView={{ opacity: 1, x: 0, y: 0, scale: 1 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
       transition={{
-        duration: shouldReduceMotion ? 0 : 0.5,
+        duration: shouldReduceMotion ? 0 : 0.7,
         ease: [0.22, 1, 0.36, 1],
       }}
       className={`group relative overflow-hidden border border-[#d8d1c5] bg-white shadow-sm ${className ?? ""}`}
@@ -53,7 +53,7 @@ const NewsCard = ({
             src={image}
             alt={title}
             fill
-            className="object-cover transition duration-700 group-hover:scale-105"
+            className="object-cover transition duration-300 group-hover:scale-[1.02]"
           />
 
           <div className="absolute inset-0 bg-linear-to-t from-[#061d35]/85 via-transparent to-transparent" />

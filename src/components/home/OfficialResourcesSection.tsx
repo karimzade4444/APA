@@ -96,7 +96,7 @@ const OfficialResourcesSection = () => {
   return (
     <section className="overflow-hidden bg-[#f7f5f1] py-16">
       <div className="site-container">
-        <Reveal variant="blur">
+        <Reveal variant="rise">
           <div className="mb-8 flex items-end justify-between border-b border-[#061d35]/10 pb-5">
             <div>
               <div className="mb-3 flex items-center gap-3">

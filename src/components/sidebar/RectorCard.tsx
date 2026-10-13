@@ -7,7 +7,7 @@ import Reveal from "@/components/animations/Reveal";
 
 const RectorCard = () => {
   return (
-    <Reveal delay={0.2} variant="blur">
+    <Reveal delay={0.15} variant="rise">
       <motion.div
         whileHover={{ y: -4 }}
         transition={{ duration: 0.3 }}

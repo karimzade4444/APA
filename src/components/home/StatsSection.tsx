@@ -13,7 +13,7 @@ const StatsSection = () => {
 
       <div className="site-container relative">
         {/* Heading */}
-        <Reveal variant="slide-right">
+        <Reveal variant="rise">
           <div className="mb-16 max-w-2xl">
             <div className="mb-4 flex items-center gap-3">
               <span className="h-px w-12 bg-[#d4af62]" />

@@ -11,7 +11,7 @@ const ArticlesSection = () => {
   return (
     <section className="pb-0 pt-20">
         {/* Section heading */}
-        <Reveal variant="blur">
+        <Reveal variant="rise">
           <div className="mb-12 flex items-end justify-between border-b border-[#061d35]/10 pb-5">
             <div>
               <div className="mb-3 flex items-center gap-3">
@@ -41,7 +41,7 @@ const ArticlesSection = () => {
           </div>
         </Reveal>
 
-        <Reveal delay={0.1} variant="slide-right">
+        <Reveal delay={0.1} variant="rise">
           <FeaturedCarousel
             label="Последние статьи и публикации"
             slides={articles.slice(0, 3).map((article) => (

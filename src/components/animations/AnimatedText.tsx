@@ -3,7 +3,7 @@
 import { motion, useReducedMotion } from "motion/react";
 import type { ReactNode } from "react";
 
-type AnimatedTextVariant = "rise" | "slide-left" | "slide-right" | "blur";
+type AnimatedTextVariant = "rise" | "fade";
 
 type AnimatedTextProps = {
   children: ReactNode;
@@ -16,22 +16,20 @@ type AnimatedTextProps = {
 const AnimatedText = ({
   children,
   delay = 0,
-  duration = 0.8,
+  duration = 0.7,
   className,
-  variant = "blur",
+  variant = "rise",
 }: AnimatedTextProps) => {
   const shouldReduceMotion = useReducedMotion();
   const initial = {
-    rise: { opacity: 0, y: 35 },
-    "slide-left": { opacity: 0, x: 28 },
-    "slide-right": { opacity: 0, x: -28 },
-    blur: { opacity: 0, y: 35, filter: "blur(8px)" },
+    rise: { opacity: 0, y: 12 },
+    fade: { opacity: 0 },
   }[variant];
 
   return (
     <motion.div
       initial={shouldReduceMotion ? false : initial}
-      animate={{ opacity: 1, x: 0, y: 0, filter: "blur(0px)" }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{
         duration: shouldReduceMotion ? 0 : duration,
         delay: shouldReduceMotion ? 0 : delay,

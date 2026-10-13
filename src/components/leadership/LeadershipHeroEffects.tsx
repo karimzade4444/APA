@@ -19,9 +19,9 @@ export function LeadershipHeroReveal({
       initial={
         shouldReduceMotion
           ? false
-          : { opacity: 0, y: 24, filter: "blur(6px)" }
+          : { opacity: 0, y: 12 }
       }
-      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{
         duration: shouldReduceMotion ? 0 : 0.7,
         delay: shouldReduceMotion ? 0 : delay,

@@ -22,14 +22,13 @@ const QuickLinkCard = ({ item, index }: QuickLinkCardProps) => {
           ? false
           : {
               opacity: 0,
-              x: index % 2 === 0 ? -20 : 20,
-              scale: 0.97,
+              y: 12,
             }
       }
-      whileInView={{ opacity: 1, x: 0, y: 0, scale: 1 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{
-        duration: shouldReduceMotion ? 0 : 0.6,
+        duration: shouldReduceMotion ? 0 : 0.7,
         delay: shouldReduceMotion ? 0 : index * 0.08,
         ease: [0.22, 1, 0.36, 1],
       }}
@@ -43,7 +42,7 @@ const QuickLinkCard = ({ item, index }: QuickLinkCardProps) => {
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-5 text-center transition-opacity duration-500 group-hover:opacity-0">
           <Icon
             strokeWidth={1.5}
-            className="h-10 w-10 text-white transition-transform duration-500 group-hover:scale-110"
+            className="h-10 w-10 text-white"
           />
 
           <h3 className="mt-3 font-serif text-base font-semibold uppercase tracking-wide text-white">
@@ -59,7 +58,7 @@ const QuickLinkCard = ({ item, index }: QuickLinkCardProps) => {
             src={item.image}
             alt={item.title}
             fill
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
           />
 
           {/* Затемнение */}

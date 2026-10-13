@@ -9,7 +9,7 @@ import FeaturedCarousel from "./FeaturedCarousel";
 const NewsSection = () => {
   return (
     <section className="py-20">
-      <Reveal variant="slide-left">
+      <Reveal variant="rise">
         <div className="mb-10 flex flex-col gap-4 border-b border-[#061d35]/15 pb-5 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <div className="mb-3 flex items-center gap-3">
@@ -34,7 +34,7 @@ const NewsSection = () => {
         </div>
       </Reveal>
 
-      <Reveal delay={0.1} variant="scale">
+      <Reveal delay={0.1} variant="rise">
         <FeaturedCarousel
           label="Последние новости"
           slides={news.slice(0, 3).map((item) => (

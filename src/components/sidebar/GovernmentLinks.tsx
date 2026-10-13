@@ -24,7 +24,7 @@ const programs = [
 
 const GovernmentLinks = () => {
   return (
-    <Reveal delay={0.4} variant="slide-left">
+    <Reveal delay={0.2} variant="rise">
       <div className="border border-[#061d35]/10 bg-white shadow-sm">
         <div className="border-b border-[#061d35]/10 px-5 py-4">
           <p className="text-center text-[11px] font-medium uppercase tracking-[0.2em] text-[#8e6b2c]">
