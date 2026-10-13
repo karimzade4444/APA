@@ -41,10 +41,29 @@ function SectionHeading({
   );
 }
 
-function InfoCard({ title, text }: { title: string; text: string }) {
+function InfoCard({
+  title,
+  text,
+  logo,
+}: {
+  title: string;
+  text: string;
+  logo?: string;
+}) {
   return (
     <AboutReveal className="h-full" rotate={1}>
       <article className="group h-full rounded-xl border border-[#e4dccd] bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-[#c9a45c] hover:shadow-lg">
+        {logo && (
+          <div className="mb-5 flex h-16 items-center">
+            <Image
+              src={logo}
+              alt={`Логотип: ${title}`}
+              width={160}
+              height={64}
+              className="h-16 w-auto max-w-full object-contain object-left"
+            />
+          </div>
+        )}
         <div className="mb-4 h-1 w-10 rounded-full bg-[#c9a45c] transition-all group-hover:w-16" />
         <h3 className="text-lg font-semibold leading-snug text-[#09223d]">
           {title}
@@ -333,6 +352,7 @@ export default function AboutPage() {
               key={faculty.title}
               title={faculty.title}
               text={faculty.text}
+              logo={faculty.logo}
             />
           ))}
         </div>
