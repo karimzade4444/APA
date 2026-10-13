@@ -299,8 +299,12 @@ export const navigation: NavigationItem[] = [
   },
 
   {
-    title: "Поступление",
-    href: "/admission",
+    title: "Абитуриентам",
+    href: "/abiturients",
+  },
+  {
+    title: "Студентам",
+    href: "/students",
   },
 
   {
@@ -312,12 +316,6 @@ export const navigation: NavigationItem[] = [
     title: "Наука",
     href: "/science",
   },
-
-  {
-    title: "Студентам",
-    href: "/students",
-  },
-
   {
     title: "Контакты",
     href: "/contacts",
