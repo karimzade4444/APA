@@ -1,8 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useReducedMotion } from "motion/react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+
+const AUTOPLAY_INTERVAL = 3000;
 
 type PhotoGalleryProps = {
   images: [string, ...string[]];
@@ -11,7 +14,20 @@ type PhotoGalleryProps = {
 
 export default function PhotoGallery({ images, title }: PhotoGalleryProps) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const shouldReduceMotion = useReducedMotion();
   const hasMultipleImages = images.length > 1;
+
+  useEffect(() => {
+    if (!hasMultipleImages || shouldReduceMotion) {
+      return;
+    }
+
+    const intervalId = window.setInterval(() => {
+      setActiveIndex((current) => (current + 1) % images.length);
+    }, AUTOPLAY_INTERVAL);
+
+    return () => window.clearInterval(intervalId);
+  }, [hasMultipleImages, images.length, shouldReduceMotion]);
 
   const showPrevious = () => {
     setActiveIndex((current) => (current - 1 + images.length) % images.length);

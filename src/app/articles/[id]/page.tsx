@@ -20,7 +20,7 @@ export default async function ArticlePage({
 
   return (
     <main className="bg-[#f1ece2] py-12 md:py-16 lg:py-20">
-      <article className="mx-auto max-w-4xl px-6">
+      <article className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Breadcrumbs
           variant="light"
           items={[
