@@ -114,6 +114,16 @@ export const navigation: NavigationItem[] = [
           {
             title: "Управление международных связей",
             href: "/structure/management/international-relations",
+            children: [
+              {
+                title: "Отдел реализации проектов",
+                href: "/structure/management/international-relations/project-implementation",
+              },
+              {
+                title: "Сектор международного сотрудничества",
+                href: "/structure/management/international-relations/international-cooperation",
+              },
+            ],
           },
           {
             title: "Управление воспитательной работы",
