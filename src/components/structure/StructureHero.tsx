@@ -5,19 +5,26 @@ import { motion, useReducedMotion } from "motion/react";
 import { ChevronRight, Landmark } from "lucide-react";
 import Link from "next/link";
 import { structureIntro } from "@/data/structure";
+import { LeadershipOrbit } from "@/components/leadership/LeadershipHeroEffects";
 
 export function StructureHero() {
   const reduceMotion = useReducedMotion();
 
   return (
     <section className="relative isolate overflow-hidden bg-[#061d35]">
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -right-24 -top-32 h-[420px] w-[420px] rounded-full border border-[#c9a45c]/15" />
-        <div className="absolute -right-8 -top-16 h-[300px] w-[300px] rounded-full border border-[#c9a45c]/15" />
+      <div className="pointer-events-none absolute inset-0 z-0">
+        <div className="absolute -right-24 -top-32 h-[32rem] w-[32rem] rounded-full border border-[#c9a45c]/20" />
+        <div className="absolute -right-12 -top-20 h-[26rem] w-[26rem] rounded-full border border-[#c9a45c]/20" />
         <div className="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-[#c9a45c]/60 to-transparent" />
       </div>
 
-      <div className="site-container relative py-14 sm:py-20 lg:py-24">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute right-[4%] top-0 z-0 size-72 rounded-full bg-[radial-gradient(circle,rgba(201,164,92,0.16)_0%,rgba(201,164,92,0.06)_42%,transparent_72%)] sm:right-[8%] sm:top-4 sm:size-96"
+      />
+      <LeadershipOrbit className="pointer-events-none absolute right-[8%] top-12 z-0 h-36 w-36 text-[#c9a45c]/70 sm:right-[12%] sm:top-16 sm:h-48 sm:w-48" />
+
+      <div className="site-container relative z-10 py-14 sm:py-20 lg:py-24">
         <motion.nav
           initial={reduceMotion ? false : { opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
