@@ -13,7 +13,7 @@ const StatsSection = () => {
 
       <div className="site-container relative">
         {/* Heading */}
-        <Reveal>
+        <Reveal variant="slide-right">
           <div className="mb-16 max-w-2xl">
             <div className="mb-4 flex items-center gap-3">
               <span className="h-px w-12 bg-[#d4af62]" />
@@ -74,7 +74,7 @@ const StatsSection = () => {
         </div>
 
         {/* Bottom line */}
-        <Reveal delay={0.5}>
+        <Reveal delay={0.5} variant="fade">
           <div className="mt-16 flex items-center justify-between border-t border-white/10 pt-6">
             <p className="text-xs text-white/35">Структура Академии</p>
 

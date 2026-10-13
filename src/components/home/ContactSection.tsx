@@ -9,7 +9,7 @@ const ContactSection = () => {
   return (
     <section className="bg-[#f7f5f1] py-24">
       <div className="site-container">
-        <Reveal>
+        <Reveal variant="slide-left">
           <div className="mb-12">
             <div className="mb-3 flex items-center gap-3">
               <span className="h-px w-10 bg-[#d4af62]" />
@@ -28,7 +28,7 @@ const ContactSection = () => {
         <div className="grid overflow-hidden border border-[#061d35]/10 bg-white lg:grid-cols-[0.8fr_1.2fr]">
           {/* Информация */}
           <div className="bg-[#061d35] p-8 md:p-10">
-            <Reveal>
+            <Reveal variant="scale">
               <div className="space-y-8">
                 {/* Адрес */}
                 <div className="group">

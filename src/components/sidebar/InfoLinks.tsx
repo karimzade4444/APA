@@ -33,7 +33,7 @@ const links = [
 
 const InfoLinks = () => {
   return (
-    <Reveal delay={0.3}>
+    <Reveal delay={0.3} variant="slide-right">
       <div className="border border-[#d4af62]/25 bg-[#061d35]">
         <div className="border-b border-[#d4af62]/30 px-5 py-4">
           <p className="text-center text-[11px] font-medium uppercase tracking-[0.22em] text-[#d4af62]">

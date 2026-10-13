@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 
 import type { QuickLink } from "@/data/quickLinks";
 
@@ -13,15 +13,24 @@ type QuickLinkCardProps = {
 
 const QuickLinkCard = ({ item, index }: QuickLinkCardProps) => {
   const Icon = item.icon;
+  const shouldReduceMotion = useReducedMotion();
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 25 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={
+        shouldReduceMotion
+          ? false
+          : {
+              opacity: 0,
+              x: index % 2 === 0 ? -20 : 20,
+              scale: 0.97,
+            }
+      }
+      whileInView={{ opacity: 1, x: 0, y: 0, scale: 1 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{
-        duration: 0.6,
-        delay: index * 0.08,
+        duration: shouldReduceMotion ? 0 : 0.6,
+        delay: shouldReduceMotion ? 0 : index * 0.08,
         ease: [0.22, 1, 0.36, 1],
       }}
       className="group"

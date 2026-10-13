@@ -7,7 +7,7 @@ import { presidentSections } from "@/data/presidentSections";
 
 const PresidentCard = () => {
   return (
-    <Reveal delay={0.1}>
+    <Reveal delay={0.1} variant="scale">
       <motion.div
         whileHover={{ y: -4 }}
         transition={{ duration: 0.3 }}
@@ -59,7 +59,12 @@ const PresidentCard = () => {
           <ul className="mt-4 space-y-2 border-t border-white/10 pt-4">
             {presidentSections.map((section, index) => (
               <li key={section.href}>
-                <Reveal delay={0.15 + index * 0.08} y={12} duration={0.45}>
+                <Reveal
+                  delay={0.15 + index * 0.08}
+                  y={12}
+                  duration={0.45}
+                  variant={index % 2 === 0 ? "slide-left" : "slide-right"}
+                >
                   <motion.a
                     href={section.href}
                     target="_blank"

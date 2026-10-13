@@ -22,7 +22,7 @@ const Hero = () => {
 
       <div className="site-container relative z-10 flex min-h-140 items-center">
         <div className="max-w-3xl">
-          <AnimatedText delay={0.2}>
+          <AnimatedText delay={0.2} variant="slide-left">
             <div className="mb-7 flex items-center gap-4">
               <div className="h-px w-16 bg-[#d4af62]" />
 
@@ -33,7 +33,7 @@ const Hero = () => {
             </div>
           </AnimatedText>
 
-          <AnimatedText delay={0.45} duration={1}>
+          <AnimatedText delay={0.45} duration={1} variant="blur">
             <h2 className="font-serif text-5xl font-semibold leading-[1.1] text-white md:text-6xl lg:text-6xl">
               Знания.
               <br />
@@ -43,7 +43,7 @@ const Hero = () => {
             </h2>
           </AnimatedText>
 
-          <AnimatedText delay={0.8}>
+          <AnimatedText delay={0.8} variant="slide-right">
             <p className="mt-7 max-w-2xl text-base leading-7 text-white/75 md:text-md text-justify">
               Подготовка высококвалифицированных специалистов для
               государственной службы и эффективного управления в интересах
@@ -51,7 +51,7 @@ const Hero = () => {
             </p>
           </AnimatedText>
 
-          <AnimatedText delay={1.1}>
+          <AnimatedText delay={1.1} variant="rise">
             <div className="mt-9 flex flex-wrap items-center gap-4">
               <Link
                 href="/about"

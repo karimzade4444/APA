@@ -29,7 +29,7 @@ const Footer = () => {
         {/* Верхняя часть */}
         <div className="grid gap-12 border-b border-white/10 py-16 lg:grid-cols-[1.4fr_1fr_1fr]">
           {/* Brand */}
-          <Reveal delay={0} className="min-w-0">
+          <Reveal delay={0} className="min-w-0" variant="slide-left">
             <Link href="/" className="group inline-block">
               <p className="text-sm font-medium uppercase tracking-[0.18em] text-[#d4af62]">
                 Академия
@@ -105,7 +105,7 @@ const Footer = () => {
           </Reveal>
 
           {/* Навигация */}
-          <Reveal delay={0.12} className="min-w-0">
+          <Reveal delay={0.12} className="min-w-0" variant="fade">
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#d4af62]">
               Навигация
             </p>
@@ -128,7 +128,7 @@ const Footer = () => {
           </Reveal>
 
           {/* Контакты */}
-          <Reveal delay={0.24} className="min-w-0">
+          <Reveal delay={0.24} className="min-w-0" variant="slide-right">
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#d4af62]">
               Контакты
             </p>
@@ -162,7 +162,7 @@ const Footer = () => {
         </div>
 
         {/* Нижняя часть */}
-        <Reveal delay={0.12}>
+        <Reveal delay={0.12} variant="blur">
           <div className="grid gap-5 py-6 text-center xl:grid-cols-[1fr_auto_1fr] xl:items-center xl:text-left">
             <p className="text-[11px] text-white/45">
               © {new Date().getFullYear()} Академия государственного управления.

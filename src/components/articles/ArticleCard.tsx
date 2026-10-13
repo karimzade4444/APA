@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 
 type ArticleCardProps = {
   title: string;
@@ -21,13 +21,24 @@ const ArticleCard = ({
   featured = false,
   className,
 }: ArticleCardProps) => {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <motion.article
-      whileHover={{ y: -5 }}
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      whileHover={shouldReduceMotion ? undefined : { y: -5 }}
+      initial={
+        shouldReduceMotion
+          ? false
+          : featured
+            ? { opacity: 0, scale: 0.96 }
+            : { opacity: 0, y: 24 }
+      }
+      whileInView={{ opacity: 1, x: 0, y: 0, scale: 1 }}
       viewport={{ once: true, amount: 0.15 }}
-      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      transition={{
+        duration: shouldReduceMotion ? 0 : 0.5,
+        ease: [0.22, 1, 0.36, 1],
+      }}
       className={`group overflow-hidden border border-[#d8d1c5] bg-white ${className ?? ""}`}
     >
       <Link href={href} className="block">
