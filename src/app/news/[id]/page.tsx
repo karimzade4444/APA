@@ -36,12 +36,12 @@ export default async function NewsArticlePage({
 
   return (
     <main className="bg-[#f1ece2] py-12 md:py-16 lg:py-20">
-      <article className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <article className="site-container">
         <Breadcrumbs
           variant="light"
           items={[
             { label: "Главная", href: "/" },
-            { label: sectionLabel, href: sectionHref },
+            { label: "Публикации", href: sectionHref },
             { label: item.title },
           ]}
         />
@@ -66,7 +66,7 @@ export default async function NewsArticlePage({
             <PhotoGallery
               images={item.images}
               title={item.title}
-              className="mb-5 mr-0 mt-0 w-full md:float-left md:mb-4 md:mr-8 md:w-[42%] xl:w-[40%]"
+              className="mb-5 mr-0 mt-0 w-full md:float-left md:mb-4 md:mr-8 md:w-[52%] xl:w-[50%]"
             />
             {item.content.map((paragraph, index) => (
               <p

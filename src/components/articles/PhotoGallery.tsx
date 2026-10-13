@@ -44,14 +44,14 @@ export default function PhotoGallery({
 
   return (
     <div className={className ?? "mt-8"}>
-      <div className="group relative aspect-16/9 overflow-hidden border border-[#d8d1c5] bg-white">
+      <div className="group relative aspect-16/9 overflow-hidden border border-[#d8d1c5] bg-white md:aspect-4/3">
         <Image
           key={images[activeIndex]}
           src={images[activeIndex]}
           alt={`${title} — фото ${activeIndex + 1}`}
           fill
           priority={activeIndex === 0}
-          sizes="(max-width: 767px) 100vw, (max-width: 1279px) 42vw, 40vw"
+          sizes="(max-width: 767px) 100vw, (max-width: 1279px) 52vw, 50vw"
           className="gallery-image-in object-cover"
         />
 
