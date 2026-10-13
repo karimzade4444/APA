@@ -150,6 +150,39 @@ export const navigation: NavigationItem[] = [
           {
             title: "Управление финансов и учёта",
             href: "/structure/management/finance",
+            children: [
+              {
+                title: "Отдел оплаты труда",
+                href: "/structure/management/finance/payroll",
+              },
+              {
+                title: "Отдел стипендий",
+                href: "/structure/management/finance/scholarships",
+              },
+              {
+                title: "Отдел экономики и планирования",
+                href: "/structure/management/finance/economics-planning",
+              },
+              {
+                title: "Отдел имущества",
+                href: "/structure/management/finance/property",
+              },
+            ],
+          },
+          {
+            title:
+              "Институт повышения квалификации и переподготовки государственных служащих",
+            href: "/institute/continuing-education",
+            children: [
+              {
+                title: "Отдел образования госслужащих",
+                href: "/institute/continuing-education/education",
+              },
+              {
+                title: "Отдел профподготовки госслужащих",
+                href: "/institute/continuing-education/training",
+              },
+            ],
           },
         ],
       },
