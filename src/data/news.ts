@@ -41,7 +41,7 @@ export const news: NewsItem[] = [
     title:
       "Намояндагони Академия дар Анҷумани дуюми ҷаҳонии ҷамъиятӣ иштирок намуданд",
     date: "25.09.2026",
-    images: ["/images/news/news-2.jpg"],
+    images: ["/images/news/news-2.jpg", "/images/news/news-3.jpg"],
     href: "/news/2",
     category: "news",
     content: placeholderContent,

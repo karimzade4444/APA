@@ -19,7 +19,7 @@ const Footer = () => {
     { title: "Образование", href: "/education" },
     { title: "Наука", href: "/science" },
     { title: "Студентам", href: "/students" },
-    { title: "Новости", href: "/news" },
+    { title: "Публикации", href: "/publications" },
     { title: "Контакты", href: "/contacts" },
   ];
 

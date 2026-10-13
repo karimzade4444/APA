@@ -23,7 +23,7 @@ export default function PhotoGallery({ images, title }: PhotoGalleryProps) {
 
   return (
     <div className="mt-8">
-      <div className="group relative aspect-[16/9] overflow-hidden border border-[#d8d1c5] bg-white">
+      <div className="group relative aspect-16/9 overflow-hidden border border-[#d8d1c5] bg-white">
         <Image
           key={images[activeIndex]}
           src={images[activeIndex]}

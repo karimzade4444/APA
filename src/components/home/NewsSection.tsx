@@ -28,10 +28,10 @@ const NewsSection = () => {
           </div>
 
           <Link
-            href="/news"
+            href="/publications#news"
             className="shrink-0 text-sm font-medium uppercase tracking-wide text-[#061d35] transition-colors duration-300 hover:text-[#b18a3d]"
           >
-            Все новости →
+            Все публикации →
           </Link>
         </div>
       </Reveal>

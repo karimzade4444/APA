@@ -25,7 +25,7 @@ export default async function ArticlePage({
           variant="light"
           items={[
             { label: "Главная", href: "/" },
-            { label: "Публикации", href: "/articles" },
+            { label: "Публикации", href: "/publications#articles" },
             { label: article.title },
           ]}
         />

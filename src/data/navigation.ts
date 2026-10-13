@@ -249,20 +249,20 @@ export const navigation: NavigationItem[] = [
         ],
       },
       {
-        title: "Новости",
-        href: "/news",
+        title: "Публикации",
+        href: "/publications",
         children: [
           {
             title: "Новости",
-            href: "/news",
+            href: "/publications#news",
           },
           {
             title: "Объявления",
-            href: "/announcements",
+            href: "/publications#announcements",
           },
           {
-            title: "Публикации и статьи",
-            href: "/publications",
+            title: "Статьи",
+            href: "/publications#articles",
           },
         ],
       },

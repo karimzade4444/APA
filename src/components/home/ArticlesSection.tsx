@@ -23,7 +23,7 @@ const ArticlesSection = () => {
               </div>
 
               <h2 className="font-serif text-4xl font-semibold text-[#061d35] md:text-5xl">
-                Статьи и публикации
+                Статьи
               </h2>
 
               <p className="mt-3 max-w-xl text-sm leading-6 text-[#061d35]/55">
@@ -33,10 +33,10 @@ const ArticlesSection = () => {
             </div>
 
             <Link
-              href="/articles"
+              href="/publications#articles"
               className="hidden text-sm font-medium uppercase tracking-wide text-[#061d35] transition-colors duration-300 hover:text-[#a37b2f] md:block"
             >
-              Все публикации →
+                Все публикации →
             </Link>
           </div>
         </Reveal>
@@ -76,7 +76,7 @@ const ArticlesSection = () => {
         {/* Mobile button */}
         <div className="mt-8 md:hidden">
           <Link
-            href="/articles"
+            href="/publications#articles"
             className="inline-flex border border-[#061d35] px-6 py-3 text-sm font-medium uppercase tracking-wide text-[#061d35] transition duration-300 hover:bg-[#061d35] hover:text-white"
           >
             Все публикации
