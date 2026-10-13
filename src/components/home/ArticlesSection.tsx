@@ -65,6 +65,7 @@ const ArticlesSection = () => {
               date={article.date}
               image={article.image}
               href={article.href}
+              delay={index * 0.08}
               className={index === 3 ? "hidden min-[2560px]:block" : undefined}
             />
           ))}

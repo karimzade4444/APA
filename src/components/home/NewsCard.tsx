@@ -11,6 +11,8 @@ type NewsCardProps = {
   href: string;
   featured?: boolean;
   className?: string;
+  delay?: number;
+  eyebrow?: string;
 };
 
 const NewsCard = ({
@@ -20,12 +22,18 @@ const NewsCard = ({
   href,
   featured = false,
   className,
+  delay = 0,
+  eyebrow = "Новости",
 }: NewsCardProps) => {
   const shouldReduceMotion = useReducedMotion();
 
   return (
     <motion.article
-      whileHover={shouldReduceMotion ? undefined : { y: -3 }}
+      whileHover={
+        shouldReduceMotion
+          ? undefined
+          : { y: -3, transition: { duration: 0.2 } }
+      }
       initial={
         shouldReduceMotion
           ? false
@@ -37,6 +45,7 @@ const NewsCard = ({
       viewport={{ once: true, amount: 0.15 }}
       transition={{
         duration: shouldReduceMotion ? 0 : 0.7,
+        delay: shouldReduceMotion ? 0 : delay,
         ease: [0.22, 1, 0.36, 1],
       }}
       className={`group relative overflow-hidden border border-[#d8d1c5] bg-white shadow-sm ${className ?? ""}`}
@@ -67,7 +76,7 @@ const NewsCard = ({
           {featured && (
             <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5">
               <span className="text-xs uppercase tracking-[0.2em] text-[#d4af62]">
-                Новости
+                {eyebrow}
               </span>
 
               <h3 className="max-w-2xl font-serif text-xl font-semibold leading-tight text-white md:text-2xl">

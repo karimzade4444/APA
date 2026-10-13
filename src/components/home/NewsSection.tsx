@@ -7,6 +7,8 @@ import NewsCard from "./NewsCard";
 import FeaturedCarousel from "./FeaturedCarousel";
 
 const NewsSection = () => {
+  const latestNews = news.filter((item) => item.category === "news");
+
   return (
     <section className="py-20">
       <Reveal variant="rise">
@@ -37,7 +39,7 @@ const NewsSection = () => {
       <Reveal delay={0.1} variant="rise">
         <FeaturedCarousel
           label="Последние новости"
-          slides={news.slice(0, 3).map((item) => (
+          slides={latestNews.slice(0, 3).map((item) => (
             <NewsCard
               key={item.id}
               title={item.title}
@@ -51,13 +53,14 @@ const NewsSection = () => {
       </Reveal>
 
       <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 min-[2560px]:grid-cols-4 min-[2560px]:gap-4">
-        {news.map((item, index) => (
+        {latestNews.map((item, index) => (
           <NewsCard
             key={item.id}
             title={item.title}
             date={item.date}
             image={item.image}
             href={item.href}
+            delay={index * 0.08}
             className={index === 3 ? "hidden min-[2560px]:block" : undefined}
           />
         ))}

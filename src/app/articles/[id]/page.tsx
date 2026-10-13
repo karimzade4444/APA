@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
+import Reveal from "@/components/animations/Reveal";
 import { articles } from "@/data/articles";
 
 export function generateStaticParams() {
@@ -29,27 +30,31 @@ export default async function ArticlePage({
           ]}
         />
 
-        <header className="border-b border-[#061d35]/15 pb-8">
-          <p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-[#a37b2f]">
-            Наука и аналитика
-          </p>
-          <h1 className="font-serif text-3xl font-semibold leading-tight text-[#061d35] md:text-5xl">
-            {article.title}
-          </h1>
-          <time className="mt-5 block text-sm text-[#061d35]/55">
-            {article.date}
-          </time>
-        </header>
+        <Reveal>
+          <header className="border-b border-[#061d35]/15 pb-8">
+            <p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-[#a37b2f]">
+              Наука и аналитика
+            </p>
+            <h1 className="font-serif text-3xl font-semibold leading-tight text-[#061d35] md:text-5xl">
+              {article.title}
+            </h1>
+            <time className="mt-5 block text-sm text-[#061d35]/55">
+              {article.date}
+            </time>
+          </header>
+        </Reveal>
 
-        <div className="relative mt-8 aspect-[16/9] overflow-hidden border border-[#d8d1c5] bg-white">
-          <Image
-            src={article.image}
-            alt={article.title}
-            fill
-            priority
-            className="object-cover"
-          />
-        </div>
+        <Reveal delay={0.12}>
+          <div className="relative mt-8 aspect-[16/9] overflow-hidden border border-[#d8d1c5] bg-white">
+            <Image
+              src={article.image}
+              alt={article.title}
+              fill
+              priority
+              className="object-cover"
+            />
+          </div>
+        </Reveal>
       </article>
     </main>
   );

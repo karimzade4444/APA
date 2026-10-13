@@ -11,6 +11,7 @@ type ArticleCardProps = {
   href: string;
   featured?: boolean;
   className?: string;
+  delay?: number;
 };
 
 const ArticleCard = ({
@@ -20,12 +21,17 @@ const ArticleCard = ({
   href,
   featured = false,
   className,
+  delay = 0,
 }: ArticleCardProps) => {
   const shouldReduceMotion = useReducedMotion();
 
   return (
     <motion.article
-      whileHover={shouldReduceMotion ? undefined : { y: -3 }}
+      whileHover={
+        shouldReduceMotion
+          ? undefined
+          : { y: -3, transition: { duration: 0.2 } }
+      }
       initial={
         shouldReduceMotion
           ? false
@@ -37,6 +43,7 @@ const ArticleCard = ({
       viewport={{ once: true, amount: 0.15 }}
       transition={{
         duration: shouldReduceMotion ? 0 : 0.7,
+        delay: shouldReduceMotion ? 0 : delay,
         ease: [0.22, 1, 0.36, 1],
       }}
       className={`group overflow-hidden border border-[#d8d1c5] bg-white ${className ?? ""}`}

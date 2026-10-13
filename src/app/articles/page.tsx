@@ -1,6 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
+import { ArrowUpRight, BookOpen } from "lucide-react";
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
+import ArticleCard from "@/components/articles/ArticleCard";
+import Reveal from "@/components/animations/Reveal";
 import { articles } from "@/data/articles";
 
 export default function ArticlesPage() {
@@ -14,43 +16,50 @@ export default function ArticlesPage() {
             { label: "Публикации" },
           ]}
         />
-        <div className="mb-12 border-b border-[#061d35]/15 pb-6">
-          <p className="mb-3 text-xs font-medium uppercase tracking-[0.25em] text-[#a37b2f]">
-            Наука и аналитика
-          </p>
-          <h1 className="font-serif text-4xl font-semibold text-[#061d35] md:text-5xl">
+        <Reveal className="mb-12">
+          <div className="relative overflow-hidden border border-[#c9a45c]/35 bg-[#061d35] px-6 py-9 sm:px-10 sm:py-12">
+            <div className="pointer-events-none absolute -right-12 -top-20 h-64 w-64 rounded-full border border-[#c9a45c]/20" />
+            <div className="pointer-events-none absolute -right-2 -top-10 h-44 w-44 rounded-full border border-[#c9a45c]/15" />
+            <div className="relative max-w-3xl">
+              <div className="mb-4 flex items-center gap-3 text-[#d4af62]">
+                <BookOpen size={17} strokeWidth={1.5} />
+                <p className="text-xs font-medium uppercase tracking-[0.25em]">
+                  Наука и аналитика
+                </p>
+              </div>
+              <h1 className="font-serif text-4xl font-semibold text-white md:text-5xl">
+                Публикации и статьи
+              </h1>
+              <p className="mt-4 max-w-2xl text-sm leading-7 text-white/65 sm:text-base">
+                Исследования и аналитические материалы преподавателей и
+                специалистов Академии.
+              </p>
+            </div>
+          </div>
+        </Reveal>
+
+        <div className="mb-6 flex items-end justify-between border-b border-[#061d35]/15 pb-4">
+          <h2 className="font-serif text-2xl font-semibold text-[#061d35]">
             Все публикации
-          </h1>
+          </h2>
+          <Link
+            href="/news"
+            className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-[#9b7939] transition-colors hover:text-[#061d35]"
+          >
+            Новости <ArrowUpRight size={15} />
+          </Link>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {articles.map((article, index) => (
-            <Link
+            <ArticleCard
               key={article.id}
+              title={article.title}
+              date={article.date}
+              image={article.image}
               href={article.href}
-              className="group overflow-hidden border border-[#d8d1c5] bg-white shadow-sm transition-transform duration-300 hover:-translate-y-1"
-            >
-              <div className="relative aspect-[16/10] overflow-hidden">
-                <Image
-                  src={article.image}
-                  alt=""
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <span className="absolute left-4 top-4 font-serif text-2xl text-white drop-shadow">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-              </div>
-              <div className="p-5">
-                <p className="text-xs text-[#061d35]/50">{article.date}</p>
-                <h2 className="mt-2 font-serif text-lg font-semibold leading-snug text-[#061d35] transition-colors group-hover:text-[#a37b2f]">
-                  {article.title}
-                </h2>
-                <span className="mt-4 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-[#a37b2f]">
-                  Читать <span aria-hidden="true">→</span>
-                </span>
-              </div>
-            </Link>
+              delay={index * 0.1}
+            />
           ))}
         </div>
       </div>
