@@ -5,8 +5,7 @@ import {
   BookOpen,
   Newspaper,
 } from "lucide-react";
-import ArticleCard from "@/components/articles/ArticleCard";
-import NewsCard from "@/components/home/NewsCard";
+import PublicationCard from "@/components/publications/PublicationCard";
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 import Reveal from "@/components/animations/Reveal";
 import { publications } from "@/data/news";
@@ -87,12 +86,13 @@ export default function PublicationsPage() {
           {news.length > 0 ? (
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {news.map((item, index) => (
-                <NewsCard
+                <PublicationCard
                   key={item.id}
                   title={item.title}
                   date={item.date}
                   image={item.images[0]}
                   href={item.href}
+                  category={item.category}
                   delay={index * 0.08}
                 />
               ))}
@@ -125,14 +125,14 @@ export default function PublicationsPage() {
           {announcements.length > 0 ? (
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {announcements.map((item, index) => (
-                <NewsCard
+                <PublicationCard
                   key={item.id}
                   title={item.title}
                   date={item.date}
                   image={item.images[0]}
                   href={item.href}
+                  category={item.category}
                   delay={index * 0.08}
-                  eyebrow="Объявление"
                 />
               ))}
             </div>
@@ -164,13 +164,13 @@ export default function PublicationsPage() {
           {articles.length > 0 ? (
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {articles.map((article, index) => (
-                <ArticleCard
+                <PublicationCard
                   key={article.id}
                   title={article.title}
                   date={article.date}
                   image={article.images[0]}
                   href={article.href}
-                  category={article.topic}
+                  category={article.category}
                   delay={index * 0.08}
                 />
               ))}

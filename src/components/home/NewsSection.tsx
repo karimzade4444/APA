@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Reveal from "@/components/animations/Reveal";
 import { publications } from "@/data/news";
-import NewsCard from "./NewsCard";
+import PublicationCard from "@/components/publications/PublicationCard";
 import FeaturedCarousel from "./FeaturedCarousel";
 
 const NewsSection = () => {
@@ -40,12 +40,13 @@ const NewsSection = () => {
         <FeaturedCarousel
           label="Последние новости"
           slides={latestNews.slice(0, 3).map((item) => (
-            <NewsCard
+            <PublicationCard
               key={item.id}
               title={item.title}
               date={item.date}
               image={item.images[0]}
               href={item.href}
+              category={item.category}
               featured
             />
           ))}
@@ -54,12 +55,13 @@ const NewsSection = () => {
 
       <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 min-[2560px]:grid-cols-4 min-[2560px]:gap-4">
         {latestNews.map((item, index) => (
-          <NewsCard
+          <PublicationCard
             key={item.id}
             title={item.title}
             date={item.date}
             image={item.images[0]}
             href={item.href}
+            category={item.category}
             delay={index * 0.08}
             className={index === 3 ? "hidden min-[2560px]:block" : undefined}
           />
