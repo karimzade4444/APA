@@ -54,13 +54,13 @@ function InfoCard({
     <AboutReveal className="h-full" rotate={1}>
       <article className="group h-full rounded-xl border border-[#e4dccd] bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-[#c9a45c] hover:shadow-lg">
         {logo && (
-          <div className="mb-5 flex h-16 items-center">
+          <div className="mb-5 flex size-20 items-center justify-center overflow-hidden rounded-full border border-[#e4dccd] ">
             <Image
               src={logo}
               alt={`Логотип: ${title}`}
               width={160}
               height={64}
-              className="h-16 w-auto max-w-full object-contain object-left"
+              className="size-full rounded-full object-contain"
             />
           </div>
         )}
