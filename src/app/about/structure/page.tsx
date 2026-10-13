@@ -14,7 +14,6 @@ export default function StructurePage() {
     <main className="min-h-screen bg-[#f8f7f3]">
       <StructureHero />
       <StructureChart/>
-      
     </main>
   );
 }

@@ -212,7 +212,7 @@ export function StructureChart() {
               <motion.article
                 key={branch.id}
                 {...reveal(0.05 * index)}
-                className={`relative flex h-full flex-col overflow-hidden rounded-xl border bg-white transition-colors duration-300 ${
+                className={`relative flex self-start flex-col overflow-hidden rounded-xl border bg-white transition-colors duration-300 ${
                   isOpen
                     ? "border-[#c9a45c]/70 shadow-[0_12px_35px_rgba(6,29,53,0.07)]"
                     : "border-[#e4dccd] hover:border-[#c9a45c]/60"
@@ -222,7 +222,7 @@ export function StructureChart() {
                   type="button"
                   aria-expanded={isOpen}
                   onClick={() => toggleBranch(branch.id)}
-                  className="flex h-full w-full flex-1 flex-col p-5 text-left sm:p-6"
+                  className="min-h-[254px] w-full p-5 text-left sm:p-6"
                 >
                   <div className="flex items-start justify-between gap-3">
                     <span className="text-xs font-semibold tabular-nums tracking-widest text-[#b88d3c]">
@@ -244,7 +244,7 @@ export function StructureChart() {
                     {branch.title}
                   </h3>
 
-                  <p className="mt-2 min-h-10 flex-1 text-sm leading-5 text-[#061d35]/55">
+                  <p className="mt-2 min-h-10 text-sm leading-5 text-[#061d35]/55">
                     {branch.description}
                   </p>
 
