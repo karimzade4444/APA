@@ -186,15 +186,15 @@ export const navigation: NavigationItem[] = [
           },
           {
             title: "Исследовательские институты",
-            href: "/structure/science/institutes",
+            href: "/structure/institutes",
             children: [
               {
                 title: "Институт государственного управления и госслужбы",
-                href: "/structure/science/institutes/public-administration",
+                href: "/structure/institutes/public-administration",
               },
               {
                 title: "Институт политических процессов",
-                href: "/structure/science/institutes/political-processes",
+                href: "/structure/institutes/political-processes",
               },
             ],
           },
