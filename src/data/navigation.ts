@@ -52,8 +52,29 @@ export const navigation: NavigationItem[] = [
         href: "/about/structure",
         children: [
           {
-            title: "Структура Академии",
-            href: "/about/structure",
+            title: "Управление кадров и специальных работ",
+            href: "/structure/management/human-resources",
+          },
+          {
+            title: "Управление учебного процесса",
+            href: "/structure/management/educational-process",
+            
+          },
+          {
+            title: "Управление науки и инноваций",
+            href: "/structure/management/science-innovation",
+          },
+          {
+            title: "Управление международных связей",
+            href: "/structure/management/international-relations",
+          },
+          {
+            title: "Управление воспитательной работы",
+            href: "/structure/management/educational-work",
+          },
+          {
+            title: "Управление финансов и учёта",
+            href: "/structure/management/finance",
           },
         ],
       },

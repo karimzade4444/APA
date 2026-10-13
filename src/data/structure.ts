@@ -132,7 +132,7 @@ export const structureItems: StructureItem[] = [
         id: "educational-process",
         title: "Управление учебного процесса",
         href: "/structure/management/educational-process",
-        children: undefined,
+        
       },
       {
         id: "science-innovation",
