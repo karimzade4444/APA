@@ -60,15 +60,18 @@ const MenuTreeItem = ({ item, onNavigate }: MenuTreeItemProps) => {
       if (!anchor || !flyout) return;
 
       const margin = 12;
-      const width = flyout.offsetWidth;
+      const width = Math.min(
+        flyout.offsetWidth,
+        window.innerWidth - margin * 2,
+      );
       const height = Math.min(
         flyout.scrollHeight,
         window.innerHeight - margin * 2,
       );
-      const fitsRight = anchor.right + width + margin <= window.innerWidth;
-      const left = fitsRight
-        ? anchor.right
-        : Math.max(margin, anchor.left - width);
+      const left = Math.max(
+        margin,
+        Math.min(anchor.right, window.innerWidth - width - margin),
+      );
       const top = Math.min(
         Math.max(margin, anchor.top),
         window.innerHeight - height - margin,
@@ -192,7 +195,7 @@ const MenuTreeItem = ({ item, onNavigate }: MenuTreeItemProps) => {
                   maxHeight: "calc(100dvh - 24px)",
                   visibility: flyoutPosition ? "visible" : "hidden",
                 }}
-                className="z-[100] min-w-70 overflow-y-auto overscroll-contain border border-[#c9a45c]/30 bg-[#061d35] p-3 shadow-2xl"
+                className="z-[100] w-[22rem] max-w-[calc(100vw-1.5rem)] overflow-y-auto overscroll-contain border border-[#c9a45c]/30 bg-[#061d35] p-3 shadow-2xl"
               >
                 <div className="mb-3 border-b border-[#d4af62] pb-3">
                   <p className="text-xs uppercase tracking-[0.2em] text-[#d4af62]">
