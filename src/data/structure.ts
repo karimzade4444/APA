@@ -12,6 +12,122 @@ export type StructureDepartment = {
   href?: string;
 };
 
+export type StructureChartIcon =
+  | "building"
+  | "book"
+  | "graduation"
+  | "landmark"
+  | "microscope"
+  | "network"
+  | "shield"
+  | "users";
+
+export type StructureChartLeadershipItem = {
+  title: string;
+  subtitle: string;
+  icon: StructureChartIcon;
+};
+
+export type StructureChartBranch = {
+  id: string;
+  number: string;
+  title: string;
+  description: string;
+  icon: StructureChartIcon;
+  items: string[];
+  href: string;
+};
+
+export const structureChartLeadership: StructureChartLeadershipItem[] = [
+  {
+    title: "Первый проректор, проректор по учебной работе",
+    subtitle: "Учебная деятельность",
+    icon: "graduation",
+  },
+  {
+    title: "Проректор по науке и инновациям",
+    subtitle: "Научная деятельность",
+    icon: "microscope",
+  },
+  {
+    title: "Проректор по международным связям",
+    subtitle: "Международное сотрудничество",
+    icon: "network",
+  },
+  {
+    title: "Проректор по идеологии, воспитанию и связям с общественностью",
+    subtitle: "Воспитательная работа",
+    icon: "users",
+  },
+  {
+    title: "Проректор по экономике и административным вопросам",
+    subtitle: "Финансы и обеспечение",
+    icon: "building",
+  },
+];
+
+export const structureChartBranches: StructureChartBranch[] = [
+  {
+    id: "management",
+    number: "01",
+    title: "Управления",
+    description: "Организация и координация работы Академии",
+    icon: "network",
+    items: [
+      "Управление кадров и специальных работ",
+      "Управление учебного процесса",
+      "Управление науки и инноваций",
+      "Управление международных связей",
+      "Управление воспитательной работы",
+      "Управление финансов и учёта",
+    ],
+    href: "/structure/management",
+  },
+  {
+    id: "education",
+    number: "02",
+    title: "Образование",
+    description: "Обучение и подготовка специалистов",
+    icon: "book",
+    items: [
+      "Факультеты",
+      "Кафедры",
+      "Магистратура",
+      "Институт повышения квалификации",
+    ],
+    href: "/education",
+  },
+  {
+    id: "science",
+    number: "03",
+    title: "Наука и инновации",
+    description: "Исследования и научные инициативы",
+    icon: "microscope",
+    items: [
+      "Институт государственного управления и госслужбы",
+      "Институт политических процессов",
+      "Научные центры",
+      "Технопарк",
+    ],
+    href: "/science",
+  },
+  {
+    id: "support",
+    number: "04",
+    title: "Обеспечение деятельности",
+    description: "Организационная и инфраструктурная поддержка",
+    icon: "shield",
+    items: [
+      "Секретариат и помощник ректора",
+      "Юридический отдел",
+      "Научная библиотека",
+      "Медицинский пункт",
+      "Гостиница",
+    ],
+    href: "/about/structure",
+  },
+];
+
 export type StructureItem = {
   id: string;
   number: string;
@@ -378,4 +494,3 @@ export const structureCategories = [
   { id: "administration", label: "Управления" },
   { id: "infrastructure", label: "Инфраструктура" },
 ] as const;
-

@@ -19,102 +19,26 @@ import {
   ShieldCheck,
   Users,
 } from "lucide-react";
+import {
+  structureChartBranches,
+  structureChartLeadership,
+  type StructureChartIcon,
+} from "@/data/structure";
 
-const leadership = [
-  {
-    title: "Первый проректор",
-    subtitle: "Учебная деятельность",
-    icon: GraduationCap,
-  },
-  {
-    title: "Проректор по науке и инновациям",
-    subtitle: "Научная деятельность",
-    icon: Microscope,
-  },
-  {
-    title: "Проректор по международным связям",
-    subtitle: "Международное сотрудничество",
-    icon: Network,
-  },
-  {
-    title: "Проректор по идеологии, воспитанию и связям с общественностью",
-    subtitle: "Воспитательная работа",
-    icon: Users,
-  },
-  {
-    title: "Проректор по экономике и административным вопросам",
-    subtitle: "Финансы и обеспечение",
-    icon: Building2,
-  },
-];
-
-const branches = [
-  {
-    id: "management",
-    number: "01",
-    title: "Управления",
-    description: "Организация и координация работы Академии",
-    icon: Network,
-    items: [
-      "Управление кадров и специальных работ",
-      "Управление учебного процесса",
-      "Управление науки и инноваций",
-      "Управление международных связей",
-      "Управление воспитательной работы",
-      "Управление финансов и учёта",
-    ],
-    href: "/structure/management",
-  },
-  {
-    id: "education",
-    number: "02",
-    title: "Образование",
-    description: "Обучение и подготовка специалистов",
-    icon: BookOpen,
-    items: [
-      "Факультеты",
-      "Кафедры",
-      "Магистратура",
-      "Институт повышения квалификации",
-    ],
-    href: "/education",
-  },
-  {
-    id: "science",
-    number: "03",
-    title: "Наука и инновации",
-    description: "Исследования и научные инициативы",
-    icon: Microscope,
-    items: [
-      "Институт государственного управления и госслужбы",
-      "Институт политических процессов",
-      "Научные центры",
-      "Технопарк",
-    ],
-    href: "/science",
-  },
-  {
-    id: "support",
-    number: "04",
-    title: "Обеспечение деятельности",
-    description: "Организационная и инфраструктурная поддержка",
-    icon: ShieldCheck,
-    items: [
-      "Секретариат и помощник ректора",
-      "Юридический отдел",
-      "Научная библиотека",
-      "Медицинский пункт",
-      "Гостиница",
-    ],
-    href: "/structure",
-  },
-];
+const chartIcons = {
+  building: Building2,
+  book: BookOpen,
+  graduation: GraduationCap,
+  landmark: Landmark,
+  microscope: Microscope,
+  network: Network,
+  shield: ShieldCheck,
+  users: Users,
+} satisfies Record<StructureChartIcon, typeof Building2>;
 
 export function StructureChart() {
   const reduceMotion = useReducedMotion();
-  const [expanded, setExpanded] = useState<string[]>([
-    "management",
-  ]);
+  const [expanded, setExpanded] = useState<string[]>([]);
 
   const toggleBranch = (id: string) => {
     setExpanded((current) =>
@@ -203,7 +127,7 @@ export function StructureChart() {
             </p>
 
             <Link
-              href="/leadership"
+              href="/about/leadership"
               className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-[#d4af62] transition-colors hover:text-white"
             >
               Состав руководства
@@ -225,8 +149,8 @@ export function StructureChart() {
           </div>
 
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5">
-            {leadership.map((person, index) => {
-              const Icon = person.icon;
+            {structureChartLeadership.map((person, index) => {
+              const Icon = chartIcons[person.icon];
 
               return (
                 <motion.div
@@ -245,21 +169,21 @@ export function StructureChart() {
                   whileHover={
                     reduceMotion ? undefined : { y: -4 }
                   }
-                  className="group relative rounded-xl border border-[#e4dccd] bg-white p-4 text-center transition-colors duration-300 hover:border-[#c9a45c]"
+                  className="group relative flex h-full min-h-60 flex-col rounded-xl border border-[#e4dccd] bg-white p-4 text-center transition-colors duration-300 hover:border-[#c9a45c]"
                 >
                   <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-[#f2eee5] text-[#a7833f] transition-all duration-300 group-hover:rotate-6 group-hover:bg-[#061d35] group-hover:text-[#d4af62]">
                     <Icon size={20} strokeWidth={1.5} />
                   </div>
 
-                  <h4 className="text-sm font-semibold leading-5 text-[#061d35]">
+                  <h4 className="flex flex-1 items-center justify-center text-sm font-semibold leading-5 text-[#061d35]">
                     {person.title}
                   </h4>
 
-                  <p className="mt-2 text-xs leading-5 text-[#061d35]/50">
+                  <p className="mt-2 flex min-h-10 items-center justify-center text-xs leading-5 text-[#061d35]/50">
                     {person.subtitle}
                   </p>
 
-                  <div className="mx-auto mt-4 h-px w-8 bg-[#c9a45c]/70 transition-all duration-300 group-hover:w-14" />
+                  <div className="mx-auto mt-4 h-px w-8 shrink-0 bg-[#c9a45c]/70 transition-all duration-300 group-hover:w-14" />
                 </motion.div>
               );
             })}
@@ -280,15 +204,15 @@ export function StructureChart() {
 
         {/* Основные ветви */}
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
-          {branches.map((branch, index) => {
-            const Icon = branch.icon;
+          {structureChartBranches.map((branch, index) => {
+            const Icon = chartIcons[branch.icon];
             const isOpen = expanded.includes(branch.id);
 
             return (
               <motion.article
                 key={branch.id}
                 {...reveal(0.05 * index)}
-                className={`relative flex flex-col self-start overflow-hidden rounded-xl border bg-white transition-colors duration-300 ${
+                className={`relative flex h-full flex-col overflow-hidden rounded-xl border bg-white transition-colors duration-300 ${
                   isOpen
                     ? "border-[#c9a45c]/70 shadow-[0_12px_35px_rgba(6,29,53,0.07)]"
                     : "border-[#e4dccd] hover:border-[#c9a45c]/60"
@@ -298,7 +222,7 @@ export function StructureChart() {
                   type="button"
                   aria-expanded={isOpen}
                   onClick={() => toggleBranch(branch.id)}
-                  className="w-full p-5 text-left sm:p-6"
+                  className="flex h-full w-full flex-1 flex-col p-5 text-left sm:p-6"
                 >
                   <div className="flex items-start justify-between gap-3">
                     <span className="text-xs font-semibold tabular-nums tracking-widest text-[#b88d3c]">
@@ -316,11 +240,11 @@ export function StructureChart() {
                     </span>
                   </div>
 
-                  <h3 className="mt-5 text-lg font-semibold leading-6 text-[#061d35]">
+                  <h3 className="mt-5 flex min-h-12 items-center text-lg font-semibold leading-6 text-[#061d35]">
                     {branch.title}
                   </h3>
 
-                  <p className="mt-2 min-h-10 text-sm leading-5 text-[#061d35]/55">
+                  <p className="mt-2 min-h-10 flex-1 text-sm leading-5 text-[#061d35]/55">
                     {branch.description}
                   </p>
 
@@ -394,22 +318,6 @@ export function StructureChart() {
             );
           })}
         </div>
-
-        {/* Примечание */}
-        <motion.div
-          {...reveal(0.15)}
-          className="mt-8 flex items-start gap-3 border-l-2 border-[#c9a45c] bg-[#f0ede6] px-4 py-4 sm:px-5"
-        >
-          <ShieldCheck
-            size={19}
-            className="mt-0.5 shrink-0 text-[#a7833f]"
-          />
-          <p className="text-xs leading-6 text-[#061d35]/55 sm:text-sm">
-            Схема предназначена для ознакомления с основными направлениями
-            деятельности Академии. Формальное подчинение каждого подразделения
-            следует уточнить по утверждённой организационной структуре.
-          </p>
-        </motion.div>
       </div>
     </section>
   );
