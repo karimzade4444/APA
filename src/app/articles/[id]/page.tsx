@@ -49,15 +49,16 @@ export default async function ArticlePage({
         </Reveal>
 
         <Reveal delay={0.12}>
-          <PhotoGallery images={article.images} title={article.title} />
-        </Reveal>
-
-        <Reveal delay={0.16}>
-          <div className="mt-8 space-y-5 border-l-2 border-[#c9a45c] bg-white/70 px-6 py-7 sm:px-8">
+          <div className="mt-8 flow-root border-l-2 border-[#c9a45c] bg-white/70 px-6 py-7 sm:px-8">
+            <PhotoGallery
+              images={article.images}
+              title={article.title}
+              className="mb-5 mr-0 mt-0 w-full md:float-left md:mb-4 md:mr-8 md:w-[42%] xl:w-[40%]"
+            />
             {article.content.map((paragraph, index) => (
               <p
                 key={`${article.id}-paragraph-${index}`}
-                className="text-base leading-8 text-[#061d35]/75"
+                className="mb-5 text-base leading-8 text-[#061d35]/75 last:mb-0"
               >
                 {paragraph}
               </p>

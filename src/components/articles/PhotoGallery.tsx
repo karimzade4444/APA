@@ -10,9 +10,14 @@ const AUTOPLAY_INTERVAL = 3000;
 type PhotoGalleryProps = {
   images: [string, ...string[]];
   title: string;
+  className?: string;
 };
 
-export default function PhotoGallery({ images, title }: PhotoGalleryProps) {
+export default function PhotoGallery({
+  images,
+  title,
+  className,
+}: PhotoGalleryProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const shouldReduceMotion = useReducedMotion();
   const hasMultipleImages = images.length > 1;
@@ -38,7 +43,7 @@ export default function PhotoGallery({ images, title }: PhotoGalleryProps) {
   };
 
   return (
-    <div className="mt-8">
+    <div className={className ?? "mt-8"}>
       <div className="group relative aspect-16/9 overflow-hidden border border-[#d8d1c5] bg-white">
         <Image
           key={images[activeIndex]}
@@ -46,7 +51,7 @@ export default function PhotoGallery({ images, title }: PhotoGalleryProps) {
           alt={`${title} — фото ${activeIndex + 1}`}
           fill
           priority={activeIndex === 0}
-          sizes="(max-width: 1024px) 100vw, 960px"
+          sizes="(max-width: 767px) 100vw, (max-width: 1279px) 42vw, 40vw"
           className="gallery-image-in object-cover"
         />
 
