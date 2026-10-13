@@ -71,7 +71,7 @@ export default async function NewsArticlePage({
             {item.content.map((paragraph, index) => (
               <p
                 key={`${item.id}-paragraph-${index}`}
-                className="mb-5 text-base leading-8 text-[#061d35]/75 last:mb-0"
+                className="mb-5 indent-8 text-justify text-base leading-8 text-[#061d35]/75 last:mb-0"
               >
                 {paragraph}
               </p>
