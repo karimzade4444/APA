@@ -172,15 +172,29 @@ export const navigation: NavigationItem[] = [
           {
             title:
               "Институт повышения квалификации и переподготовки государственных служащих",
-            href: "/institute/continuing-education",
+            href: "/structure/continuing-education",
             children: [
               {
                 title: "Отдел образования госслужащих",
-                href: "/institute/continuing-education/education",
+                href: "/structure/continuing-education/education",
               },
               {
                 title: "Отдел профподготовки госслужащих",
-                href: "/institute/continuing-education/training",
+                href: "/structure/continuing-education/training",
+              },
+            ],
+          },
+          {
+            title: "Исследовательские институты",
+            href: "/structure/science/institutes",
+            children: [
+              {
+                title: "Институт государственного управления и госслужбы",
+                href: "/structure/science/institutes/public-administration",
+              },
+              {
+                title: "Институт политических процессов",
+                href: "/structure/science/institutes/political-processes",
               },
             ],
           },
