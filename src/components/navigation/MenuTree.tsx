@@ -102,7 +102,7 @@ const MenuTreeItem = ({ item, onNavigate }: MenuTreeItemProps) => {
     closeTimeoutRef.current = setTimeout(() => {
       setIsHovered(false);
       window.dispatchEvent(new Event("navigation-flyout-leave"));
-    }, 300);
+    }, 0);
   };
 
   const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
