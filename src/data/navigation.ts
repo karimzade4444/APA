@@ -52,8 +52,22 @@ export const navigation: NavigationItem[] = [
         href: "/about/structure",
         children: [
           {
-            title: "Управление кадров и специальных работ",
-            href: "/structure/management/human-resources",
+            title: "Управление кадров, делопроизводства и специальных работ",
+            href: "/structure/management/hr-department",
+            children: [
+              {
+                title: "Общий отдел",
+                href: "/structure/management/hr-department/general",
+              },
+              {
+                title: "Второй отдел",
+                href: "/structure/management/hr-department/second",
+              },
+              {
+                title: "Сектор архива",
+                href: "/structure/management/hr-department/archive",
+              },
+            ],
           },
           {
             title: "Управление учебного процесса",
@@ -198,6 +212,40 @@ export const navigation: NavigationItem[] = [
               },
             ],
           },
+          {
+            title: "Центры",
+            href: "/structure/centers",
+            children: [
+              {
+                title: "Центр «Школа Эмомали Рахмон»",
+                href: "/structure/centers/statehood-school",
+              },
+              {
+                title: "Центр иностранных языков",
+                href: "/structure/centers/foreign-languages",
+              },
+              {
+                title: "Технопарк",
+                href: "/science/technology-park",
+              },
+              {
+                title: "Центр защиты прав ребёнка",
+                href: "/structure/centers/child-rights",
+              },
+              {
+                title: "Центр водной дипломатии",
+                href: "/structure/centers/water-diplomacy",
+              },
+              {
+                title: "Центр противодействия коррупции",
+                href: "/structure/centers/anti-corruption",
+              },
+              {
+                title: "Центр ШОС в Таджикистане",
+                href: "/structure/centers/sco",
+              },
+            ],
+          },
         ],
       },
       {
@@ -215,24 +263,6 @@ export const navigation: NavigationItem[] = [
           {
             title: "Публикации и статьи",
             href: "/publications",
-          },
-        ],
-      },
-      {
-        title: "Управление кадров, делопроизводства и специальных работ",
-        href: "/hr-department",
-        children: [
-          {
-            title: "Общий отдел",
-            href: "/hr-department/general",
-          },
-          {
-            title: "Второй отдел",
-            href: "/hr-department/second",
-          },
-          {
-            title: "Сектор архива",
-            href: "/hr-department/archive",
           },
         ],
       },
