@@ -128,6 +128,24 @@ export const navigation: NavigationItem[] = [
           {
             title: "Управление воспитательной работы",
             href: "/structure/management/educational-work",
+            children: [
+              {
+                title: "Отдел культуры",
+                href: "/structure/management/educational-work/culture",
+              },
+              {
+                title: "Сектор общежития",
+                href: "/structure/management/educational-work/dormitory",
+              },
+              {
+                title: "Сектор работы с молодёжью",
+                href: "/structure/management/educational-work/youth",
+              },
+              {
+                title: "Сектор работы с женщинами",
+                href: "/structure/management/educational-work/women",
+              },
+            ],
           },
           {
             title: "Управление финансов и учёта",
