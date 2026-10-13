@@ -1,7 +1,7 @@
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 import Reveal from "@/components/animations/Reveal";
+import PhotoGallery from "@/components/articles/PhotoGallery";
 import { articles } from "@/data/news";
 
 export function generateStaticParams() {
@@ -45,15 +45,7 @@ export default async function ArticlePage({
         </Reveal>
 
         <Reveal delay={0.12}>
-          <div className="relative mt-8 aspect-[16/9] overflow-hidden border border-[#d8d1c5] bg-white">
-            <Image
-              src={article.image}
-              alt={article.title}
-              fill
-              priority
-              className="object-cover"
-            />
-          </div>
+          <PhotoGallery images={article.images} title={article.title} />
         </Reveal>
 
         <Reveal delay={0.16}>

@@ -49,7 +49,7 @@ const ArticlesSection = () => {
                 key={article.id}
                 title={article.title}
                 date={article.date}
-                image={article.image}
+                image={article.images[0]}
                 href={article.href}
                 category={article.category}
                 featured
@@ -64,7 +64,7 @@ const ArticlesSection = () => {
               key={article.id}
               title={article.title}
               date={article.date}
-              image={article.image}
+              image={article.images[0]}
               href={article.href}
               category={article.category}
               delay={index * 0.08}

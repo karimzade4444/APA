@@ -164,6 +164,22 @@ body {
   }
 }
 
+@keyframes gallery-image-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gallery-image-in {
+  animation: gallery-image-in 400ms ease-out;
+}
+
 .official-resources-track {
   animation: official-resources-scroll 35s linear infinite;
   will-change: transform;
@@ -171,6 +187,10 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .official-resources-track {
+    animation: none;
+  }
+
+  .gallery-image-in {
     animation: none;
   }
 }

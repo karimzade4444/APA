@@ -1,9 +1,9 @@
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, BellRing, Newspaper } from "lucide-react";
 import Reveal from "@/components/animations/Reveal";
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
+import PhotoGallery from "@/components/articles/PhotoGallery";
 import { news } from "@/data/news";
 
 export function generateStaticParams() {
@@ -55,15 +55,7 @@ export default async function NewsArticlePage({
         </Reveal>
 
         <Reveal delay={0.12}>
-          <div className="relative mt-8 aspect-[16/9] overflow-hidden border border-[#d8d1c5] bg-white">
-            <Image
-              src={item.image}
-              alt={item.title}
-              fill
-              priority
-              className="object-cover"
-            />
-          </div>
+          <PhotoGallery images={item.images} title={item.title} />
         </Reveal>
 
         <Reveal delay={0.16}>

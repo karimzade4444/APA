@@ -38,7 +38,7 @@ export default function AnnouncementsPage() {
                 key={item.id}
                 title={item.title}
                 date={item.date}
-                image={item.image}
+                image={item.images[0]}
                 href={item.href}
                 delay={index * 0.1}
                 eyebrow="Объявление"
