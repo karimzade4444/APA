@@ -56,7 +56,7 @@ export function StructureChart() {
           whileInView: { opacity: 1, y: 0 },
           viewport: { once: true, amount: 0.15 },
           transition: {
-            duration: 0.55,
+            duration: 0.65,
             delay,
             ease: "easeOut" as const,
           },
@@ -163,8 +163,9 @@ export function StructureChart() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.15 }}
                   transition={{
-                    duration: 0.45,
-                    delay: reduceMotion ? 0 : index * 0.07,
+                    duration: reduceMotion ? 0 : 0.65,
+                    delay: reduceMotion ? 0 : index * 0.16,
+                    ease: "easeOut",
                   }}
                   whileHover={
                     reduceMotion ? undefined : { y: -4 }
@@ -211,7 +212,7 @@ export function StructureChart() {
             return (
               <motion.article
                 key={branch.id}
-                {...reveal(0.05 * index)}
+                {...reveal(0.16 * index)}
                 className={`relative flex self-start flex-col overflow-hidden rounded-xl border bg-white transition-colors duration-300 ${
                   isOpen
                     ? "border-[#c9a45c]/70 shadow-[0_12px_35px_rgba(6,29,53,0.07)]"
