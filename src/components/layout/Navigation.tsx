@@ -10,13 +10,55 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import MegaMenu from "@/components/navigation/MegaMenu";
 import { navigation } from "@/data/navigation";
 
 const Navigation = () => {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pathname = usePathname();
+
+  const closeMenuIfPointerOutside = () => {
+    const hoveredMenu = document.querySelector(
+      "[data-navigation-menu-root]:hover, [data-navigation-flyout]:hover",
+    );
+    const focusedMenu = document.activeElement?.closest(
+      "[data-navigation-menu-root], [data-navigation-flyout]",
+    );
+
+    if (!hoveredMenu && !focusedMenu) {
+      setOpenMenu(null);
+    }
+  };
+
+  const handleMenuValueChange = (value: string | null) => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+
+    if (value) {
+      setOpenMenu(value);
+      return;
+    }
+
+    closeTimeoutRef.current = setTimeout(closeMenuIfPointerOutside, 300);
+  };
+
+  useEffect(() => {
+    const handleFlyoutLeave = () => {
+      closeMenuIfPointerOutside();
+    };
+
+    window.addEventListener("navigation-flyout-leave", handleFlyoutLeave);
+    return () => {
+      window.removeEventListener("navigation-flyout-leave", handleFlyoutLeave);
+      if (closeTimeoutRef.current) {
+        clearTimeout(closeTimeoutRef.current);
+      }
+    };
+  }, []);
 
   const isItemActive = (href: string) =>
     href === "/"
@@ -35,7 +77,7 @@ const Navigation = () => {
       <div className="site-container flex items-center">
         <NavigationMenu
           value={openMenu}
-          onValueChange={setOpenMenu}
+          onValueChange={handleMenuValueChange}
           className="w-full max-w-none justify-start"
         >
           <NavigationMenuList className="justify-between gap-0">

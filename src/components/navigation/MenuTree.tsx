@@ -67,8 +67,8 @@ const MenuTreeItem = ({ item, onNavigate }: MenuTreeItemProps) => {
       );
       const fitsRight = anchor.right + width + margin <= window.innerWidth;
       const left = fitsRight
-        ? anchor.right + 4
-        : Math.max(margin, anchor.left - width - 4);
+        ? anchor.right
+        : Math.max(margin, anchor.left - width);
       const top = Math.min(
         Math.max(margin, anchor.top),
         window.innerHeight - height - margin,
@@ -98,7 +98,8 @@ const MenuTreeItem = ({ item, onNavigate }: MenuTreeItemProps) => {
     cancelClose();
     closeTimeoutRef.current = setTimeout(() => {
       setIsHovered(false);
-    }, 150);
+      window.dispatchEvent(new Event("navigation-flyout-leave"));
+    }, 300);
   };
 
   const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
@@ -115,7 +116,9 @@ const MenuTreeItem = ({ item, onNavigate }: MenuTreeItemProps) => {
     if (
       nextTarget instanceof Node &&
       (itemRef.current?.contains(nextTarget) ||
-        flyoutRef.current?.contains(nextTarget))
+        flyoutRef.current?.contains(nextTarget) ||
+        (nextTarget instanceof Element &&
+          nextTarget.closest("[data-navigation-flyout]")))
     ) {
       return;
     }
@@ -170,9 +173,9 @@ const MenuTreeItem = ({ item, onNavigate }: MenuTreeItemProps) => {
             {hasChildren && isOpen && (
               <motion.div
                 ref={flyoutRef}
-                initial={{ opacity: 0, x: -5 }}
+                initial={{ opacity: 0 }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -5 }}
+                exit={{ opacity: 0 }}
                 transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
                 onMouseEnter={() => {
                   cancelClose();
@@ -181,6 +184,7 @@ const MenuTreeItem = ({ item, onNavigate }: MenuTreeItemProps) => {
                 onMouseLeave={scheduleClose}
                 onFocusCapture={() => setIsFocused(true)}
                 onBlurCapture={handleBlur}
+                data-navigation-flyout
                 style={{
                   position: "fixed",
                   left: flyoutPosition?.left ?? -10000,

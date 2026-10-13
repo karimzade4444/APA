@@ -12,7 +12,10 @@ type MegaMenuProps = {
 
 const MegaMenu = ({ items, title, onNavigate }: MegaMenuProps) => {
   return (
-    <div className="max-h-[calc(100dvh-5rem)] w-70 overflow-y-auto overscroll-contain rounded border-2 border-[#c9a45c]/50 bg-[#061d35] p-4 shadow-2xl">
+    <div
+      data-navigation-menu-root
+      className="max-h-[calc(100dvh-5rem)] w-70 overflow-y-auto overscroll-contain rounded border-2 border-[#c9a45c]/50 bg-[#061d35] p-4 shadow-2xl"
+    >
       <Stagger stagger={0.08}>
         <StaggerItem>
           <div className="mb-3 border-b border-[#d4af62] pb-3">
