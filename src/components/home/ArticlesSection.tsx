@@ -53,7 +53,7 @@ const ArticlesSection = () => {
                 date={article.date}
                 image={article.images[0]}
                 href={article.href}
-                category={article.category}
+                topic={article.topic}
                 featured
               />
             ))}
@@ -68,7 +68,7 @@ const ArticlesSection = () => {
               date={article.date}
               image={article.images[0]}
               href={article.href}
-              category={article.category}
+              topic={article.topic}
               delay={index * 0.08}
               className={index === 3 ? "hidden min-[2560px]:block" : undefined}
             />

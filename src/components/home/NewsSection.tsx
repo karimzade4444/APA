@@ -46,7 +46,7 @@ const NewsSection = () => {
               date={item.date}
               image={item.images[0]}
               href={item.href}
-              category={item.category}
+              topic={item.topic}
               featured
             />
           ))}
@@ -61,7 +61,7 @@ const NewsSection = () => {
             date={item.date}
             image={item.images[0]}
             href={item.href}
-            category={item.category}
+            topic={item.topic}
             delay={index * 0.08}
             className={index === 3 ? "hidden min-[2560px]:block" : undefined}
           />

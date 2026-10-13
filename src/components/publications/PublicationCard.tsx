@@ -3,20 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
-import type { PublicationCategory } from "@/data/news";
-
-const categoryLabels: Record<PublicationCategory, string> = {
-  news: "Новости",
-  announcement: "Объявление",
-  article: "Статья",
-};
 
 type PublicationCardProps = {
   title: string;
   date: string;
   image: string;
   href: string;
-  category: PublicationCategory;
+  topic?: string;
   delay?: number;
   featured?: boolean;
   className?: string;
@@ -27,7 +20,7 @@ export default function PublicationCard({
   date,
   image,
   href,
-  category,
+  topic,
   delay = 0,
   featured = false,
   className,
@@ -75,9 +68,11 @@ export default function PublicationCard({
             className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
           />
           <div className="absolute inset-0 bg-linear-to-t from-[#061d35]/85 via-[#061d35]/10 to-transparent" />
-          <span className="absolute left-3 top-3 max-w-[calc(100%-1.5rem)] border border-[#d4af62]/50 bg-[#061d35]/90 px-3 py-1.5 text-[10px] font-medium uppercase tracking-wider text-[#f2d797]">
-            {categoryLabels[category]}
-          </span>
+          {topic && (
+            <span className="absolute left-3 top-3 max-w-[calc(100%-1.5rem)] border border-[#d4af62]/50 bg-[#061d35]/90 px-3 py-1.5 text-[10px] font-medium uppercase tracking-wider text-[#f2d797]">
+              {topic}
+            </span>
+          )}
 
           {featured && (
             <div className="absolute inset-x-0 bottom-0 p-5 md:p-7">

@@ -92,7 +92,7 @@ export default function PublicationsPage() {
                   date={item.date}
                   image={item.images[0]}
                   href={item.href}
-                  category={item.category}
+                  topic={item.topic}
                   delay={index * 0.08}
                 />
               ))}
@@ -131,7 +131,7 @@ export default function PublicationsPage() {
                   date={item.date}
                   image={item.images[0]}
                   href={item.href}
-                  category={item.category}
+                  topic={item.topic}
                   delay={index * 0.08}
                 />
               ))}
@@ -170,7 +170,7 @@ export default function PublicationsPage() {
                   date={article.date}
                   image={article.images[0]}
                   href={article.href}
-                  category={article.category}
+                  topic={article.topic}
                   delay={index * 0.08}
                 />
               ))}
