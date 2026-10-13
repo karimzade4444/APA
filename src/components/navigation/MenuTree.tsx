@@ -2,7 +2,8 @@
 
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
-import { useState } from "react";
+import { createPortal } from "react-dom";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { FocusEvent, MouseEvent } from "react";
 import type { NavigationItem } from "@/types/navigation";
 import StaggerItem from "../animations/StraggerItem";
@@ -18,12 +19,87 @@ type MenuTreeItemProps = {
   onNavigate: () => void;
 };
 
+const subscribeToPortalTarget = () => () => {};
+const getPortalTarget = () => document.body;
+const getServerPortalTarget = () => null;
+
 const MenuTreeItem = ({ item, onNavigate }: MenuTreeItemProps) => {
+  const itemRef = useRef<HTMLDivElement>(null);
+  const flyoutRef = useRef<HTMLDivElement>(null);
+  const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [isHovered, setIsHovered] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
   const [hasOpenedByClick, setHasOpenedByClick] = useState(false);
+  const portalTarget = useSyncExternalStore<HTMLElement | null>(
+    subscribeToPortalTarget,
+    getPortalTarget,
+    getServerPortalTarget,
+  );
+  const [flyoutPosition, setFlyoutPosition] = useState<{
+    left: number;
+    top: number;
+  } | null>(null);
   const hasChildren = Boolean(item.children?.length);
   const isOpen = isHovered || isFocused;
+
+  useEffect(
+    () => () => {
+      if (closeTimeoutRef.current) {
+        clearTimeout(closeTimeoutRef.current);
+      }
+    },
+    [],
+  );
+
+  useEffect(() => {
+    if (!isOpen || !hasChildren) return;
+
+    const updatePosition = () => {
+      const anchor = itemRef.current?.getBoundingClientRect();
+      const flyout = flyoutRef.current;
+      if (!anchor || !flyout) return;
+
+      const margin = 12;
+      const width = flyout.offsetWidth;
+      const height = Math.min(
+        flyout.scrollHeight,
+        window.innerHeight - margin * 2,
+      );
+      const fitsRight = anchor.right + width + margin <= window.innerWidth;
+      const left = fitsRight
+        ? anchor.right + 4
+        : Math.max(margin, anchor.left - width - 4);
+      const top = Math.min(
+        Math.max(margin, anchor.top),
+        window.innerHeight - height - margin,
+      );
+
+      setFlyoutPosition({ left, top });
+    };
+
+    updatePosition();
+    window.addEventListener("resize", updatePosition);
+    window.addEventListener("scroll", updatePosition, true);
+
+    return () => {
+      window.removeEventListener("resize", updatePosition);
+      window.removeEventListener("scroll", updatePosition, true);
+    };
+  }, [hasChildren, isOpen]);
+
+  const cancelClose = () => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+  };
+
+  const scheduleClose = () => {
+    cancelClose();
+    closeTimeoutRef.current = setTimeout(() => {
+      setIsHovered(false);
+    }, 150);
+  };
 
   const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
     if (!hasChildren || hasOpenedByClick) return;
@@ -35,21 +111,29 @@ const MenuTreeItem = ({ item, onNavigate }: MenuTreeItemProps) => {
   };
 
   const handleBlur = (event: FocusEvent<HTMLDivElement>) => {
+    const nextTarget = event.relatedTarget;
     if (
-      !(event.relatedTarget instanceof Node) ||
-      !event.currentTarget.contains(event.relatedTarget)
+      nextTarget instanceof Node &&
+      (itemRef.current?.contains(nextTarget) ||
+        flyoutRef.current?.contains(nextTarget))
     ) {
-      setIsFocused(false);
-      setHasOpenedByClick(false);
+      return;
     }
+
+    setIsFocused(false);
+    setHasOpenedByClick(false);
   };
 
   return (
     <StaggerItem>
       <div
+        ref={itemRef}
         className="group relative"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+        onMouseEnter={() => {
+          cancelClose();
+          setIsHovered(true);
+        }}
+        onMouseLeave={scheduleClose}
         onFocusCapture={() => setIsFocused(true)}
         onBlurCapture={handleBlur}
       >
@@ -79,26 +163,45 @@ const MenuTreeItem = ({ item, onNavigate }: MenuTreeItemProps) => {
           )}
         </Link>
 
-        <AnimatePresence>
-          {hasChildren && isOpen && (
-            <motion.div
-              initial={{ opacity: 0, x: -5 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -5 }}
-              transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute left-full top-0 z-50 min-w-70 border border-[#c9a45c]/30 bg-[#061d35] p-3 shadow-2xl"
-            >
-              <div className="mb-3 border-b border-[#d4af62] pb-3">
-                <p className="text-xs uppercase tracking-[0.2em] text-[#d4af62]">
-                  {item.title}
-                </p>
-              </div>
-
-              <MenuTree items={item.children!} onNavigate={onNavigate} />
-            </motion.div>
-          )}
-        </AnimatePresence>
       </div>
+      {portalTarget &&
+        createPortal(
+          <AnimatePresence>
+            {hasChildren && isOpen && (
+              <motion.div
+                ref={flyoutRef}
+                initial={{ opacity: 0, x: -5 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -5 }}
+                transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                onMouseEnter={() => {
+                  cancelClose();
+                  setIsHovered(true);
+                }}
+                onMouseLeave={scheduleClose}
+                onFocusCapture={() => setIsFocused(true)}
+                onBlurCapture={handleBlur}
+                style={{
+                  position: "fixed",
+                  left: flyoutPosition?.left ?? -10000,
+                  top: flyoutPosition?.top ?? 12,
+                  maxHeight: "calc(100dvh - 24px)",
+                  visibility: flyoutPosition ? "visible" : "hidden",
+                }}
+                className="z-[100] min-w-70 overflow-y-auto overscroll-contain border border-[#c9a45c]/30 bg-[#061d35] p-3 shadow-2xl"
+              >
+                <div className="mb-3 border-b border-[#d4af62] pb-3">
+                  <p className="text-xs uppercase tracking-[0.2em] text-[#d4af62]">
+                    {item.title}
+                  </p>
+                </div>
+
+                <MenuTree items={item.children!} onNavigate={onNavigate} />
+              </motion.div>
+            )}
+          </AnimatePresence>,
+          portalTarget,
+        )}
     </StaggerItem>
   );
 };
