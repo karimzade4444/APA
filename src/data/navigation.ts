@@ -80,6 +80,36 @@ export const navigation: NavigationItem[] = [
           {
             title: "Управление науки и инноваций",
             href: "/structure/management/science-innovation",
+            children: [
+              {
+                title: "Издательский отдел",
+                href: "/structure/management/science-innovation/publishing",
+              },
+              {
+                title: "Отдел подготовки научных кадров",
+                href: "/structure/management/science-innovation/scientific-personnel",
+              },
+              {
+                title: "Отдел магистратуры",
+                href: "/structure/management/science-innovation/masters-department",
+              },
+              {
+                title: "Научно-электронная библиотека",
+                href: "/structure/management/science-innovation/electronic-library",
+              },
+              {
+                title: "Диссертационные советы",
+                href: "/structure/management/science-innovation/dissertation-councils",
+              },
+              {
+                title: "Журнал «Государственное управление»",
+                href: "/structure/management/science-innovation/journal-public-administration",
+              },
+              {
+                title: "Газета «Руководитель и нация»",
+                href: "/structure/management/science-innovation/newspaper",
+              },
+            ],
           },
           {
             title: "Управление международных связей",
