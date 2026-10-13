@@ -13,7 +13,6 @@ import {
   Target,
 } from "lucide-react";
 
-
 import { academyAbout } from "@/data/about";
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 import { AboutOrbit, AboutReveal } from "./AboutAnimations";
@@ -92,7 +91,7 @@ function PhotoGrid({
           rotate={photo.src.length % 2 === 0 ? 1.5 : -1.5}
         >
           <figure className="flex h-full flex-col">
-            <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-[#e5dfd3]">
+            <div className="relative aspect-16/10 overflow-hidden rounded-xl bg-[#e5dfd3]">
               <Image
                 src={photo.src}
                 alt={photo.alt}
@@ -117,16 +116,13 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen bg-[#f5f1e9]">
       <section className="relative overflow-hidden bg-[#071d34] text-white">
-        <div className="pointer-events-none absolute -right-24 -top-32 h-[32rem] w-[32rem] rounded-full border border-[#c9a45c]/20" />
-        <div className="pointer-events-none absolute -right-12 -top-20 h-[26rem] w-[26rem] rounded-full border border-[#c9a45c]/20" />
+        <div className="pointer-events-none absolute -right-24 -top-32 h-128 w-lg rounded-full border border-[#c9a45c]/20" />
+        <div className="pointer-events-none absolute -right-12 -top-20 h-104 w-104 rounded-full border border-[#c9a45c]/20" />
         <AboutOrbit className="pointer-events-none absolute right-[8%] top-12 h-36 w-36 text-[#c9a45c]/70 md:right-[12%] md:top-16 md:h-48 md:w-48" />
 
         <div className="site-container relative py-12 md:py-16 lg:py-20">
           <Breadcrumbs
-            items={[
-              { label: "Главная", href: "/" },
-              { label: "Об Академии" },
-            ]}
+            items={[{ label: "Главная", href: "/" }, { label: "Об Академии" }]}
           />
 
           <div className="mx-auto grid max-w-6xl items-center gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1fr)] lg:gap-10">
@@ -421,7 +417,10 @@ export default function AboutPage() {
           <AboutReveal className="mt-8" rotate={0.5} delay={0.1}>
             <div className="rounded-2xl border border-[#e4dccd] bg-[#faf8f3] p-7 md:p-9">
               <div className="flex items-start gap-4">
-                <Microscope className="mt-1 shrink-0 text-[#a37d37]" size={28} />
+                <Microscope
+                  className="mt-1 shrink-0 text-[#a37d37]"
+                  size={28}
+                />
                 <div>
                   <h3 className="text-xl font-semibold text-[#09223d]">
                     Научные специальности PhD
@@ -431,17 +430,19 @@ export default function AboutPage() {
                     Академии.
                   </p>
                   <ol className="mt-5 grid gap-3 sm:grid-cols-2">
-                    {academyAbout.education.phdSpecialties.map((item, index) => (
-                      <li
-                        key={item}
-                        className="flex gap-3 text-sm leading-6 text-slate-700"
-                      >
-                        <span className="font-semibold text-[#a37d37]">
-                          {String(index + 1).padStart(2, "0")}
-                        </span>
-                        {item}
-                      </li>
-                    ))}
+                    {academyAbout.education.phdSpecialties.map(
+                      (item, index) => (
+                        <li
+                          key={item}
+                          className="flex gap-3 text-sm leading-6 text-slate-700"
+                        >
+                          <span className="font-semibold text-[#a37d37]">
+                            {String(index + 1).padStart(2, "0")}
+                          </span>
+                          {item}
+                        </li>
+                      ),
+                    )}
                   </ol>
                 </div>
               </div>
@@ -625,7 +626,6 @@ export default function AboutPage() {
       <section className="bg-[#071d34] py-12 text-white md:py-16">
         <div className="site-container flex flex-col justify-between gap-7 md:flex-row md:items-center">
           <AboutReveal className="max-w-2xl" rotate={-0.5}>
-            
             <h2 className="mt-3 text-2xl font-semibold md:text-3xl">
               Образование. Наука. Государственное управление.
             </h2>
@@ -640,7 +640,10 @@ export default function AboutPage() {
               className="group inline-flex shrink-0 items-center justify-center gap-3 rounded-md border border-[#c9a45c] px-6 py-3 text-sm font-semibold text-[#f0d89f] transition hover:bg-[#c9a45c] hover:text-[#071d34]"
             >
               На главную
-              <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1 group-hover:rotate-45 motion-reduce:transition-none" size={17} />
+              <ArrowRight
+                className="transition-transform duration-300 group-hover:translate-x-1 group-hover:rotate-45 motion-reduce:transition-none"
+                size={17}
+              />
             </Link>
           </AboutReveal>
         </div>
