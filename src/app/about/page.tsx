@@ -125,7 +125,7 @@ export default function AboutPage() {
             items={[{ label: "Главная", href: "/" }, { label: "Об Академии" }]}
           />
 
-          <div className="mx-auto grid max-w-6xl items-center gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1fr)] lg:gap-10">
+          <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-10">
             <AboutReveal className="max-w-xl" rotate={-1} y={18}>
               <div className="mb-6 inline-flex items-center gap-3 border-l-2 border-[#c9a45c] pl-4">
                 <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#e5c681]">
@@ -166,7 +166,7 @@ export default function AboutPage() {
             </AboutReveal>
 
             <AboutReveal
-              className="w-full max-w-150 justify-self-end"
+              className="w-full justify-self-end"
               rotate={1}
               delay={0.15}
               y={30}

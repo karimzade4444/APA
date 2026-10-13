@@ -42,7 +42,7 @@ export default function AboutHeroSlider() {
               alt={slide.alt}
               fill
               priority={index === 0}
-              sizes="(max-width: 1024px) 100vw, 50vw"
+              sizes="(max-width: 1023px) 100vw, 58vw"
               className="object-cover"
             />
 
