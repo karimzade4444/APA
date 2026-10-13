@@ -3,7 +3,7 @@ import { ArrowUpRight, BookOpen } from "lucide-react";
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 import ArticleCard from "@/components/articles/ArticleCard";
 import Reveal from "@/components/animations/Reveal";
-import { articles } from "@/data/articles";
+import { articles } from "@/data/news";
 
 export default function ArticlesPage() {
   return (
@@ -58,6 +58,7 @@ export default function ArticlesPage() {
               date={article.date}
               image={article.image}
               href={article.href}
+              category={article.category}
               delay={index * 0.1}
             />
           ))}

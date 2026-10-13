@@ -2,7 +2,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 import Reveal from "@/components/animations/Reveal";
-import { articles } from "@/data/articles";
+import { articles } from "@/data/news";
 
 export function generateStaticParams() {
   return articles.map((article) => ({ id: String(article.id) }));
@@ -33,7 +33,7 @@ export default async function ArticlePage({
         <Reveal>
           <header className="border-b border-[#061d35]/15 pb-8">
             <p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-[#a37b2f]">
-              Наука и аналитика
+              {article.category}
             </p>
             <h1 className="font-serif text-3xl font-semibold leading-tight text-[#061d35] md:text-5xl">
               {article.title}
@@ -53,6 +53,19 @@ export default async function ArticlePage({
               priority
               className="object-cover"
             />
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.16}>
+          <div className="mt-8 space-y-5 border-l-2 border-[#c9a45c] bg-white/70 px-6 py-7 sm:px-8">
+            {article.content.map((paragraph, index) => (
+              <p
+                key={`${article.id}-paragraph-${index}`}
+                className="text-base leading-8 text-[#061d35]/75"
+              >
+                {paragraph}
+              </p>
+            ))}
           </div>
         </Reveal>
       </article>

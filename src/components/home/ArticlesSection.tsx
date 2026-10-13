@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import ArticleCard from "@/components/articles/ArticleCard";
 import Reveal from "@/components/animations/Reveal";
-import { articles } from "@/data/articles";
+import { articles } from "@/data/news";
 import FeaturedCarousel from "./FeaturedCarousel";
 
 const ArticlesSection = () => {
@@ -51,6 +51,7 @@ const ArticlesSection = () => {
                 date={article.date}
                 image={article.image}
                 href={article.href}
+                category={article.category}
                 featured
               />
             ))}
@@ -65,6 +66,7 @@ const ArticlesSection = () => {
               date={article.date}
               image={article.image}
               href={article.href}
+              category={article.category}
               delay={index * 0.08}
               className={index === 3 ? "hidden min-[2560px]:block" : undefined}
             />

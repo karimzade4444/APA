@@ -12,6 +12,7 @@ type ArticleCardProps = {
   featured?: boolean;
   className?: string;
   delay?: number;
+  category?: string;
 };
 
 const ArticleCard = ({
@@ -22,6 +23,7 @@ const ArticleCard = ({
   featured = false,
   className,
   delay = 0,
+  category,
 }: ArticleCardProps) => {
   const shouldReduceMotion = useReducedMotion();
 
@@ -69,6 +71,12 @@ const ArticleCard = ({
             </span>
           )}
 
+          {!featured && category && (
+            <span className="absolute left-3 top-3 max-w-[calc(100%-1.5rem)] border border-[#d4af62]/50 bg-[#061d35]/90 px-3 py-1.5 text-[10px] font-medium uppercase tracking-wider text-[#f2d797]">
+              {category}
+            </span>
+          )}
+
           {featured && (
             <div className="absolute bottom-0 left-0 right-0 p-6">
               <span className="text-xs uppercase tracking-[0.2em] text-[#d4af62]">
@@ -86,7 +94,14 @@ const ArticleCard = ({
 
         {!featured && (
           <div className="p-5">
-            <p className="text-xs text-[#061d35]/45">{date}</p>
+            <p className="text-xs text-[#061d35]/45">
+              {category && (
+                <span className="font-medium text-[#9b7939]">
+                  {category} ·{" "}
+                </span>
+              )}
+              {date}
+            </p>
 
             <h3 className="mt-2 line-clamp-3 min-h-18 font-serif text-lg font-semibold leading-6 text-[#061d35] transition-colors duration-300 group-hover:text-[#a37b2f]">
               {title}
