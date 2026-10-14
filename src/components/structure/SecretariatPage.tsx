@@ -16,38 +16,11 @@ import {
 
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 import { LeadershipOrbit } from "@/components/leadership/LeadershipHeroEffects";
-
-const officers = [
-  {
-    name: "Намозов Мухсин",
-    role: "Начальник канцелярии и помощник ректора",
-    shortRole: "Секретарь ректора",
-    photo: "/images/secretariat/secretary.png",
-    phone: "+ (992) 904002116",
-    email: "secretary@apa.tj",
-    description:
-      "Организует делопроизводство, обеспечивает своевременную регистрационную работу и контроль исполнения документов, а также содействует ректору в подготовке и проведении заседаний и поручений.",
-  },
-  {
-    name: "Абдуллозода Мунира",
-    role: "Старший специалист, исполнительный секретарь ректора",
-    shortRole: "Помощник ректора",
-    photo: "/images/secretariat/assistant-rector.png",
-    phone: "+ (992) 986717000",
-    email: "assistant@apa.tj",
-    description:
-      "Осуществляет консультирование по вопросам документооборота, оперативного сопровождения деятельности ректора, прием и учет обращений и доведение устных и письменных поручений до соответствующих структурных подразделений.",
-  },
-];
-
-const responsibilities = [
-  "Обеспечение правильного оформления и своевременной регистрации входящих и исходящих документов.",
-  "Постоянный контроль за исполнением документов и ведение внутреннего документооборота Академии.",
-  "Организация работы заседаний Совета Академии и контроль за выполнением принятых решений.",
-  "Оформление и направление писем, служебных сообщений и официальных запросов в государственные и общественные органы.",
-  "Прием, регистрация, хранение, учет и систематизация обращений физических и юридических лиц, направляемых в адрес ректора.",
-  "Доведение указаний, приказов и поручений ректора до соответствующих структурных подразделений Академии.",
-];
+import {
+  secretariatOfficers,
+  secretariatPage,
+  secretariatResponsibilities,
+} from "@/data/secretariat";
 
 function Reveal({ children, delay = 0 }: { children: ReactNode; delay?: number }) {
   const shouldReduceMotion = useReducedMotion();
@@ -92,7 +65,7 @@ export default function SecretariatPage() {
                 { label: "Главная", href: "/" },
                 { label: "Об Академии", href: "/about" },
                 { label: "Структура", href: "/about/structure" },
-                { label: "Секретариат и помощник ректора" },
+                { label: secretariatPage.title },
               ]}
             />
           </Reveal>
@@ -102,29 +75,28 @@ export default function SecretariatPage() {
               <div className="mb-6 flex items-center gap-3">
                 <span className="h-px w-12 bg-[#c9a45c]" />
                 <span className="text-xs font-semibold uppercase tracking-[0.24em] text-[#d4af62] sm:text-sm">
-                  Секретариат Академии
+                  {secretariatPage.eyebrow}
                 </span>
               </div>
             </Reveal>
 
             <Reveal delay={0.2}>
               <h1 className="text-3xl font-semibold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
-                Секретариат и <span className="text-[#d4af62]">помощник ректора</span>
+                {secretariatPage.titlePartOne}{" "}
+                <span className="text-[#d4af62]">{secretariatPage.titlePartTwo}</span>
               </h1>
             </Reveal>
 
             <Reveal delay={0.3}>
               <p className="mt-6 max-w-2xl text-base leading-7 text-white/70 sm:text-lg sm:leading-8">
-                Секретариат и помощник ректора обеспечивают организацию
-                документооборота, контроль исполнения поручений, подготовку
-                заседаний и официальный порядок работы ректора Академии.
+                {secretariatPage.intro}
               </p>
             </Reveal>
 
             <Reveal delay={0.4}>
               <div className="mt-8 flex items-center gap-3 text-sm text-white/60">
                 <Landmark size={19} className="text-[#d4af62]" />
-                <span>Академия государственного управления при Президенте Республики Таджикистан</span>
+                <span>{secretariatPage.summary}</span>
               </div>
             </Reveal>
           </div>
@@ -147,7 +119,7 @@ export default function SecretariatPage() {
         </div>
 
         <div className="grid gap-8 lg:grid-cols-2">
-          {officers.map((person, index) => (
+          {secretariatOfficers.map((person, index) => (
             <motion.article
               key={person.name}
               initial={shouldReduceMotion ? false : { opacity: 0, y: 30 }}
@@ -230,7 +202,7 @@ export default function SecretariatPage() {
           </div>
 
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {responsibilities.map((item) => (
+            {secretariatResponsibilities.map((item) => (
               <div
                 key={item}
                 className="flex gap-3 rounded-sm border border-white/10 bg-white/[0.02] p-4"
