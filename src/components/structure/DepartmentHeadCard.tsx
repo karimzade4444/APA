@@ -97,12 +97,16 @@ export function DepartmentHeadCard({
             {email && (
               <div className="flex items-start gap-3">
                 <Mail size={16} className="mt-0.5 shrink-0 text-[#9b7939]" />
-                <a
-                  href={`mailto:${email}`}
-                  className="break-all transition-colors hover:text-[#9b7939]"
-                >
-                  {email}
-                </a>
+                {email.startsWith("@") ? (
+                  <span>{email}</span>
+                ) : (
+                  <a
+                    href={`mailto:${email}`}
+                    className="break-all transition-colors hover:text-[#9b7939]"
+                  >
+                    {email}
+                  </a>
+                )}
               </div>
             )}
           </div>
