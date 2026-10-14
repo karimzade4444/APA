@@ -82,6 +82,10 @@ export const structureChartBranches: StructureChartBranch[] = [
       "Управление воспитательной работы",
       "Управление финансов и учёта",
     ],
+    itemLinks: {
+      "Управление кадров и специальных работ":
+        "/structure/management/hr-department",
+    },
     href: "/structure/management",
   },
   {
@@ -247,7 +251,7 @@ export const structureItems: StructureItem[] = [
       {
         id: "human-resources",
         title: "Управление кадров и специальных работ",
-        href: "/structure/management/human-resources",
+        href: "/structure/management/hr-department",
       },
       {
         id: "educational-process",
