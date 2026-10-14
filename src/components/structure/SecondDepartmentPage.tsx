@@ -108,7 +108,7 @@ export default function SecondDepartmentPage() {
             phones={secondDepartmentHead.phones}
             email={secondDepartmentHead.email}
             eyebrow="Второй отдел"
-            portraitClassName="h-64 sm:h-80"
+            portraitClassName="h-68 sm:h-84"
             priority
           />
         </section>

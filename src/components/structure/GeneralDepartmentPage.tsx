@@ -100,7 +100,7 @@ export default function GeneralDepartmentPage() {
             name={generalDepartmentHead.name}
             role={generalDepartmentHead.role}
             eyebrow="Общий отдел"
-            portraitClassName="h-48 sm:h-56"
+            portraitClassName="h-52 sm:h-60"
           />
         </section>
 

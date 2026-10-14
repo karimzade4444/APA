@@ -134,7 +134,7 @@ export default function SecretariatPage() {
                 description={person.description}
                 phone={person.phone}
                 email={person.email}
-                portraitClassName="h-64 sm:h-72"
+                portraitClassName="h-68 sm:h-76"
                 priority={index === 0}
               />
             </motion.article>

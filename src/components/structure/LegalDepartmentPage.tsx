@@ -126,7 +126,7 @@ export default function LegalDepartmentPage() {
             role={legalDepartmentHead.role}
             note={legalDepartmentHead.note}
             eyebrow="Юридический отдел"
-            portraitClassName="h-48 sm:h-56"
+            portraitClassName="h-52 sm:h-60"
           />
         </section>
 

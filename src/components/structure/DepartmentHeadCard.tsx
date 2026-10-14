@@ -27,7 +27,7 @@ export function DepartmentHeadCard({
   email,
   phoneHref,
   phones = [],
-  portraitClassName = "h-48 sm:h-56",
+  portraitClassName = "h-52 sm:h-60",
   priority = false,
 }: DepartmentHeadCardProps) {
   return (

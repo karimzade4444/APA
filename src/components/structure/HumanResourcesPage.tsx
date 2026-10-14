@@ -86,7 +86,7 @@ export default function HumanResourcesPage() {
             photo={humanResourcesHead.photo}
             eyebrow="Руководство управления"
             phones={humanResourcesHead.phones}
-            portraitClassName="h-64 sm:h-80"
+            portraitClassName="h-68 sm:h-84"
             priority
           />
         </section>
