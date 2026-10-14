@@ -35,6 +35,7 @@ export type StructureChartBranch = {
   description: string;
   icon: StructureChartIcon;
   items: string[];
+  itemLinks?: Record<string, string>;
   href: string;
 };
 
@@ -124,6 +125,10 @@ export const structureChartBranches: StructureChartBranch[] = [
       "Медицинский пункт",
       "Гостиница",
     ],
+    itemLinks: {
+      "Секретариат и помощник ректора": "/about/structure/secretariat",
+      "Юридический отдел": "/about/structure/legal-department",
+    },
     href: "/about/structure/secretariat",
   },
 ];
@@ -483,6 +488,7 @@ export const otherStructureItems: StructureDepartment[] = [
   {
     id: "legal-department",
     title: "Юридический отдел",
+    href: "/about/structure/legal-department",
   },
 ];
 

@@ -278,7 +278,7 @@ export const navigation: NavigationItem[] = [
 
       {
         title: "Юридический отдел",
-        href: "/legal-department",
+        href: "/about/structure/legal-department",
       },
     ],
   },

@@ -298,9 +298,19 @@ export function StructureChart() {
                           className="flex items-start gap-3 border-b border-[#e9e1d4] py-3 last:border-b-0"
                         >
                           <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#c9a45c]" />
-                          <span className="text-sm leading-6 text-[#061d35]/75">
-                            {item}
-                          </span>
+                          {branch.itemLinks?.[item] ? (
+                            <Link
+                              href={branch.itemLinks[item]}
+                              tabIndex={isOpen ? 0 : -1}
+                              className="text-sm leading-6 text-[#061d35]/75 transition-colors hover:text-[#9b7939]"
+                            >
+                              {item}
+                            </Link>
+                          ) : (
+                            <span className="text-sm leading-6 text-[#061d35]/75">
+                              {item}
+                            </span>
+                          )}
                         </motion.div>
                       ))}
                     </div>
