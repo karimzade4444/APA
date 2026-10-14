@@ -124,7 +124,7 @@ export const structureChartBranches: StructureChartBranch[] = [
       "Медицинский пункт",
       "Гостиница",
     ],
-    href: "/about/structure",
+    href: "/about/structure/secretariat",
   },
 ];
 

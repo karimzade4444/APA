@@ -269,7 +269,7 @@ export const navigation: NavigationItem[] = [
 
       {
         title: "Секретариат и помощник ректора",
-        href: "/vacancies",
+        href: "/about/structure/secretariat",
       },
       {
         title: "Совет ученых",
