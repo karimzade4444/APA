@@ -1,7 +1,6 @@
 
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import {
   ArrowLeft,
@@ -14,6 +13,7 @@ import {
 } from "lucide-react";
 import { leadership } from "@/data/leadership";
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
+import { ProfilePortrait } from "@/components/leadership/ProfilePortrait";
 import { LeadershipOrbit } from "@/components/leadership/LeadershipHeroEffects";
 import {
   LeadershipHeroMotion,
@@ -90,16 +90,14 @@ export default async function LeaderPage({ params }: PageProps) {
             {/* Фотография */}
             <div className="mx-auto w-full max-w-85">
               <div className="relative border border-[#c9a45c]/50 p-2">
-                <div className="relative aspect-4/5 overflow-hidden bg-white/5">
-                  <Image
-                    src={leader.photo}
-                    alt={leader.name}
-                    fill
-                    priority
-                    sizes="(max-width: 1023px) 85vw, 340px"
-                    className="object-cover transition-transform duration-700 hover:scale-[1.03]"
-                  />
-                </div>
+                <ProfilePortrait
+                  name={leader.name}
+                  photo={leader.photo}
+                  priority
+                  sizes="(max-width: 1023px) 85vw, 340px"
+                  className="relative aspect-4/5"
+                  imageClassName="object-cover hover:scale-[1.03]"
+                />
 
                 <span className="absolute -bottom-2 -right-2 h-12 w-12 border-b-2 border-r-2 border-[#d4af62]" />
                 <span className="absolute -left-2 -top-2 h-12 w-12 border-l-2 border-t-2 border-[#d4af62]" />

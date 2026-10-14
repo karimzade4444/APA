@@ -9,11 +9,11 @@ import {
   Landmark,
   Mail,
   ShieldCheck,
-  UserRound,
   Users,
 } from "lucide-react";
 
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
+import { DepartmentHeadCard } from "@/components/structure/DepartmentHeadCard";
 import {
   generalDepartmentActivities,
   generalDepartmentHead,
@@ -96,19 +96,12 @@ export default function GeneralDepartmentPage() {
               Начальник отдела
             </h2>
           </div>
-          <article className="flex items-center gap-5 border border-[#d8c28a]/70 bg-white p-6 shadow-[0_24px_60px_rgba(6,29,53,0.06)] sm:p-8">
-            <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-[#c9a45c]/40 bg-[#f2eee5] text-[#9b7939]">
-              <UserRound size={30} strokeWidth={1.4} />
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold leading-tight text-[#061d35] sm:text-2xl">
-                {generalDepartmentHead.name}
-              </h3>
-              <p className="mt-2 text-sm leading-6 text-[#18334d] sm:text-base">
-                {generalDepartmentHead.role}
-              </p>
-            </div>
-          </article>
+          <DepartmentHeadCard
+            name={generalDepartmentHead.name}
+            role={generalDepartmentHead.role}
+            eyebrow="Общий отдел"
+            portraitClassName="h-48 sm:h-56"
+          />
         </section>
 
         <section aria-labelledby="general-department-about-heading">

@@ -1,10 +1,10 @@
 
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowUpRight, Mail, Phone } from "lucide-react";
+import { ProfilePortrait } from "@/components/leadership/ProfilePortrait";
 import type { Leader } from "@/data/leadership";
 
 type LeadershipCardProps = {
@@ -41,23 +41,14 @@ export function LeadershipCard({
         {/* Фото */}
         <div className="relative block overflow-hidden border border-[#c9a45c]/35 bg-[#e9e5dc]">
           <div className="relative aspect-[4/4.7] overflow-hidden">
-            <Image
-              src={leader.photo}
-              alt={leader.name}
-              fill
+            <ProfilePortrait
+              name={leader.name}
+              photo={leader.photo}
               sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw"
-              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+              imageClassName="object-cover group-hover:scale-[1.04]"
+              showActionIcon
+              fillParent
             />
-
-            <div className="absolute inset-0 bg-linear-to-t from-[#061d35]/45 via-transparent to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-100" />
-
-            <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-              <span className="h-px flex-1 bg-[#d4af62]/80" />
-
-              <span className="ml-3 flex h-9 w-9 items-center justify-center rounded-full border border-white/50 bg-[#061d35]/80 text-white transition-all duration-300 group-hover:rotate-45 group-hover:border-[#d4af62] group-hover:text-[#d4af62]">
-                <ArrowUpRight size={17} />
-              </span>
-            </div>
           </div>
         </div>
 

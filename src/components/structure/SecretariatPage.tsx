@@ -1,7 +1,6 @@
 "use client";
 
 import type { ReactNode } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
 import {
@@ -9,13 +8,12 @@ import {
   BriefcaseBusiness,
   FileText,
   Landmark,
-  Mail,
-  Phone,
   ShieldCheck,
 } from "lucide-react";
 
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 import { LeadershipOrbit } from "@/components/leadership/LeadershipHeroEffects";
+import { DepartmentHeadCard } from "@/components/structure/DepartmentHeadCard";
 import {
   secretariatOfficers,
   secretariatPage,
@@ -126,54 +124,19 @@ export default function SecretariatPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.6, delay: index * 0.12, ease: "easeOut" }}
-              className="flex h-full flex-col overflow-hidden border border-[#d8c28a]/70 bg-white shadow-[0_24px_60px_rgba(6,29,53,0.06)]"
+              className="h-full"
             >
-              <div className="relative h-85 shrink-0 bg-[#061d35] sm:h-85">
-                <Image
-                  src={person.photo}
-                  alt={person.name}
-                  fill
-                  priority={index === 0}
-                  sizes="(max-width: 1023px) 100vw, 50vw"
-                  className="object-cover object-center"
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-[#061d35]/80 via-[#061d35]/10 to-transparent" />
-                <div className="absolute bottom-4 left-4 rounded-full border border-[#d4af62]/60 bg-[#061d35]/80 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-[#d4af62]">
-                  {person.shortRole}
-                </div>
-              </div>
-
-              <div className="flex flex-1 flex-col justify-between p-6 sm:p-7">
-                <div>
-                  <p className="mb-3 min-h-5 text-xs font-semibold uppercase tracking-[0.2em] text-[#9b7939]">
-                    Секретариат ректора
-                  </p>
-                  <h3 className="min-h-8 text-2xl font-semibold leading-tight text-[#061d35] sm:min-h-9 sm:text-3xl">
-                    {person.name}
-                  </h3>
-
-                  <div className="my-5 h-px w-16 bg-[#c9a45c]" />
-
-                  <p className="min-h-14 text-base font-medium leading-7 text-[#18334d]">
-                    {person.role}
-                  </p>
-
-                  <p className="indent-4 text-justify text-sm leading-7 text-[#061d35]/70">
-                    {person.description}
-                  </p>
-                </div>
-
-                <div className="mt-3 space-y-3 border-t border-[#e8dcc0] pt-5 text-sm text-[#061d35]/75">
-                  <div className="flex items-center gap-3">
-                    <Phone size={16} className="text-[#9b7939]" />
-                    <span>{person.phone}</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Mail size={16} className="text-[#9b7939]" />
-                    <span>{person.email}</span>
-                  </div>
-                </div>
-              </div>
+              <DepartmentHeadCard
+                name={person.name}
+                role={person.role}
+                photo={person.photo}
+                eyebrow={person.shortRole}
+                description={person.description}
+                phone={person.phone}
+                email={person.email}
+                portraitClassName="h-64 sm:h-72"
+                priority={index === 0}
+              />
             </motion.article>
           ))}
         </div>

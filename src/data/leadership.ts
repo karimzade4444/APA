@@ -15,7 +15,7 @@ export type Leader = {
   name: string;
   position: string;
   shortPosition: string;
-  photo: string;
+  photo?: string;
   phone?: string;
   email?: string;
   degree?: string;

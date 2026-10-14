@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 import Reveal from "@/components/animations/Reveal";
+import { ProfilePortrait } from "@/components/leadership/ProfilePortrait";
 
 const RectorCard = () => {
   return (
@@ -19,16 +19,13 @@ const RectorCard = () => {
           </p>
         </div>
 
-        <div className="relative aspect-4/5 overflow-hidden bg-[#e8e5df]">
-          <Image
-            src="/images/sidebar/rector.jpg"
-            alt="Ректор Академии"
-            fill
-            className="object-cover transition duration-700 group-hover:scale-105"
-          />
-
-          <div className="absolute inset-0 bg-linear-to-t from-[#061d35]/60 via-transparent to-transparent" />
-        </div>
+        <ProfilePortrait
+          name="Ректор Академии"
+          photo="/images/sidebar/rector.jpg"
+          sizes="(max-width: 767px) 100vw, 320px"
+          className="relative aspect-4/5"
+          imageClassName="object-cover group-hover:scale-105"
+        />
 
         <div className="px-5 py-5">
           <p className="text-xs text-[#061d35]/50">Ректор Академии</p>

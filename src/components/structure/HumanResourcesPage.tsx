@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowLeft,
@@ -7,11 +6,11 @@ import {
   FileText,
   Landmark,
   Mail,
-  Phone,
   Users,
 } from "lucide-react";
 
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
+import { DepartmentHeadCard } from "@/components/structure/DepartmentHeadCard";
 import {
   humanResourcesDuties,
   humanResourcesHead,
@@ -81,40 +80,15 @@ export default function HumanResourcesPage() {
               Начальник управления
             </h2>
           </div>
-          <article className="overflow-hidden border border-[#d8c28a]/70 bg-white shadow-[0_24px_60px_rgba(6,29,53,0.08)]">
-            <div className="relative h-64 bg-[#061d35] sm:h-80">
-              <Image
-                src={humanResourcesHead.photo}
-                alt={humanResourcesHead.name}
-                fill
-                priority
-                sizes="(max-width: 672px) 100vw, 672px"
-                className="object-cover object-[center_35%]"
-              />
-              <div className="absolute inset-0 bg-linear-to-t from-[#061d35]/80 via-transparent to-transparent" />
-            </div>
-            <div className="p-6 sm:p-8">
-              <h3 className="text-2xl font-semibold leading-tight text-[#061d35] sm:text-3xl">
-                {humanResourcesHead.name}
-              </h3>
-              <p className="mt-3 text-base leading-7 text-[#18334d]">
-                {humanResourcesHead.role}
-              </p>
-              <div className="mt-6 space-y-3 border-t border-[#e8dcc0] pt-5 text-sm text-[#061d35]/75">
-                {humanResourcesHead.phones.map((phone) => (
-                  <div key={phone.href} className="flex items-center gap-3">
-                    <Phone size={16} className="shrink-0 text-[#9b7939]" />
-                    <a
-                      href={phone.href}
-                      className="transition-colors hover:text-[#9b7939]"
-                    >
-                      {phone.label}
-                    </a>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </article>
+          <DepartmentHeadCard
+            name={humanResourcesHead.name}
+            role={humanResourcesHead.role}
+            photo={humanResourcesHead.photo}
+            eyebrow="Руководство управления"
+            phones={humanResourcesHead.phones}
+            portraitClassName="h-64 sm:h-80"
+            priority
+          />
         </section>
 
         <section aria-labelledby="human-resources-basis-heading">

@@ -5,10 +5,10 @@ import {
   FileText,
   Landmark,
   Scale,
-  UserRound,
 } from "lucide-react";
 
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
+import { DepartmentHeadCard } from "@/components/structure/DepartmentHeadCard";
 import {
   legalDepartmentDuties,
   legalDepartmentHead,
@@ -121,22 +121,13 @@ export default function LegalDepartmentPage() {
               Начальник отдела
             </h2>
           </div>
-          <article className="flex items-center gap-5 border border-[#d8c28a]/70 bg-white p-5 shadow-[0_16px_40px_rgba(6,29,53,0.05)] sm:p-7">
-            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#f2eee5] text-[#9b7939]">
-              <UserRound size={26} strokeWidth={1.5} />
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold text-[#061d35] sm:text-xl">
-                {legalDepartmentHead.name}
-              </h3>
-              <p className="mt-1 text-sm font-medium text-[#18334d]">
-                {legalDepartmentHead.role}
-              </p>
-              <p className="mt-2 text-sm leading-6 text-[#061d35]/60">
-                {legalDepartmentHead.note}
-              </p>
-            </div>
-          </article>
+          <DepartmentHeadCard
+            name={legalDepartmentHead.name}
+            role={legalDepartmentHead.role}
+            note={legalDepartmentHead.note}
+            eyebrow="Юридический отдел"
+            portraitClassName="h-48 sm:h-56"
+          />
         </section>
 
         <section aria-labelledby="legal-duties-heading">
