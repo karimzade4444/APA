@@ -10,6 +10,7 @@ import {
 
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 import { DepartmentHeadCard } from "@/components/structure/DepartmentHeadCard";
+import { StructureReveal } from "@/components/structure/StructureReveal";
 import {
   archiveSectorHead,
   archiveSectorPage,
@@ -61,7 +62,7 @@ export default function ArchiveSectorPage() {
             ]}
           />
 
-          <div className="mt-10 max-w-5xl">
+          <StructureReveal className="mt-10 max-w-5xl">
             <div className="mb-6 flex items-center gap-3">
               <span className="h-px w-12 bg-[#c9a45c]" />
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#d4af62] sm:text-sm">
@@ -80,14 +81,15 @@ export default function ArchiveSectorPage() {
                 Академия государственного управления при Президенте Республики
                 Таджикистан
               </span>
-            </div>
           </div>
+          </StructureReveal>
 
           <div className="mt-12 h-px w-full bg-linear-to-r from-[#c9a45c]/70 via-[#c9a45c]/20 to-transparent sm:mt-16" />
         </div>
       </section>
 
       <section className="site-container space-y-12 py-14 sm:py-20 lg:py-24">
+        <StructureReveal>
         <section
           aria-labelledby="archive-sector-head-heading"
           className="mx-auto max-w-2xl"
@@ -114,7 +116,9 @@ export default function ArchiveSectorPage() {
             priority
           />
         </section>
+        </StructureReveal>
 
+        <StructureReveal>
         <section aria-labelledby="archive-sector-about-heading">
           <div className="mb-5 flex items-center gap-3">
             <ShieldCheck size={20} className="text-[#9b7939]" />
@@ -130,7 +134,9 @@ export default function ArchiveSectorPage() {
             <p>{archiveSectorPage.operations}</p>
           </div>
         </section>
+        </StructureReveal>
 
+        <StructureReveal>
         <section aria-labelledby="archive-sector-records-heading">
           <div className="mb-5">
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#a7833f]">
@@ -171,7 +177,9 @@ export default function ArchiveSectorPage() {
             })}
           </ul>
         </section>
+        </StructureReveal>
 
+        <StructureReveal>
         <section className="border border-[#d6c596] bg-[#061d35] p-6 text-white sm:p-8">
           <div className="flex items-start gap-4">
             <div className="flex h-12 w-12 shrink-0 items-center justify-center border border-[#c9a45c]/60 bg-white/5 text-[#d4af62]">
@@ -188,6 +196,7 @@ export default function ArchiveSectorPage() {
             </div>
           </div>
         </section>
+        </StructureReveal>
 
         <div className="flex flex-wrap justify-between gap-4">
           <Link

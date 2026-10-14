@@ -30,7 +30,11 @@ export const humanResourcesDuties = [
   "Ведение учёта преподавателей, работников и студентов Академии.",
 ] as const;
 
-export const humanResourcesUnits = [
+export const humanResourcesUnits: {
+  name: string;
+  href?: string;
+  positions: readonly string[];
+}[] = [
   {
     name: "Управление кадров, делопроизводства и специальных работ",
     positions: [
@@ -42,6 +46,7 @@ export const humanResourcesUnits = [
   },
   {
     name: "Общий отдел",
+    href: "/structure/management/hr-department/general",
     positions: [
       "Начальник отдела",
       "Два главных специалиста",
@@ -51,6 +56,7 @@ export const humanResourcesUnits = [
   },
   {
     name: "Второй отдел",
+    href: "/structure/management/hr-department/second",
     positions: [
       "Начальник отдела",
       "Главный специалист",
@@ -60,9 +66,10 @@ export const humanResourcesUnits = [
   },
   {
     name: "Архивный сектор",
+    href: "/structure/management/hr-department/archive",
     positions: ["Заведующая сектором", "Главный специалист"],
   },
-] as const;
+];
 
 export const humanResourcesStaffingNote =
   "В исходных сведениях указана общая численность 15 сотрудников; перечисленный штатный состав включает 14 должностей.";

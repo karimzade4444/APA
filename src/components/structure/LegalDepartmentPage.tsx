@@ -9,6 +9,7 @@ import {
 
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 import { DepartmentHeadCard } from "@/components/structure/DepartmentHeadCard";
+import { StructureReveal } from "@/components/structure/StructureReveal";
 import {
   legalDepartmentDuties,
   legalDepartmentHead,
@@ -61,7 +62,7 @@ export default function LegalDepartmentPage() {
             ]}
           />
 
-          <div className="mt-10 max-w-4xl">
+          <StructureReveal className="mt-10 max-w-4xl">
             <div className="mb-6 flex items-center gap-3">
               <span className="h-px w-12 bg-[#c9a45c]" />
               <span className="text-xs font-semibold uppercase tracking-[0.24em] text-[#d4af62] sm:text-sm">
@@ -86,13 +87,14 @@ export default function LegalDepartmentPage() {
               <Landmark size={19} className="mt-0.5 shrink-0 text-[#d4af62]" />
               <span>{legalDepartmentPage.summary}</span>
             </div>
-          </div>
+          </StructureReveal>
 
           <div className="mt-12 h-px w-full bg-linear-to-r from-[#c9a45c]/70 via-[#c9a45c]/20 to-transparent sm:mt-16" />
         </div>
       </section>
 
       <section className="site-container space-y-12 py-14 sm:py-20 lg:py-24">
+        <StructureReveal>
         <section aria-labelledby="legal-basis-heading">
           <div className="mb-5 flex items-center gap-3">
             <BriefcaseBusiness size={20} className="text-[#9b7939]" />
@@ -108,7 +110,9 @@ export default function LegalDepartmentPage() {
             <p>{legalDepartmentPage.cooperation}</p>
           </div>
         </section>
+        </StructureReveal>
 
+        <StructureReveal>
         <section aria-labelledby="legal-head-heading">
           <div className="mb-5">
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#a7833f]">
@@ -129,7 +133,9 @@ export default function LegalDepartmentPage() {
             portraitClassName="h-52 sm:h-60"
           />
         </section>
+        </StructureReveal>
 
+        <StructureReveal>
         <section aria-labelledby="legal-duties-heading">
           <div className="mb-5">
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#a7833f]">
@@ -144,7 +150,9 @@ export default function LegalDepartmentPage() {
           </div>
           <TextList items={legalDepartmentDuties} ordered />
         </section>
+        </StructureReveal>
 
+        <StructureReveal>
         <section aria-labelledby="legal-staffing-heading">
           <div className="mb-5">
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#a7833f]">
@@ -159,7 +167,9 @@ export default function LegalDepartmentPage() {
           </div>
           <TextList items={legalDepartmentPage.staffing} />
         </section>
+        </StructureReveal>
 
+        <StructureReveal>
         <section aria-labelledby="legal-responsibilities-heading">
           <div className="mb-5">
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#a7833f]">
@@ -174,6 +184,7 @@ export default function LegalDepartmentPage() {
           </div>
           <TextList items={legalDepartmentResponsibilities} />
         </section>
+        </StructureReveal>
 
         <div className="flex justify-start">
           <Link

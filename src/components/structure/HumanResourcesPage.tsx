@@ -1,6 +1,7 @@
 import Link from "next/link";
 import {
   ArrowLeft,
+  ArrowUpRight,
   Archive,
   BriefcaseBusiness,
   FileText,
@@ -11,6 +12,7 @@ import {
 
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 import { DepartmentHeadCard } from "@/components/structure/DepartmentHeadCard";
+import { StructureReveal } from "@/components/structure/StructureReveal";
 import {
   humanResourcesDuties,
   humanResourcesHead,
@@ -38,7 +40,7 @@ export default function HumanResourcesPage() {
             ]}
           />
 
-          <div className="mt-10 max-w-5xl">
+          <StructureReveal className="mt-10 max-w-5xl">
             <div className="mb-6 flex items-center gap-3">
               <span className="h-px w-12 bg-[#c9a45c]" />
               <span className="text-xs font-semibold uppercase tracking-[0.24em] text-[#d4af62] sm:text-sm">
@@ -57,14 +59,15 @@ export default function HumanResourcesPage() {
                 Академия государственного управления при Президенте Республики
                 Таджикистан
               </span>
-            </div>
           </div>
+          </StructureReveal>
 
           <div className="mt-12 h-px w-full bg-linear-to-r from-[#c9a45c]/70 via-[#c9a45c]/20 to-transparent sm:mt-16" />
         </div>
       </section>
 
       <section className="site-container space-y-12 py-14 sm:py-20 lg:py-24">
+        <StructureReveal>
         <section
           aria-labelledby="human-resources-head-heading"
           className="mx-auto max-w-2xl"
@@ -90,7 +93,9 @@ export default function HumanResourcesPage() {
             priority
           />
         </section>
+        </StructureReveal>
 
+        <StructureReveal>
         <section aria-labelledby="human-resources-basis-heading">
           <div className="mb-5 flex items-center gap-3">
             <BriefcaseBusiness size={20} className="text-[#9b7939]" />
@@ -105,7 +110,9 @@ export default function HumanResourcesPage() {
             {humanResourcesPage.legalBasis}
           </p>
         </section>
+        </StructureReveal>
 
+        <StructureReveal>
         <section aria-labelledby="human-resources-duties-heading">
           <div className="mb-5">
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#a7833f]">
@@ -134,7 +141,9 @@ export default function HumanResourcesPage() {
             ))}
           </ol>
         </section>
+        </StructureReveal>
 
+        <StructureReveal>
         <section aria-labelledby="human-resources-structure-heading">
           <div className="mb-5">
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#a7833f]">
@@ -154,7 +163,7 @@ export default function HumanResourcesPage() {
               return (
                 <article
                   key={unit.name}
-                  className="border border-[#e8dcc0] bg-white p-5 sm:p-6"
+                  className="flex h-full flex-col border border-[#e8dcc0] bg-white p-5 sm:p-6"
                 >
                   <div className="mb-4 flex items-center gap-3">
                     <span className="flex h-10 w-10 shrink-0 items-center justify-center bg-[#f2eee5] text-[#9b7939]">
@@ -178,6 +187,15 @@ export default function HumanResourcesPage() {
                       </li>
                     ))}
                   </ul>
+                  {unit.href && (
+                    <Link
+                      href={unit.href}
+                      className="mt-auto inline-flex items-center gap-2 border-t border-[#e9e1d4] pt-4 text-sm font-semibold text-[#9b7939] transition-colors hover:text-[#061d35]"
+                    >
+                      Перейти
+                      <ArrowUpRight size={16} />
+                    </Link>
+                  )}
                 </article>
               );
             })}
@@ -187,6 +205,7 @@ export default function HumanResourcesPage() {
             <span>{humanResourcesStaffingNote}</span>
           </p>
         </section>
+        </StructureReveal>
 
         <div className="flex justify-start">
           <Link
