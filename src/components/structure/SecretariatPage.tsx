@@ -47,10 +47,10 @@ export default function SecretariatPage() {
     <main className="min-h-screen bg-[#f5f1e9] text-[#061d35]">
       <section className="relative isolate overflow-hidden bg-[#061d35]">
         <div className="pointer-events-none absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-[#061d35] via-[#061d35]/95 to-[#102d49]/80" />
-          <div className="absolute -right-24 -top-32 h-[32rem] w-[32rem] rounded-full border border-[#c9a45c]/20" />
-          <div className="absolute -right-12 -top-20 h-[26rem] w-[26rem] rounded-full border border-[#c9a45c]/20" />
-          <div className="absolute -bottom-40 left-1/3 h-80 w-80 rounded-full border border-white/[0.06]" />
+          <div className="absolute inset-0 bg-linear-to-r from-[#061d35] via-[#061d35]/95 to-[#102d49]/80" />
+          <div className="absolute -right-24 -top-32 h-lg w-lg rounded-full border border-[#c9a45c]/20" />
+          <div className="absolute -right-12 -top-20 h-104 w-104 rounded-full border border-[#c9a45c]/20" />
+          <div className="absolute -bottom-40 left-1/3 h-80 w-80 rounded-full border border-white/6" />
         </div>
         <div
           aria-hidden="true"
@@ -101,7 +101,7 @@ export default function SecretariatPage() {
             </Reveal>
           </div>
 
-          <div className="mt-12 h-px w-full bg-gradient-to-r from-[#c9a45c]/70 via-[#c9a45c]/20 to-transparent sm:mt-16" />
+          <div className="mt-12 h-px w-full bg-linear-to-r from-[#c9a45c]/70 via-[#c9a45c]/20 to-transparent sm:mt-16" />
         </div>
       </section>
 
@@ -137,7 +137,7 @@ export default function SecretariatPage() {
                   sizes="(max-width: 1023px) 100vw, 50vw"
                   className="object-cover object-center"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#061d35]/80 via-[#061d35]/10 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-[#061d35]/80 via-[#061d35]/10 to-transparent" />
                 <div className="absolute bottom-4 left-4 rounded-full border border-[#d4af62]/60 bg-[#061d35]/80 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-[#d4af62]">
                   {person.shortRole}
                 </div>
@@ -203,7 +203,7 @@ export default function SecretariatPage() {
             {secretariatResponsibilities.map((item) => (
               <div
                 key={item}
-                className="flex gap-3 rounded-sm border border-white/10 bg-white/[0.02] p-4"
+                className="flex gap-3 rounded-sm border border-white/10 bg-white/2 p-4"
               >
                 <div className="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#c9a45c]/15 text-[#d4af62]">
                   <FileText size={15} />
