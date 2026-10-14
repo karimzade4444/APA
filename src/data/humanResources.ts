@@ -60,7 +60,7 @@ export const humanResourcesUnits = [
   },
   {
     name: "Архивный сектор",
-    positions: ["Заведующий сектором", "Главный специалист"],
+    positions: ["Заведующая сектором", "Главный специалист"],
   },
 ] as const;
 
