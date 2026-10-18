@@ -69,7 +69,7 @@ export default function PublicationCard({
           />
           <div className="absolute inset-0 bg-linear-to-t from-[#061d35]/85 via-[#061d35]/10 to-transparent" />
           {topic && (
-            <span className="absolute left-3 top-3 max-w-[calc(100%-1.5rem)] border border-[#d4af62]/50 bg-[#061d35]/90 px-3 py-1.5 text-[10px] font-medium uppercase tracking-wider text-[#f2d797]">
+            <span className="hidden sm:block absolute left-3 top-3 max-w-[calc(100%-1.5rem)] border border-[#d4af62]/50 bg-[#061d35]/90 px-3 py-1.5 text-[10px] font-medium uppercase tracking-wider text-[#f2d797]">
               {topic}
             </span>
           )}
@@ -87,7 +87,7 @@ export default function PublicationCard({
 
         {!featured && (
           <div className="flex min-h-44 flex-col p-5">
-            <time className="text-xs text-[#061d35]/50">{date}</time>
+            <time className="text-xs text-[#000000]">{date}</time>
             <h3 className="mt-2 line-clamp-3 min-h-18 font-serif text-lg font-semibold leading-6 text-[#061d35] transition-colors duration-300 group-hover:text-[#a37b2f]">
               {title}
             </h3>
