@@ -19,7 +19,7 @@ const TopBar = () => {
           initial={{ opacity: 0, x: -15 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.15, duration: 0.5 }}
-          className="text-xs text-white/60"
+          className="hidden text-xs text-white/60 xl:block"
         >
           Официальный сайт Академии государственного управления при Президенте
           Республики Таджикистан
@@ -30,7 +30,7 @@ const TopBar = () => {
             initial={{ opacity: 0, x: 15 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="flex items-center justify-center gap-2 text-white/80 lg:hidden xl:flex"
+            className="hidden items-center justify-center gap-2 text-white/80 xl:flex"
           >
             <Phone size={15} />
             <span>+992 (37) 224-17-86</span>
@@ -43,7 +43,7 @@ const TopBar = () => {
             initial={{ opacity: 0, x: 15 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3, duration: 0.5 }}
-            className="flex items-center gap-3"
+            className="flex items-center gap-2 sm:gap-3"
           >
             <button className="cursor-pointer font-medium text-[#d4af62]">
               RU

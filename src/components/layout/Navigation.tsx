@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { useEffect, useRef, useState } from "react";
 import MegaMenu from "@/components/navigation/MegaMenu";
+import MobileNavigation from "@/components/navigation/MobileNavigation";
 import { navigation } from "@/data/navigation";
 
 const Navigation = () => {
@@ -73,7 +74,8 @@ const Navigation = () => {
     );
 
   return (
-    <nav className="border-y border-[#c9a45c]/40 bg-[#061d35]">
+    <>
+    <nav className="hidden border-y border-[#c9a45c]/40 bg-[#061d35] lg:block">
       <div className="site-container flex items-center">
         <NavigationMenu
           value={openMenu}
@@ -122,6 +124,8 @@ const Navigation = () => {
         </NavigationMenu>
       </div>
     </nav>
+    <MobileNavigation items={navigation} />
+    </>
   );
 };
 
