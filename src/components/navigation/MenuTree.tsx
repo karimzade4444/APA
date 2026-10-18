@@ -152,10 +152,20 @@ const MenuTreeItem = ({ item, onNavigate }: MenuTreeItemProps) => {
             }
           }}
           aria-expanded={hasChildren ? isOpen : undefined}
-          className="flex items-center justify-between rounded-none px-4 py-2 text-sm text-white/80 transition-[padding,background-color,color] duration-300 hover:bg-white/5 hover:pl-5 hover:text-[#d4af62]"
+          className={`flex items-center justify-between rounded-none px-4 py-2 text-sm transition-[padding,background-color,color] duration-300 hover:pl-5 ${
+            hasChildren && isOpen
+              ? "bg-[#c9a45c]/15 text-[#e5c681]"
+              : "text-white/80 hover:bg-[#c9a45c]/10 hover:text-[#e5c681]"
+          }`}
         >
           <span>
-            <span className="mr-2 text-[#c9a45c]/60 transition duration-300 group-hover:text-[#d4af62]">
+            <span
+              className={`mr-2 transition duration-300 ${
+                hasChildren && isOpen
+                  ? "text-[#e5c681]"
+                  : "text-[#c9a45c]/60 group-hover:text-[#d4af62]"
+              }`}
+            >
               —
             </span>
 
@@ -163,7 +173,11 @@ const MenuTreeItem = ({ item, onNavigate }: MenuTreeItemProps) => {
           </span>
 
           {hasChildren && (
-            <span className="ml-4 text-[#d4af62] transition duration-300 group-hover:translate-x-1">
+            <span
+              className={`ml-4 transition duration-300 group-hover:translate-x-1 ${
+                isOpen ? "text-[#e5c681]" : "text-[#d4af62]"
+              }`}
+            >
               →
             </span>
           )}
