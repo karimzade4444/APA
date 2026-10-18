@@ -30,7 +30,7 @@ const TopBar = () => {
             initial={{ opacity: 0, x: 15 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="flex items-center justify-center gap-2 text-white/80"
+            className="flex items-center justify-center gap-2 text-white/80 lg:hidden"
           >
             <Phone size={15} />
             <span>+992 (37) 224-17-86</span>
