@@ -40,7 +40,7 @@ export function LeadershipGrid() {
             <div className="pointer-events-none absolute -right-8 -top-12 h-56 w-56 rounded-full border border-[#c9a45c]/15" />
 
             <div className="relative grid items-center gap-8 p-6 sm:p-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-14 lg:p-14">
-              <div className="mx-auto w-full max-w-[340px]">
+              <div className="mx-auto w-full max-w-85">
                 <LeadershipCard
                   leader={rector}
                   index={0}
@@ -48,7 +48,7 @@ export function LeadershipGrid() {
                 />
               </div>
 
-              <div className="relative py-2 text-white">
+              <div className="relative py-2 text-white hidden lg:block">
                 <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-[#d4af62]">
                   Руководство Академии
                 </p>
@@ -78,9 +78,7 @@ export function LeadershipGrid() {
                   )}
                 </div>
 
-                <p className="mt-8 text-xs uppercase tracking-[0.18em] text-white/40">
-                  Академия государственного управления
-                </p>
+               
               </div>
             </div>
           </div>
@@ -98,14 +96,14 @@ export function LeadershipGrid() {
           </div>
 
           <div className="grid items-center gap-8 border-y border-[#c9a45c]/30 py-8 sm:py-10 lg:grid-cols-[250px_1fr] lg:gap-14">
-            <div className="mx-auto w-full max-w-[250px]">
+            <div className="mx-auto w-full max-w-62.5">
               <LeadershipCard
                 leader={firstViceRector}
                 index={1}
               />
             </div>
 
-            <div>
+            <div className="hidden lg:block">
               <p className="mb-3 text-sm font-medium text-[#9b7939]">
                 Первый проректор Академии
               </p>
