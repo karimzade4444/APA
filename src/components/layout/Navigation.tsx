@@ -86,7 +86,7 @@ const Navigation = () => {
                 {item.children ? (
                   <>
                     <NavigationMenuTrigger
-                      className={`relative h-12 cursor-pointer rounded-none px-5 text-sm font-black uppercase tracking-wide transition duration-300 after:absolute after:inset-x-4 after:bottom-0 after:h-0.5 after:origin-center after:transition-transform ${
+                      className={`relative h-12 cursor-pointer rounded-none px-5 text-sm lg:text-xs lg:px-2 font-black uppercase tracking-wide transition duration-300 after:absolute after:inset-x-4 after:bottom-0 after:h-0.5 after:origin-center after:transition-transform ${
                         hasActiveChild(item.children)
                           ? "bg-[#c9a45c]/10 text-[#e5c681] after:scale-x-100 after:bg-[#c9a45c]"
                           : "bg-transparent text-white after:scale-x-0 after:bg-transparent hover:bg-[#c9a45c]/10 hover:text-[#e5c681] hover:after:scale-x-100 hover:after:bg-[#c9a45c]"
@@ -107,7 +107,7 @@ const Navigation = () => {
                   <NavigationMenuLink
                     render={<Link href={item.href} />}
                     aria-current={isItemActive(item.href) ? "page" : undefined}
-                    className={`relative flex h-12 items-center rounded-none px-5 text-sm font-black uppercase tracking-wide transition after:absolute after:inset-x-4 after:bottom-0 after:h-0.5 after:transition-transform focus:bg-transparent data-active:bg-transparent data-active:hover:bg-transparent data-active:focus:bg-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#c9a45c] ${
+                    className={`relative flex h-12 items-center rounded-none px-5 text-sm lg:text-xs lg:px-2  font-black uppercase tracking-wide transition after:absolute after:inset-x-4 after:bottom-0 after:h-0.5 after:transition-transform focus:bg-transparent data-active:bg-transparent data-active:hover:bg-transparent data-active:focus:bg-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#c9a45c] ${
                       isItemActive(item.href)
                         ? "bg-[#c9a45c]/10 text-[#e5c681] after:scale-x-100 after:bg-[#c9a45c]"
                         : "text-white after:scale-x-0 after:bg-transparent hover:bg-white/5 hover:text-[#d4af62] hover:after:scale-x-100 hover:after:bg-[#c9a45c]"
