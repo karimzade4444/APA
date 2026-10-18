@@ -79,7 +79,7 @@ const StatCounter = ({
         </span>
       </div>
 
-      <div className="font-serif text-6xl font-semibold leading-none text-[#d4af62] md:text-7xl">
+      <div className="font-serif text-4xl font-semibold leading-none text-[#d4af62] sm:text-5xl md:text-7xl">
         {count}
         {suffix}
       </div>

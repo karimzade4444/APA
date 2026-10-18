@@ -4,7 +4,7 @@ import { GraduationCap, University } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-130 overflow-hidden bg-[#061d35]">
+    <section className="relative min-h-[34rem] overflow-hidden bg-[#061d35] sm:min-h-[38rem] lg:min-h-130">
       <video
         className="absolute inset-0 h-full w-full object-cover object-top"
         autoPlay
@@ -20,13 +20,13 @@ const Hero = () => {
 
       <div className="absolute inset-0 bg-linear-to-r from-[#061d35]/95 via-[#061d35]/45 to-[#061d35]/10" />
 
-      <div className="site-container relative z-10 flex min-h-140 items-center">
+      <div className="site-container relative z-10 flex min-h-[34rem] items-center sm:min-h-[38rem] lg:min-h-140">
         <div className="max-w-3xl">
           <AnimatedText delay={0.08} variant="rise">
-            <div className="mb-7 flex items-center gap-4">
-              <div className="h-px w-16 bg-[#d4af62]" />
+            <div className="mb-5 flex items-start gap-3 sm:mb-7 sm:items-center sm:gap-4">
+              <div className="mt-2 h-px w-4 shrink-0 bg-[#d4af62] sm:mt-0 sm:w-16" />
 
-              <span className="max-w-2xl text-xs font-medium uppercase tracking-[0.25em] text-[#d4af62]">
+              <span className="max-w-2xl text-[0.65rem] font-medium uppercase leading-5 tracking-[0.16em] text-[#d4af62] sm:text-xs sm:tracking-[0.25em]">
                 Академия государственного управления при Президенте Республики
                 Таджикистан
               </span>
@@ -44,7 +44,7 @@ const Hero = () => {
           </AnimatedText>
 
           <AnimatedText delay={0.24} variant="rise">
-            <p className="mt-7 max-w-2xl text-base leading-7 text-white/75 md:text-md text-justify">
+            <p className="mt-5 max-w-2xl text-sm leading-6 text-white/75 sm:mt-7 sm:text-base sm:leading-7 md:text-md text-justify">
               Подготовка высококвалифицированных специалистов для
               государственной службы и эффективного управления в интересах
               развития Республики Таджикистан.
@@ -52,10 +52,10 @@ const Hero = () => {
           </AnimatedText>
 
           <AnimatedText delay={0.32} variant="fade">
-            <div className="mt-9 flex flex-wrap items-center gap-4">
+            <div className="mt-7 flex flex-wrap items-center gap-3 sm:mt-9 sm:gap-4">
               <Link
                 href="/about"
-                className="border border-[#d4af62] bg-[#d4af62] px-7 py-3 text-sm font-medium uppercase tracking-wide text-[#061d35] transition duration-300 hover:bg-transparent hover:text-[#d4af62] flex items-center gap-2"
+                className="flex items-center gap-2 border border-[#d4af62] bg-[#d4af62] px-4 py-3 text-xs font-medium uppercase tracking-wide text-[#061d35] transition duration-300 hover:bg-transparent hover:text-[#d4af62] sm:px-7 sm:text-sm"
               >
                 <University className="mb-1" />
                 Об Академии
@@ -63,7 +63,7 @@ const Hero = () => {
 
               <Link
                 href="/admission"
-                className="border border-white/40 bg-white/5 px-7 py-3 text-sm font-medium uppercase tracking-wide text-white backdrop-blur-sm transition duration-300 hover:border-[#d4af62] hover:text-[#d4af62] flex items-center gap-2"
+                className="flex items-center gap-2 border border-white/40 bg-white/5 px-4 py-3 text-xs font-medium uppercase tracking-wide text-white backdrop-blur-sm transition duration-300 hover:border-[#d4af62] hover:text-[#d4af62] sm:px-7 sm:text-sm"
               >
                 <GraduationCap className="mb-1" />
                 Поступление

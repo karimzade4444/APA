@@ -60,8 +60,8 @@ const ArticlesSection = () => {
           />
         </Reveal>
 
-        <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 min-[2560px]:grid-cols-4 min-[2560px]:gap-4">
-          {articles.map((article, index) => (
+        <div className="mt-8 hidden grid-cols-2 gap-5 lg:grid xl:grid-cols-3">
+          {articles.slice(0, 3).map((article, index) => (
             <PublicationCard
               key={article.id}
               title={article.title}
@@ -70,7 +70,7 @@ const ArticlesSection = () => {
               href={article.href}
               topic={article.topic}
               delay={index * 0.08}
-              className={index === 3 ? "hidden min-[2560px]:block" : undefined}
+              className={index === 2 ? "hidden xl:block" : undefined}
             />
           ))}
         </div>
