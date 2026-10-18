@@ -97,12 +97,15 @@ const MobileMenuItems = ({
       const submenuId = `mobile-submenu-${item.href.replace(/[^a-zA-Z0-9]+/g, "-")}`;
 
       return (
-        <motion.li key={item.href} variants={itemVariants}>
+        <motion.li
+          key={item.href}
+          variants={itemVariants}
+          whileTap={{ scale: 0.95 }}
+        >
           <div className="flex items-stretch">
             <Link
               href={item.href}
               onClick={onNavigate}
-              whileTap={{ scale: 0.95 }}
               aria-current={pathname === item.href ? "page" : undefined}
               className={`flex min-w-0 flex-1 items-start rounded-sm px-3 py-3 text-sm font-semibold transition-colors ${
                 isActive
@@ -128,7 +131,6 @@ const MobileMenuItems = ({
                 aria-expanded={isOpen}
                 aria-controls={submenuId}
                 onClick={() => onToggle(item, ancestors)}
-                whileTap={{ scale: 0.95 }}
                 className={`flex w-12 shrink-0 items-center justify-center rounded-sm transition-colors focus-visible:outline-2 focus-visible:outline-[#c9a45c] ${
                   isOpen
                     ? "bg-[#c9a45c]/15 text-[#e5c681]"
