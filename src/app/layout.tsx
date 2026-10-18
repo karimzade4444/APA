@@ -1,15 +1,13 @@
 import { Metadata } from "next/dist/lib/metadata/types/metadata-interface";
-import { Poppins, Geist } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import { cn } from "@/lib/utils";
 import Footer from "@/components/layout/Footer";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
-
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin", "latin-ext"],
+const montserrat = Montserrat({
+  variable: "--font-sans",
+  subsets: ["latin", "latin-ext", "cyrillic", "cyrillic-ext"],
   weight: ["400", "500", "600", "700"],
 });
 
@@ -26,8 +24,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("font-sans", geist.variable)}>
-      <body className={poppins.variable}>
+    <html lang="en" className={cn("font-sans", montserrat.variable)}>
+      <body>
         <Header />
         {children}
         <Footer/>
