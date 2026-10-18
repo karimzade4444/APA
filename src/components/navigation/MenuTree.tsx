@@ -152,7 +152,7 @@ const MenuTreeItem = ({ item, onNavigate }: MenuTreeItemProps) => {
             }
           }}
           aria-expanded={hasChildren ? isOpen : undefined}
-          className={`flex items-center justify-between rounded-none px-4 py-2 text-sm transition-[padding,background-color,color] duration-300 hover:pl-5 ${
+          className={`flex items-center justify-between rounded-none px-4 py-2 text-sm transition-colors duration-300 ${
             hasChildren && isOpen
               ? "bg-[#c9a45c]/15 text-[#e5c681]"
               : "text-white/80 hover:bg-[#c9a45c]/10 hover:text-[#e5c681]"
