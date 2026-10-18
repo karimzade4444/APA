@@ -60,7 +60,7 @@ const ArticlesSection = () => {
           />
         </Reveal>
 
-        <div className="mt-8 hidden grid-cols-2 gap-5 max-[1023px]:!hidden lg:grid xl:grid-cols-3">
+        <div className="mt-8 hidden grid-cols-2 gap-5 max-[1023px]:hidden! lg:grid xl:grid-cols-3">
           {articles.slice(0, 3).map((article, index) => (
             <PublicationCard
               key={article.id}
