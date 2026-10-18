@@ -53,7 +53,7 @@ const NewsSection = () => {
         />
       </Reveal>
 
-      <div className="mt-8 hidden grid-cols-2 gap-5 lg:grid xl:grid-cols-3">
+      <div className="mt-8 hidden grid-cols-2 gap-5 max-[1023px]:!hidden lg:grid xl:grid-cols-3">
         {latestNews.slice(0, 3).map((item, index) => (
           <PublicationCard
             key={item.id}

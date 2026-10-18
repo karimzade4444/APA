@@ -52,7 +52,7 @@ const InfoLinks = () => {
                   →
                 </span>
 
-                <span className="text-sm text-white/75 transition-colors duration-300 group-hover:text-[#d4af62]">
+                <span className="text-xs text-white/75 transition-colors duration-300 group-hover:text-[#d4af62]">
                   {link.title}
                 </span>
               </motion.div>

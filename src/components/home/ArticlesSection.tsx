@@ -60,7 +60,7 @@ const ArticlesSection = () => {
           />
         </Reveal>
 
-        <div className="mt-8 hidden grid-cols-2 gap-5 lg:grid xl:grid-cols-3">
+        <div className="mt-8 hidden grid-cols-2 gap-5 max-[1023px]:!hidden lg:grid xl:grid-cols-3">
           {articles.slice(0, 3).map((article, index) => (
             <PublicationCard
               key={article.id}
@@ -75,15 +75,6 @@ const ArticlesSection = () => {
           ))}
         </div>
 
-        {/* Mobile button */}
-        <div className="mt-8 md:hidden">
-          <Link
-            href="/publications#articles"
-            className="inline-flex border border-[#061d35] px-6 py-3 text-sm font-medium uppercase tracking-wide text-[#061d35] transition duration-300 hover:bg-[#061d35] hover:text-white"
-          >
-            Все публикации
-          </Link>
-        </div>
     </section>
   );
 };
