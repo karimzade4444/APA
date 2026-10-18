@@ -14,12 +14,12 @@ const TopBar = () => {
       }}
       className="relative z-10 border-b border-[#c9a45c]/40 text-sm text-white"
     >
-      <div className="site-container flex min-h-9 items-center justify-between">
+      <div className="site-container flex min-h-9 items-center justify-end lg:justify-between ">
         <motion.p
           initial={{ opacity: 0, x: -15 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.15, duration: 0.5 }}
-          className="hidden text-xs text-white/60 xl:block"
+          className="hidden text-xs text-white/60 lg:block"
         >
           Официальный сайт Академии государственного управления при Президенте
           Республики Таджикистан
