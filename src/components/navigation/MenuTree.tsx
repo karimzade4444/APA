@@ -158,9 +158,9 @@ const MenuTreeItem = ({ item, onNavigate }: MenuTreeItemProps) => {
               : "text-white/80 hover:bg-[#c9a45c]/10 hover:text-[#e5c681]"
           }`}
         >
-          <span>
+          <span className="flex min-w-0 flex-1 items-start">
             <span
-              className={`mr-2 transition duration-300 ${
+              className={`mr-2 w-4 shrink-0 text-center transition duration-300 ${
                 hasChildren && isOpen
                   ? "text-[#e5c681]"
                   : "text-[#c9a45c]/60 group-hover:text-[#d4af62]"
@@ -169,12 +169,12 @@ const MenuTreeItem = ({ item, onNavigate }: MenuTreeItemProps) => {
               —
             </span>
 
-            {item.title}
+            <span className="min-w-0 flex-1">{item.title}</span>
           </span>
 
           {hasChildren && (
             <span
-              className={`ml-4 transition duration-300 group-hover:translate-x-1 ${
+              className={`ml-4 shrink-0 transition duration-300 group-hover:translate-x-1 ${
                 isOpen ? "text-[#e5c681]" : "text-[#d4af62]"
               }`}
             >
