@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import { createPortal } from "react-dom";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
-import type { FocusEvent, MouseEvent } from "react";
+import type { FocusEvent } from "react";
 import type { NavigationItem } from "@/types/navigation";
 import StaggerItem from "../animations/StraggerItem";
 import Stagger from "../animations/Stragger";
@@ -14,22 +14,35 @@ type MenuTreeProps = {
   onNavigate: () => void;
 };
 
+type MenuTreeItemsProps = MenuTreeProps & {
+  openMenuHrefs: string[];
+  setOpenMenuHrefs: (hrefs: string[]) => void;
+  ancestorHrefs: string[];
+};
+
 type MenuTreeItemProps = {
   item: NavigationItem;
   onNavigate: () => void;
+  openMenuHrefs: string[];
+  setOpenMenuHrefs: (hrefs: string[]) => void;
+  ancestorHrefs: string[];
 };
 
 const subscribeToPortalTarget = () => () => {};
 const getPortalTarget = () => document.body;
 const getServerPortalTarget = () => null;
 
-const MenuTreeItem = ({ item, onNavigate }: MenuTreeItemProps) => {
+const MenuTreeItem = ({
+  item,
+  onNavigate,
+  openMenuHrefs,
+  setOpenMenuHrefs,
+  ancestorHrefs,
+}: MenuTreeItemProps) => {
   const itemRef = useRef<HTMLDivElement>(null);
   const flyoutRef = useRef<HTMLDivElement>(null);
   const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [isHovered, setIsHovered] = useState(false);
-  const [isFocused, setIsFocused] = useState(false);
-  const [hasOpenedByClick, setHasOpenedByClick] = useState(false);
   const portalTarget = useSyncExternalStore<HTMLElement | null>(
     subscribeToPortalTarget,
     getPortalTarget,
@@ -40,7 +53,7 @@ const MenuTreeItem = ({ item, onNavigate }: MenuTreeItemProps) => {
     top: number;
   } | null>(null);
   const hasChildren = Boolean(item.children?.length);
-  const isOpen = isHovered || isFocused;
+  const isOpen = isHovered || openMenuHrefs.includes(item.href);
 
   useEffect(
     () => () => {
@@ -105,15 +118,6 @@ const MenuTreeItem = ({ item, onNavigate }: MenuTreeItemProps) => {
     }, 0);
   };
 
-  const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
-    if (!hasChildren || hasOpenedByClick) return;
-
-    event.preventDefault();
-    setHasOpenedByClick(true);
-    setIsFocused(true);
-    return;
-  };
-
   const handleBlur = (event: FocusEvent<HTMLDivElement>) => {
     const nextTarget = event.relatedTarget;
     if (
@@ -125,9 +129,7 @@ const MenuTreeItem = ({ item, onNavigate }: MenuTreeItemProps) => {
     ) {
       return;
     }
-
-    setIsFocused(false);
-    setHasOpenedByClick(false);
+    setOpenMenuHrefs([]);
   };
 
   return (
@@ -140,25 +142,26 @@ const MenuTreeItem = ({ item, onNavigate }: MenuTreeItemProps) => {
           setIsHovered(true);
         }}
         onMouseLeave={scheduleClose}
-        onFocusCapture={() => setIsFocused(true)}
+        onFocusCapture={(event) => {
+          if (
+            hasChildren &&
+            !(event.target instanceof HTMLButtonElement)
+          ) {
+            setOpenMenuHrefs([...ancestorHrefs, item.href]);
+          }
+        }}
         onBlurCapture={handleBlur}
       >
-        <Link
-          href={item.href}
-          onClick={(event) => {
-            handleClick(event);
-            if (!event.defaultPrevented) {
-              onNavigate();
-            }
-          }}
-          aria-expanded={hasChildren ? isOpen : undefined}
-          className={`flex items-center justify-between rounded-none px-4 py-2 text-sm transition-colors duration-300 ${
-            hasChildren && isOpen
-              ? "bg-[#c9a45c]/15 text-[#e5c681]"
-              : "text-white/80 hover:bg-[#c9a45c]/10 hover:text-[#e5c681]"
-          }`}
-        >
-          <span className="flex min-w-0 flex-1 items-start">
+        <div className="flex items-stretch">
+          <Link
+            href={item.href}
+            onClick={onNavigate}
+            className={`flex min-w-0 flex-1 items-start rounded-none px-4 py-2 text-sm transition-colors duration-300 ${
+              hasChildren && isOpen
+                ? "bg-[#c9a45c]/15 text-[#e5c681]"
+                : "text-white/80 hover:bg-[#c9a45c]/10 hover:text-[#e5c681]"
+            }`}
+          >
             <span
               className={`mr-2 w-4 shrink-0 text-center transition duration-300 ${
                 hasChildren && isOpen
@@ -170,18 +173,32 @@ const MenuTreeItem = ({ item, onNavigate }: MenuTreeItemProps) => {
             </span>
 
             <span className="min-w-0 flex-1">{item.title}</span>
-          </span>
+          </Link>
 
           {hasChildren && (
-            <span
-              className={`ml-4 shrink-0 transition duration-300 group-hover:translate-x-1 ${
-                isOpen ? "text-[#e5c681]" : "text-[#d4af62]"
+            <button
+              type="button"
+              aria-label={`Открыть подменю: ${item.title}`}
+              aria-expanded={isOpen}
+              onClick={() => {
+                if (openMenuHrefs.includes(item.href)) {
+                  setOpenMenuHrefs(
+                    openMenuHrefs.slice(0, ancestorHrefs.length),
+                  );
+                } else {
+                  setOpenMenuHrefs([...ancestorHrefs, item.href]);
+                }
+              }}
+              className={`flex shrink-0 items-center justify-center px-4 text-lg transition-colors duration-300 hover:bg-[#c9a45c]/10 focus-visible:outline-2 focus-visible:outline-[#c9a45c] ${
+                isOpen ? "bg-[#c9a45c]/15 text-[#e5c681]" : "text-[#d4af62]"
               }`}
             >
-              →
-            </span>
+              <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
+                →
+              </span>
+            </button>
           )}
-        </Link>
+        </div>
 
       </div>
       {portalTarget &&
@@ -199,7 +216,14 @@ const MenuTreeItem = ({ item, onNavigate }: MenuTreeItemProps) => {
                   setIsHovered(true);
                 }}
                 onMouseLeave={scheduleClose}
-                onFocusCapture={() => setIsFocused(true)}
+                onFocusCapture={(event) => {
+                  if (
+                    hasChildren &&
+                    !(event.target instanceof HTMLButtonElement)
+                  ) {
+                    setOpenMenuHrefs([...ancestorHrefs, item.href]);
+                  }
+                }}
                 onBlurCapture={handleBlur}
                 data-navigation-flyout
                 style={{
@@ -217,7 +241,13 @@ const MenuTreeItem = ({ item, onNavigate }: MenuTreeItemProps) => {
                   </p>
                 </div>
 
-                <MenuTree items={item.children!} onNavigate={onNavigate} />
+                <MenuTreeItems
+                  items={item.children!}
+                  onNavigate={onNavigate}
+                  openMenuHrefs={openMenuHrefs}
+                  setOpenMenuHrefs={setOpenMenuHrefs}
+                  ancestorHrefs={[...ancestorHrefs, item.href]}
+                />
               </motion.div>
             )}
           </AnimatePresence>,
@@ -227,7 +257,13 @@ const MenuTreeItem = ({ item, onNavigate }: MenuTreeItemProps) => {
   );
 };
 
-const MenuTree = ({ items, onNavigate }: MenuTreeProps) => {
+const MenuTreeItems = ({
+  items,
+  onNavigate,
+  openMenuHrefs,
+  setOpenMenuHrefs,
+  ancestorHrefs,
+}: MenuTreeItemsProps) => {
   return (
     <Stagger stagger={0.06}>
       <div className="space-y-1">
@@ -236,10 +272,27 @@ const MenuTree = ({ items, onNavigate }: MenuTreeProps) => {
             key={item.href}
             item={item}
             onNavigate={onNavigate}
+            openMenuHrefs={openMenuHrefs}
+            setOpenMenuHrefs={setOpenMenuHrefs}
+            ancestorHrefs={ancestorHrefs}
           />
         ))}
       </div>
     </Stagger>
+  );
+};
+
+const MenuTree = ({ items, onNavigate }: MenuTreeProps) => {
+  const [openMenuHrefs, setOpenMenuHrefs] = useState<string[]>([]);
+
+  return (
+    <MenuTreeItems
+      items={items}
+      onNavigate={onNavigate}
+      openMenuHrefs={openMenuHrefs}
+      setOpenMenuHrefs={setOpenMenuHrefs}
+      ancestorHrefs={[]}
+    />
   );
 };
 
