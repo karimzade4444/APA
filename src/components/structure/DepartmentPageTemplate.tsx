@@ -303,7 +303,7 @@ export default function DepartmentPageTemplate({
                   id="department-head-heading"
                   className="text-xl font-semibold text-[#061d35] sm:text-2xl"
                 >
-                  {department.head.role}
+                  {department.headLabel ?? "Руководство"}
                 </h2>
               </div>
               <DepartmentHeadCard
@@ -314,8 +314,8 @@ export default function DepartmentPageTemplate({
                 phone={department.head.phone?.label}
                 phoneHref={department.head.phone?.href}
                 email={department.head.email}
-                eyebrow={department.title}
-                portraitClassName="h-68 sm:h-84"
+                eyebrow={department.headEyebrow ?? department.title}
+                portraitClassName={department.headPortraitClassName ?? "h-68 sm:h-84"}
                 priority
               />
             </section>
