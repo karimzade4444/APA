@@ -1,11 +1,16 @@
 "use client";
 
-import { AnimatePresence, motion, stagger, useReducedMotion } from "motion/react";
+import {
+  AnimatePresence,
+  motion,
+  stagger,
+  useReducedMotion,
+} from "motion/react";
 import type { Variants } from "motion/react";
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect,useRef, useState, useSyncExternalStore } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { NavigationItem } from "@/types/navigation";
 
 const submenuVariants: Variants = {
@@ -67,9 +72,14 @@ type MobileMenuItemsProps = {
 };
 
 const isPathActive = (pathname: string, href: string) =>
-  href === "/" ? pathname === href : pathname === href || pathname.startsWith(`${href}/`);
+  href === "/"
+    ? pathname === href
+    : pathname === href || pathname.startsWith(`${href}/`);
 
-const hasActiveDescendant = (items: NavigationItem[], pathname: string): boolean =>
+const hasActiveDescendant = (
+  items: NavigationItem[],
+  pathname: string,
+): boolean =>
   items.some(
     (item) =>
       isPathActive(pathname, item.href) ||
@@ -84,10 +94,7 @@ const MobileMenuItems = ({
   onToggle,
   onNavigate,
 }: MobileMenuItemsProps) => (
-  <motion.ul
-    variants={navVariants}
-    className="space-y-1"
-  >
+  <motion.ul variants={navVariants} className="space-y-1">
     {items.map((item) => {
       const hasChildren = Boolean(item.children?.length);
       const isOpen = openPath.includes(item.href);
@@ -100,7 +107,6 @@ const MobileMenuItems = ({
         <motion.li
           key={item.href}
           variants={itemVariants}
-          whileTap={{ scale: 0.95 }}
         >
           <div className="flex items-stretch">
             <Link
@@ -241,7 +247,7 @@ const MobileNavigation = ({ items }: { items: NavigationItem[] }) => {
 
   return (
     <nav
-    ref={menuRef}
+      ref={menuRef}
       aria-label="Основная навигация"
       className="relative border-y border-[#c9a45c]/40 bg-[#061d35] lg:hidden"
     >
@@ -301,6 +307,7 @@ const MobileNavigation = ({ items }: { items: NavigationItem[] }) => {
 
       <motion.nav
         id="mobile-navigation-menu"
+        layout
         aria-label="Разделы сайта"
         aria-hidden={!isOpen}
         inert={!isOpen}
