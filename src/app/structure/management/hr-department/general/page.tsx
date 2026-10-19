@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import GeneralDepartmentPage from "@/components/structure/GeneralDepartmentPage";
+import DepartmentPageTemplate from "@/components/structure/DepartmentPageTemplate";
+import { departments } from "@/data/departments";
 
 export const metadata: Metadata = {
   title: "Общий отдел | Управление кадров Академии",
@@ -8,5 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function GeneralDepartmentRoute() {
-  return <GeneralDepartmentPage />;
+  return <DepartmentPageTemplate department={departments.general} />;
 }
