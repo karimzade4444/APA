@@ -129,7 +129,7 @@ function DepartmentSectionContent({
         {section.items?.map((item, index) => {
           const unit = isSectionItem(item)
             ? item
-            : { title: item, positions: [] as readonly string[] };
+            : { title: item, href: undefined, positions: [] as readonly string[] };
           const UnitIcon = index === (section.items?.length ?? 0) - 1 ? Archive : Users;
 
           return (
