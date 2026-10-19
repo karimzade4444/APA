@@ -189,7 +189,7 @@ function DepartmentSectionContent({
         ) : null}
         <ul className="grid gap-4 sm:grid-cols-2">
           {section.items?.map((item) => {
-            const card = isSectionItem(item) ? item : { title: item };
+            const card = isSectionItem(item) ? item : { title: item, description: undefined };
             return (
               <li
                 key={card.title}
