@@ -26,6 +26,9 @@ export type DepartmentData = {
   eyebrow: string;
   intro: string;
   parent?: { title: string; href: string };
+  headLabel?: string;
+  headEyebrow?: string;
+  headPortraitClassName?: string;
   head?: {
     name: string;
     role: string;
@@ -43,6 +46,9 @@ export const departments: Record<string, DepartmentData> = {
     slug: "hr-department",
     title: "Управление кадров, делопроизводства и специальных работ",
     eyebrow: "Структурное подразделение Академии",
+    headLabel: "Начальник управления",
+    headEyebrow: "Руководство управления",
+    headPortraitClassName: "h-68 sm:h-84",
     intro:
       "Управление кадров, делопроизводства и специальных работ — одно из основных структурных подразделений Академии. Управление реализует кадровую политику, организует документооборот и обеспечивает выполнение специальных задач.",
     head: {
@@ -132,6 +138,9 @@ export const departments: Record<string, DepartmentData> = {
     slug: "general",
     title: "Общий отдел",
     eyebrow: "Управление кадров, делопроизводства и специальных работ",
+    headLabel: "Начальник отдела",
+    headEyebrow: "Общий отдел",
+    headPortraitClassName: "h-52 sm:h-60",
     intro:
       "Общий отдел является одним из подразделений управления кадров, делопроизводства и специальных работ Академии. Отдел руководствуется Уставом Академии и положением об Общем отделе.",
     parent: {
@@ -222,6 +231,9 @@ export const departments: Record<string, DepartmentData> = {
     slug: "second",
     title: "Второй отдел",
     eyebrow: "Управление кадров, делопроизводства и специальных работ",
+    headLabel: "Начальник отдела",
+    headEyebrow: "Второй отдел",
+    headPortraitClassName: "h-68 sm:h-84",
     intro:
       "Второй отдел является одним из основных подразделений Академии. Он был создан 1 сентября 2019 года в структуре Академии (ранее — Института).",
     parent: {
@@ -312,6 +324,9 @@ export const departments: Record<string, DepartmentData> = {
     slug: "archive",
     title: "Сектор архива",
     eyebrow: "Управление кадров, делопроизводства и специальных работ",
+    headLabel: "Заведующая сектором",
+    headEyebrow: "Сектор архива",
+    headPortraitClassName: "h-68 sm:h-84",
     intro:
       "Архивный сектор обеспечивает приём, учёт и хранение документов Академии государственного управления при Президенте Республики Таджикистан.",
     parent: {
