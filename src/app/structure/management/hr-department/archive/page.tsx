@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import ArchiveSectorPage from "@/components/structure/ArchiveSectorPage";
+import DepartmentPageTemplate from "@/components/structure/DepartmentPageTemplate";
+import { departments } from "@/data/departments";
 
 export const metadata: Metadata = {
   title: "Сектор архива | Управление кадров Академии",
@@ -8,5 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function ArchiveSectorRoute() {
-  return <ArchiveSectorPage />;
+  return <DepartmentPageTemplate department={departments.archive} />;
 }
