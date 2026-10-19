@@ -1,20 +1,22 @@
+"use client";
 import Link from "next/link";
 import AnimatedText from "@/components/animations/AnimatedText";
 import { GraduationCap, University } from "lucide-react";
 
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
+
+const LazyHeroVideo = dynamic(() => import("./LazyVideoHero"), {
+  ssr: false,
+  loading: () => <div className="absolute inset-0 bg-[#171717]" />,
+});
+
 const Hero = () => {
   return (
     <section className="relative min-h-[34rem] overflow-hidden bg-[#061d35] sm:min-h-[38rem] lg:min-h-130">
-      <video
-        className="absolute inset-0 h-full w-full object-cover object-top"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
-      >
-        <source src="/videos/academy-hero.mp4" type="video/mp4" />
-      </video>
+      <Suspense fallback={<div className="absolute inset-0 bg-[#171717]" />}>
+        <LazyHeroVideo />
+      </Suspense>
 
       <div className="absolute inset-0 bg-[#061d35]/65" />
 
