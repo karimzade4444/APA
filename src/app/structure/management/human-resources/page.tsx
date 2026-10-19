@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import HumanResourcesPage from "@/components/structure/HumanResourcesPage";
+import DepartmentPageTemplate from "@/components/structure/DepartmentPageTemplate";
+import { departments } from "@/data/departments";
 
 export const metadata: Metadata = {
   title: "Управление кадров, делопроизводства и специальных работ | Структура Академии",
@@ -8,5 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function HumanResourcesRoute() {
-  return <HumanResourcesPage />;
+  return <DepartmentPageTemplate department={departments["hr-department"]} />;
 }
