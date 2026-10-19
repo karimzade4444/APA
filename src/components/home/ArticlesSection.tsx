@@ -11,7 +11,7 @@ const ArticlesSection = () => {
   const articles = publications.filter((item) => item.category === "article");
 
   return (
-    <section className="pb-0 pt-20">
+    <section className="pb-5 lg:pb-0 pt-20">
         {/* Section heading */}
         <Reveal variant="rise">
           <div className="mb-12 flex items-end justify-between border-b border-[#061d35]/10 pb-5">
