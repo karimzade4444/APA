@@ -5,7 +5,7 @@ import type { Variants } from "motion/react";
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState, useSyncExternalStore } from "react";
+import { useEffect,useRef, useState, useSyncExternalStore } from "react";
 import type { NavigationItem } from "@/types/navigation";
 
 const submenuVariants: Variants = {
@@ -180,6 +180,30 @@ const MobileNavigation = ({ items }: { items: NavigationItem[] }) => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [openPath, setOpenPath] = useState<string[]>([]);
+  const menuRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleOutsideClick = (event: PointerEvent) => {
+      const target = event.target;
+
+      if (
+        target instanceof Node &&
+        menuRef.current &&
+        !menuRef.current.contains(target)
+      ) {
+        setIsOpen(false);
+        setOpenPath([]);
+      }
+    };
+
+    document.addEventListener("pointerdown", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("pointerdown", handleOutsideClick);
+    };
+  }, [isOpen]);
   const shouldReduceMotion = useReducedMotion();
   const viewportExtent = useSyncExternalStore(
     subscribeToViewport,
@@ -217,6 +241,7 @@ const MobileNavigation = ({ items }: { items: NavigationItem[] }) => {
 
   return (
     <nav
+    ref={menuRef}
       aria-label="Основная навигация"
       className="relative border-y border-[#c9a45c]/40 bg-[#061d35] lg:hidden"
     >
