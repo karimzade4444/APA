@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import SecondDepartmentPage from "@/components/structure/SecondDepartmentPage";
+import DepartmentPageTemplate from "@/components/structure/DepartmentPageTemplate";
+import { departments } from "@/data/departments";
 
 export const metadata: Metadata = {
   title: "Второй отдел | Управление кадров Академии",
@@ -8,5 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function SecondDepartmentRoute() {
-  return <SecondDepartmentPage />;
+  return <DepartmentPageTemplate department={departments.second} />;
 }
