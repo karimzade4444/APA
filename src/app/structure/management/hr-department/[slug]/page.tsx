@@ -10,7 +10,7 @@ type DepartmentRouteProps = {
 
 export function generateStaticParams() {
   return Object.values(departments)
-    .filter((department) => department.slug !== "hr-department")
+    .filter((department) => !["hr-department", "general", "second", "archive"].includes(department.slug))
     .map((department) => ({ slug: department.slug }));
 }
 
