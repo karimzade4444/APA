@@ -1,9 +1,10 @@
-import { Metadata } from "next/dist/lib/metadata/types/metadata-interface";
+
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import { cn } from "@/lib/utils";
 import Footer from "@/components/layout/Footer";
+import { Metadata } from "next";
 
 const montserrat = Montserrat({
   variable: "--font-sans",
@@ -24,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("font-sans", montserrat.variable)}>
+    <html lang="ru" className={cn("font-sans", montserrat.variable)}>
       <body>
         <Header />
         {children}
